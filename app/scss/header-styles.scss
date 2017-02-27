@@ -1,0 +1,44 @@
+@import 'style_set';
+
+.header {
+    padding: 0.25em;
+    height: 2em;
+
+    .header--logo {
+        height: 2em;
+        position: absolute;
+    }
+
+    .header--menu-right {
+        position: absolute;
+        margin: 0.25em;
+        top: 0;
+        right: 0;
+
+        & > * {
+            // All childrens in header's right menu. This menu have no design yet, so I can't predict final form
+            // This notification should be changed soon.
+            height: 2em;
+        }
+    }
+
+    .search-bar--container {
+        display: block;
+        margin: 0 6.75em 0 2.2em;
+        width: auto;
+
+        form {
+            width: 100%;
+
+            .search-bar {
+                height: auto;
+                font-size: 1.6em;
+                width:100%;
+                text-align: center;
+                border: 0.05em solid #E6E6E6;
+                @include border-radius(0.25em);
+                @include shadow(0.03em);
+            }
+        }
+    }
+}

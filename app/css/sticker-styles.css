@@ -1,0 +1,41 @@
+.sticker {
+  width: 10em;
+  background-color: #E6E6E6;
+  margin: 0.2em;
+  -webkit-border-radius: 0.25em;
+  -moz-border-radius: 0.25em;
+  -ms-border-radius: 0.25em;
+  border-radius: 0.25em;
+  -webkit-box-shadow: 0 0.03em 0.03em 0;
+  -moz-box-shadow: 0 0.03em 0.03em 0;
+  -ms-box-shadow: 0 0.03em 0.03em 0;
+  box-shadow: 0 0.03em 0.03em 0;
+  border-bottom: 1px solid #FFF;
+  float: left; }
+  .sticker--name {
+    text-align: center;
+    font-size: 1.2em;
+    margin: 0 0.2em;
+    border-bottom: 1px solid #FFF; }
+    .sticker--name .sticker--title {
+      font-weight: bold; }
+  .sticker--picture {
+    -webkit-border-radius: 0.25em;
+    -moz-border-radius: 0.25em;
+    -ms-border-radius: 0.25em;
+    border-radius: 0.25em; }
+    .sticker--picture img {
+      width: 10em;
+      margin-top: 0.2em; }
+  .sticker--link {
+    text-align: center;
+    margin: 0 0.2em;
+    border-bottom: 1px solid #FFF; }
+    .sticker--link a {
+      text-decoration: none;
+      font-style: italic;
+      color: #333; }
+  .sticker--content {
+    text-indent: 1em;
+    text-align: justify;
+    padding: 0.2em 0.1em; }

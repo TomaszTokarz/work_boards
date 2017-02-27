@@ -1,18 +1,11 @@
-$icon-font-path: "/bower_components/sass-bootstrap/fonts/";
-@import "reset";
-
-// Variables
-$font-stack: Calibri;
-$font-color: #333;
-$primary-background-color: #F2F2F2;
-$breakpoint--small: 540px;
-$breakpoint--medium: 768px;
-$breakpoint--big: 1200px;
-$font-size--small: 12px;
-$font-size--medium: 18px;
-$font-size--big: 24px;
-$sticker-width: 10em;
-$shadow-color: #D9D9D9;
+@import 'reset';
+@import 'style_set';
+@import 'main-styles';
+@import 'header-styles';
+@import 'sticker-styles';
+@import 'footer-styles';
+@import 'popups/new-sticker-popup';
+@import 'popups/change-board-popup';
 
 @media screen and (max-width: $breakpoint--small) {
     .body {
@@ -30,122 +23,4 @@ $shadow-color: #D9D9D9;
     .body {
         font-size: $font-size--big;
     }
-}
-
-@mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
-          border-radius: $radius;
-}
-
-@mixin shadow($radius) {
-  -webkit-box-shadow: 0 $radius $radius 0;
-     -moz-box-shadow: 0 $radius $radius 0;
-      -ms-box-shadow: 0 $radius $radius 0;
-          box-shadow: 0 $radius $radius 0;
-}
-
-// Styles
-
-.body {
-    background: $primary-background-color;
-    font-family: $font-stack;
-    color: $font-color;
-}
-
-.header {
-    padding: 0.25em;
-    height: 2em;
-
-    .header--logo {
-        height: 2em;
-        position: absolute;
-    }
-
-    .header--menu-right {
-        position: absolute;
-        margin: 0.25em;
-        top: 0;
-        right: 0;
-
-        & > * {
-            // All childrens in header's right menu. This menu have no design yet, so I can't predict final form
-            // This notification should be changed soon.
-            height: 2em;
-        }
-    }
-
-    .search-bar--container {
-        display: block;
-        margin: 0 6.75em 0 2.2em;
-        width: auto;
-
-        form {
-            width: 100%;
-
-            .search-bar {
-                height: auto;
-                font-size: 1.6em;
-                width:100%;
-                text-align: center;
-                border: 0.05em solid #E6E6E6;
-                @include border-radius(0.25em);
-                @include shadow(0.03em);
-            }
-        }
-    }
-}
-
-.sticker {
-    width: $sticker-width;
-    background-color: #E6E6E6;
-    float: left;
-    margin: 0.2em;
-    @include border-radius(0.25em);
-    @include shadow(0.03em);
-
-    .sticker--name {
-        text-align: center;
-        font-size: 1.2em;
-        margin: 0 0.2em;
-        border-bottom: 1px solid #FFF;
-
-        .sticker--title {
-            font-weight: bold;
-        }
-    }
-    .sticker--picture {
-        @include border-radius(0.25em);
-
-        & img{
-            width: $sticker-width;
-        }
-    }
-    .sticker--link {
-        text-align: center;
-        margin: 0 0.2em;
-        border-bottom: 1px solid #FFF;
-
-        & a {
-            text-decoration: none;
-            font-style: italic;
-            color: $font-color;
-        }
-    }
-    .sticker--content {
-        text-indent: 1em;
-        text-align: justify;
-        padding: 0.2em 0.1em;
-    }
-    .sticker--tags {
-
-    }
-}
-
-.footer {
-    clear: both;
-    font-size: 0.8em;
-    color:#B2B2B2;
-    text-align: center;
 }

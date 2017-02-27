@@ -1,0 +1,12 @@
+@import 'style_set';
+
+// Styles
+.body {
+    background: $primary-background-color;
+    font-family: $font-stack;
+    color: $font-color;
+}
+
+.templates--container {
+    display: none;
+}

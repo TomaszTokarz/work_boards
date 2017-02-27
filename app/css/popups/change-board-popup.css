@@ -1,0 +1,138 @@
+.new-sticker, .change-board {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(10, 20, 50, 0.9);
+  display: none;
+  text-align: center; }
+  .new-sticker--container, .change-board--container {
+    margin: auto;
+    background-color: #E6E6E6;
+    -webkit-border-radius: 0.25em;
+    -moz-border-radius: 0.25em;
+    -ms-border-radius: 0.25em;
+    border-radius: 0.25em; }
+  .new-sticker--add, .change-board--container {
+    width: 10em; }
+  .new-sticker--box-description, .change-board--box-description {
+    font-size: 1.5em;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid #FFF; }
+  .new-sticker--title {
+    font-size: 1em;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid #FFF; }
+    .new-sticker--title--input {
+      height: auto;
+      font-size: 1em;
+      width: 8em;
+      text-align: center;
+      border: 0.05em solid #E6E6E6;
+      -webkit-border-radius: 0.25em;
+      -moz-border-radius: 0.25em;
+      -ms-border-radius: 0.25em;
+      border-radius: 0.25em;
+      -webkit-box-shadow: 0 0.03em 0.03em 0;
+      -moz-box-shadow: 0 0.03em 0.03em 0;
+      -ms-box-shadow: 0 0.03em 0.03em 0;
+      box-shadow: 0 0.03em 0.03em 0; }
+  .new-sticker--image {
+    font-size: 1em;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid #FFF; }
+  .new-sticker--link {
+    font-size: 1em;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid #FFF; }
+    .new-sticker--link--input {
+      height: auto;
+      font-size: 1em;
+      width: 8em;
+      text-align: center;
+      border: 0.05em solid #E6E6E6;
+      -webkit-border-radius: 0.25em;
+      -moz-border-radius: 0.25em;
+      -ms-border-radius: 0.25em;
+      border-radius: 0.25em;
+      -webkit-box-shadow: 0 0.03em 0.03em 0;
+      -moz-box-shadow: 0 0.03em 0.03em 0;
+      -ms-box-shadow: 0 0.03em 0.03em 0;
+      box-shadow: 0 0.03em 0.03em 0; }
+  .new-sticker--content {
+    font-size: 1em;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid #FFF; }
+    .new-sticker--content--input {
+      height: auto;
+      font-size: 1em;
+      width: 8em;
+      text-align: center;
+      border: 0.05em solid #E6E6E6;
+      -webkit-border-radius: 0.25em;
+      -moz-border-radius: 0.25em;
+      -ms-border-radius: 0.25em;
+      border-radius: 0.25em;
+      -webkit-box-shadow: 0 0.03em 0.03em 0;
+      -moz-box-shadow: 0 0.03em 0.03em 0;
+      -ms-box-shadow: 0 0.03em 0.03em 0;
+      box-shadow: 0 0.03em 0.03em 0;
+      resize: none;
+      height: 3em; }
+  .new-sticker--tag {
+    font-size: 1em;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid #FFF;
+    margin-bottom: 0.3em; }
+  .new-sticker--button--clear {
+    font-size: 1em;
+    -webkit-border-radius: 0.25em;
+    -moz-border-radius: 0.25em;
+    -ms-border-radius: 0.25em;
+    border-radius: 0.25em;
+    float: left; }
+  .new-sticker--button--add {
+    font-size: 1em;
+    -webkit-border-radius: 0.25em;
+    -moz-border-radius: 0.25em;
+    -ms-border-radius: 0.25em;
+    border-radius: 0.25em;
+    float: right; }
+
+.change-board--available-boards {
+  border-bottom: 1px solid #FFF; }
+  .change-board--available-boards--list li {
+    text-align: left;
+    padding-left: 0.5em;
+    margin: 0.2em 0;
+    cursor: pointer; }
+    .change-board--available-boards--list li:hover {
+      color: red; }
+  .change-board--available-boards--list img {
+    height: 0.8em;
+    position: relative;
+    top: 0.1em;
+    left: -0.1em; }
+
+.change-board--new-board {
+  padding-bottom: 0.2em; }
+  .change-board--new-board--input-name {
+    height: auto;
+    font-size: 1em;
+    width: 8em;
+    text-align: center;
+    border: 0.05em solid #E6E6E6;
+    -webkit-border-radius: 0.25em;
+    -moz-border-radius: 0.25em;
+    -ms-border-radius: 0.25em;
+    border-radius: 0.25em;
+    -webkit-box-shadow: 0 0.03em 0.03em 0;
+    -moz-box-shadow: 0 0.03em 0.03em 0;
+    -ms-box-shadow: 0 0.03em 0.03em 0;
+    box-shadow: 0 0.03em 0.03em 0; }
+  .change-board--new-board img {
+    height: 1.5em;
+    position: relative;
+    top: 0.5em;
+    cursor: pointer; }

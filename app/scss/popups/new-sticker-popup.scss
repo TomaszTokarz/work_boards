@@ -1,0 +1,63 @@
+@import '../style_set';
+
+.new-sticker {
+    @include popup();
+    display: none;
+    text-align: center;
+
+    &--container {
+        margin: auto;
+        background-color: $sticker-background-color;
+        @include border-radius(0.25em);
+    }
+    &--add {
+        width: $sticker-width;
+    }
+    &--box-description {
+        font-size: 1.5em;
+        padding-bottom: 0.2em;
+        @include sticker-underline();
+    }
+    &--title {
+        @include popup-title();
+
+        &--input {
+            @include popup-input();
+        }
+    }
+    &--image {
+        @include popup-title();
+    }
+    &--link {
+        @include popup-title();
+
+        &--input {
+            @include popup-input();
+        }
+    }
+    &--content {
+        @include popup-title();
+
+        &--input {
+            @include popup-input();
+            resize: none;
+            height: $new-sticker-input-size * 3;
+        }
+    }
+    &--tag {
+        @include popup-title();
+        margin-bottom: 0.3em;
+    }
+    &--footer{
+    }
+
+    &--button--clear {
+        @include button();
+        float: left;
+    }
+    &--button--add {
+        @include button();
+        float: right;
+    }
+
+}

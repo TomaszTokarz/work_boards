@@ -1,52 +1,126 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class='no-js lt-ie9 lt-ie8 lt-ie7'> <![endif]-->
+<!--[if IE 7]>         <html class='no-js lt-ie9 lt-ie8'> <![endif]-->
+<!--[if IE 8]>         <html class='no-js lt-ie9'> <![endif]-->
+<!--[if gt IE 8]><!--> <html class='no-js'> <!--<![endif]-->
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="Toki">
-    <meta name="viewport" content="width=device-width">
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='description' content=''>
+    <meta name='keywords' content=''>
+    <meta name='author' content='Toki'>
+    <meta name='viewport' content='width=device-width'>
     <title>Work boards</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <link rel="stylesheet" href="css/styles.min.css">
 </head>
-<body>
+<body class='body'>
     <!--[if lt IE 10]>
-        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <p class='browsehappy'>You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="main--app">
-        <header>
-            <div class="header--logo"><b>^W^</b></div>
-            <div class="search-bar--container">
-                <form name="search">
-                    <input class="search-bar" type="text" autocomplete="off" placeholder="What are you looking for?"></input>
+    <div class='main--app'>
+        <header class='header'>
+            <img src='images/logo.png' class='header--logo' />
+            <div class='search-bar--container'>
+                <form name='search'>
+                    <input class='search-bar' type='text' autocomplete='off' placeholder='What are you looking for?'></input>
                 </form>
             </div>
-            <div class="header--menu-right">Header Menu</div>
+            <div class='header--menu-right'>
+                <img src='images/add.png' class='add--new-sticker-btn' />
+                <img src='images/change-board.png' class='change--board-btn' />
+                <img src='images/logo.png' class='settings-btn' />
+            </div>
         </header>
 
         <main>
-            <div class="main-container">
-                <div class="column column1">
-                    <div class="sticker">
-                        <div class="sticker--logo"></div>
-                        <div class="sticker--content">
-                        </div>
-                    </div>
+            <div class='main-container'>
+                <div class='column column1' id='sticker-container'>
                 </div>
             </div>
         </main>
 
-        <footer class="footer">
-                <span class="footer--content"><i>Copyrights, email@domain.com, ...etc...</i></span>
+        <footer class='footer'>
+                <span class='footer--content'><i>Copyrights, email@domain.com, ...etc...</i></span>
         </footer>
+    </div>
+
+    <div class='new-sticker popup'>
+        <div class='new-sticker--container active--popup'>
+            <form class='new-sticker--add' id='new-sticker--form'>
+                <div class='new-sticker--box-description'>
+                    <span>New sticker</span>
+                </div>
+                <div class='new-sticker--title'>
+                    <span>Title</span>
+                    <input class='new-sticker--title--input' id='sticker-title-input' type='text' autocomplete='off' placeholder=''></input>
+                </div>
+                <div class='new-sticker--image'>
+                    <span>Place an image</span>
+                    <input type='file' name='fileupload' value='fileupload' id='fileupload'></input>
+                </div>
+                <div class='new-sticker--link'>
+                    <span>Link source</span>
+                    <input class='new-sticker--link--input' id='sticker-link-input' type='text' autocomplete='off' placeholder=''></input><br />
+                    <span>Link description</span>
+                    <input class='new-sticker--link--input' id='sticker-link-description-input' type='text' autocomplete='off' placeholder=''></input>
+                </div>
+                <div class='new-sticker--content'>
+                    <span>Content</span>
+                    <textarea class='new-sticker--content--input' id='sticker-description-input'></textarea>
+                </div>
+                <div class='new-sticker--tag'>
+                    <span>Tags</span>
+                </div>
+                <div class='new-sticker--footer'>
+                    <button class='new-sticker--button--clear'>Clear</button>
+                    <button class='new-sticker--button--add'>Add sticker</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class='change-board popup'>
+        <div class='change-board--container active--popup'>
+            <div class='change-board--box-description'>
+                <span>Change active board</span>
+            </div>
+            <div class='change-board--available-boards'>
+                <ul class='change-board--available-boards--list'>
+                    <li><img src='images/valid-board.png' /><span>Main board</span></li>
+                    <li><img src='images/valid-board.png' /><span>Best free sermons</span></li>
+                    <li><img src='images/valid-board.png' /><span>Naked bitches</span></li>
+                </ul>
+            </div>
+            <div class='change-board--new-board'>
+                <span>Add a new board:</span>
+                <input class='change-board--new-board--input-name' type='text' autocomplete='off' placeholder='new board name'></input>
+                <img src='images/board-add.png' />
+            </div>
+        </div>
+    </div>
+
+    <div class='templates--container'>
+        <!-- TEMPLATE -->
+        <script type='text/template' id='sticker-template'>
+            <div class='sticker--name'><h3 class='sticker--title'><%= title %></h3></div>
+
+            <% if (pictureSrc) {%><div class='sticker--picture'><a href='<%= link %>'><img src='<%= pictureSrc %>' /></a></div><%} %>
+            <% if (linkDesc) {%><div class='sticker--link'><a href='<%= link %>'><%= linkDesc %></a></div><%} %>
+            <% if (content) {%>
+                <div class='sticker--content'>
+                    <p class='sticker--content'>
+                        <%= content %>
+                    </p>
+                </div>
+            <%} %>
+
+            <div class='sticker--tags'></div>
+        </script>
+        <!-- TEMPLATE END -->
     </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
@@ -59,10 +133,27 @@
         ga('create','UA-XXXXX-X');ga('send','pageview');
     </script> -->
 
+    <!-- <script src='bower_components/requirejs/require.js' data-main='js/main'></script>
+    <script src='bower_components/modernizr/modernizr.js'></script> -->
+
     <!-- build:js js/main.min.js -->
-        <script src="bower_components/requirejs/require.js"></script>
-        <script src="bower_components/modernizr/modernizr.js"></script>
-        <script src="js/main.js"></script>
+        <script src='bower_components/jquery/dist/jquery.js'></script>
+        <script src='bower_components/underscore/underscore.js'></script>
+        <script src='bower_components/backbone/backbone.js'></script>
+        <script src='bower_components/backbone-localstorage/backbone-localstorage.js'></script>
+        <script src='bower_components/backbone.radio/build/backbone.radio.js'></script>
+        <script src='bower_components/backbone.marionette/lib/backbone.marionette.js'></script>
+
+        <script src='js/model/sticker.model.js'></script>
+        <script src='js/collection/sticker.collection.js'></script>
+        <script src='js/view/sticker.view.js'></script>
+        <script src='js/view/new.sticker.view.js'></script>
+        <script src='js/view/sticker.collection.view.js'></script>
+
+        <script src='js/test.js'></script>
+
+        <script src='js/user_interface/display.js'></script>
     <!-- endbuild -->
+
 </body>
 </html>

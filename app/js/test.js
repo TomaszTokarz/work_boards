@@ -1,16 +1,18 @@
-$(function() {
+$(function(){
     test = {
-        run: function() {
-            this.addEntry();
-            console.log( 'addEntry succesfully executed' );
-            console.log('first sticker title:'+ sticker1.get('title') +', content:'+ sticker1.get('content'));
-            this.makeCollection();
-            this.testView();
+        run: function(){
+            //this.addEntry();
+            //console.log( 'addEntry succesfully executed' );
+            // console.log('first sticker title:'+ sticker1.get('title') +', content:'+ sticker1.get('content'));
+            //this.makeCollection();
+            //this.testView();
             //console.log('View test stickerView.el: '+ stickerView.el);
             // test ends
+
+            database.loadDatabase();
             console.log( 'test is done!' );
         },
-        addEntry: function() {
+        addEntry: function(){
             // title: '',
             // pictureSrc: '',
             // link: '',
@@ -92,11 +94,13 @@ $(function() {
             Stickers.add(sticker9);
             Stickers.add(sticker10);
         },
-        testView: function() {
+        testView: function(){
             //stickerView = new StickerView();
             //app = new StickerCollectionView();
             //StickerCollectionView.render();
-        }
+        },
+
+
     }
     test.run()
     sticker.render()

@@ -3,7 +3,7 @@ var StickerCollection = Backbone.Collection.extend({
 
   //localStorage: new Backbone.LocalStorage('stickers-collection'), //TODO: local storage
 
-  workBoard: function(boardName) {
+  workBoard: function(boardName){
      // filter to show items on board. //TODO
   }
 

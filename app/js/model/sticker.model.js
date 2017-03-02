@@ -1,4 +1,4 @@
-var Sticker = Backbone.Model.extend( {
+var Sticker = Backbone.Model.extend({
     defaults: {
         title: '',
         pictureSrc: '',
@@ -9,6 +9,6 @@ var Sticker = Backbone.Model.extend( {
         workBoard: 'main'
     },
     initialize: function() {
-        console.log('New sticker added')
+        console.log('New sticker added');
     }
 });

@@ -34,10 +34,10 @@ var NewStickerLayoutView = Backbone.Marionette.View.extend({
         popups.close();
     },
 
-    editSticker: function() {
+    editSticker: function(){
         console.log(this);
     },
-    checkUndefined: function (value){
+    checkUndefined: function(value){
         if(!value){
             return null
         } else {

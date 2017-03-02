@@ -14,9 +14,7 @@ var defaultApp = firebase.initializeApp(defaultAppConfig);
 console.log('firebase initialized');
 
 // You can retrieve services via the defaultApp variable...
-var defaultStorage = defaultApp.storage();
 var defaultDatabase = defaultApp.database();
-
 
 var database = {
     saveSticker: function(data){
@@ -25,12 +23,10 @@ var database = {
             firebase.database().ref('Stickers/' + id).set(data);
             firebase.database().ref('id').set(id+1);
         });
-    },
-    loadDatabase: function(){
-        firebase.database().ref('Stickers').once('value', function(snapshot){
-            snapshot.forEach(function(childSnapshot){
-                Stickers.add(childSnapshot.val())
-            })
-        });
     }
 };
+
+firebase.database().ref('Stickers').on('child_added', function(snapshot){
+    Stickers.add(snapshot.val())
+    console.log(snapshot.val())
+})

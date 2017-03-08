@@ -24,34 +24,10 @@
         <p class='browsehappy'>You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class='main--app'>
-        <header class='header' id="header">
-            <img src='images/logo.png' class='header--logo' />
-            <div class='search-bar--container'>
-                <form name='search'>
-                    <input class='search-bar' type='text' autocomplete='off' placeholder='What are you looking for?'></input>
-                </form>
-            </div>
-            <div class='header--menu-right'>
-                <img src='images/add.png' id='add--new-sticker-btn' />
-                <img src='images/change-board.png' id='change--board-btn' />
-                <img src='images/logo.png' class='settings-btn' />
-            </div>
-        </header>
-
-        <main>
-            <div class='main-container'>
-                <div class='column column1' id='sticker-container'>
-                </div>
-            </div>
-        </main>
-
-        <footer class='footer'>
-                <span class='footer--content'><i>Copyrights, email@domain.com, ...etc...</i></span>
-        </footer>
+    <div class='main--app js-layout-container'>
     </div>
 
-    <div class='new-sticker popup'>
+    <!-- <div class='new-sticker popup'>
         <div class='closePopup'></div>
         <div class='new-sticker--container active--popup'>
             <form class='new-sticker--add' id='new-sticker--form'>
@@ -93,9 +69,7 @@
             <div class='change-board--box-description'>
                 <span>Change active board</span>
             </div>
-            <div class='change-board--available-boards' id='change-board--available-boards'>
-                <!-- boards list template -->
-            </div>
+            <div class='change-board--available-boards' id='change-board--available-boards'></div>
             <div class='change-board--new-board'>
                 <span>Add a new board:</span>
                 <form>
@@ -104,9 +78,35 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class='templates--container'>
+        <script type="text/template" id="layout-template">
+            <header class='header' id="header">
+                <img src='images/logo.png' class='header--logo' />
+                <div class='search-bar--container'>
+                    <form name='search'>
+                        <input class='search-bar' type='text' autocomplete='off' placeholder='What are you looking for?'></input>
+                    </form>
+                </div>
+                <div class='header--menu-right'>
+                    <img src='images/add.png' id='add--new-sticker-btn' />
+                    <img src='images/change-board.png' id='change--board-btn' />
+                    <img src='images/logo.png' class='settings-btn' />
+                </div>
+            </header>
+
+            <main>
+                <div class='main-container'>
+                    <div class='column column1 js-sticker-container'>
+                    </div>
+                </div>
+            </main>
+
+            <footer class='footer'>
+                    <span class='footer--content'><i>Copyrights, email@domain.com, ...etc...</i></span>
+            </footer>
+        </script>
         <!-- TEMPLATE -->
         <script type='text/template' id='sticker-template'>
             <div class='sticker--name'><h3 class='sticker--title'><%= title %></h3></div>
@@ -167,25 +167,28 @@
         <script src='bower_components/backbone.marionette/lib/backbone.marionette.js'></script>
         <script src='bower_components/backbonefire/dist/backbonefire.js'></script>
 
-        <script src='js/model/sticker.model.js'></script>
-        <script src='js/model/board.list.model.js'></script>
-        <script src='js/collection/sticker.collection.js'></script>
-        <script src='js/collection/boards.list.collection.js'></script>
-        <script src='js/view/sticker.view.js'></script>
-        <script src='js/view/new.sticker.view.js'></script>
-        <script src='js/view/change.board.view.js'></script>
-        <script src='js/view/board.list.view.js'></script>
-        <script src='js/view/header.view.js'></script>
-        <script src='js/view/sticker.collection.view.js'></script>
-        <script src='js/view/board.list.collection.view.js'></script>
+        <script src='js/app/stickers/models/model.js'></script>
+        <script src='js/app/stickers/models/collection.js'></script>
+        <script src='js/app/stickers/views/item.js'></script>
+        <script src='js/app/stickers/views/list.js'></script>
+        <script src='js/app/stickers/views/new.js'></script>
 
+        <script src='js/app/boards/models/model.js'></script>
+        <script src='js/app/boards/models/collection.js'></script>
+        <script src='js/app/boards/views/collection.js'></script>
+        <script src='js/app/boards/views/list.js'></script>
+        <script src='js/app/boards/views/change.js'></script>
 
-        <script src='js/routers/routers.controller.js'></script>
-        <script src='js/routers/app.router.js'></script>
+        <script src='js/app/common/views/header.js'></script>
+        <script src='js/app/common/views/layout.js'></script>
 
-        <script src='js/test.js'></script>
+        <script src='js/app/routers/routers.controller.js'></script>
+        <script src='js/app/routers/app.router.js'></script>
 
-        <script src='js/user_interface/display.js'></script>
+        <script src='js/app/initialize.js'></script>
+        <!-- <script src='js/test.js'></script> -->
+
+        <script src='js/app/user_interface/display.js'></script>
     <!-- endbuild -->
 
 </body>

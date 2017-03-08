@@ -1,11 +1,20 @@
+var activePopupFlag = false;
 $(function(){
     test = {
         run: function(){
 
-            console.log( 'test is done!' );
+            new Router;
+            Backbone.history.start();
+            sticker.render();
+            board.render();
+            new NewStickerLayoutView().render();
+            new ChangeBoardLayoutView().render();
+            new HeaderLayoutView().render();
+            //console.log( 'test is done!' );
         }
     }
-    test.run()
-    sticker.render()
-    new NewStickerLayoutView().render();
+
+    test.run();
 });
+
+var mainCollection;

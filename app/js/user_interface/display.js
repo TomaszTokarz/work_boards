@@ -1,21 +1,20 @@
 $(function() {
-    var activePopupFlag = false;
 
-    console.log('User interface module is ready for action');
+    //console.log('User interface module is ready for action');
 
-    $('.add--new-sticker-btn').click( function() {
-        popups.close();
-        $('.new-sticker').css( {
-            'display': 'flex'
-        });
-    });
-
-    $('.change--board-btn').click( function() {
-        popups.close();
-        $('.change-board').css( {
-            'display': 'flex'
-        });
-    });
+    // $('.add--new-sticker-btn').click( function() {
+    //     popups.close();
+    //     $('.new-sticker').css( {
+    //         'display': 'flex'
+    //     });
+    // });
+    //
+    // $('.change--board-btn').click( function() {
+    //     popups.close();
+    //     $('.change-board').css( {
+    //         'display': 'flex'
+    //     });
+    // });
 
 
     $('.active--popup').hover( function() {
@@ -24,11 +23,11 @@ $(function() {
         activePopupFlag = false;
     });
 
-    $('.popup').click( function() {
-        if ( !activePopupFlag ) {
-            popups.close();
-        };
-    });
+    // $('.popup').click( function() {
+    //     if ( !activePopupFlag ) {
+    //         popups.close();
+    //     };
+    // });
 
     $('.new-sticker--button--add').click( function(event) {
         event.preventDefault();

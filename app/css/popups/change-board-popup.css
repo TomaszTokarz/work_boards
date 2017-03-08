@@ -5,6 +5,7 @@
   top: 0;
   left: 0;
   background-color: rgba(10, 20, 50, 0.9);
+  z-index: 100;
   display: none;
   text-align: center; }
   .new-sticker--container, .change-board--container {
@@ -102,12 +103,12 @@
 
 .change-board--available-boards {
   border-bottom: 1px solid #FFF; }
-  .change-board--available-boards--list li {
+  .change-board--available-boards--list {
     text-align: left;
     padding-left: 0.5em;
     margin: 0.2em 0;
     cursor: pointer; }
-    .change-board--available-boards--list li:hover {
+    .change-board--available-boards--list:hover {
       color: red; }
   .change-board--available-boards--list img {
     height: 0.8em;

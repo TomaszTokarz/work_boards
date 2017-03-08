@@ -14,7 +14,7 @@
     &--available-boards {
         @include sticker-underline();
 
-        &--list li{
+        &--list{
             text-align: left;
             padding-left: 0.5em;
             margin: 0.2em 0;

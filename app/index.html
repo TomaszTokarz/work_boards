@@ -22,7 +22,7 @@
     <!--[if lt IE 10]>
         <p class='browsehappy'>You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
+    <div class='popup--wrapper js-popup-wrapper'></div>
     <div class='main--app js-layout-container'>
     </div>
 
@@ -62,22 +62,7 @@
         </div>
     </div>
 
-    <div class='change-board popup'>
-        <div class='closePopup'></div>
-        <div class='change-board--container active--popup'>
-            <div class='change-board--box-description'>
-                <span>Change active board</span>
-            </div>
-            <div class='change-board--available-boards' id='change-board--available-boards'></div>
-            <div class='change-board--new-board'>
-                <span>Add a new board:</span>
-                <form>
-                    <input class='change-board--new-board--input-name' type='text' autocomplete='off' placeholder='new board name' id='new-board-name'></input>
-                    <img src='images/board-add.png' id='add--new-board-btn'/>
-                </form>
-            </div>
-        </div>
-    </div> -->
+    -->
 
     <div class='templates--container'>
         <script type="text/template" id="layout-template">
@@ -135,11 +120,41 @@
         <!-- TEMPLATE END -->
 
         <!-- TEMPLATE -->
-        <script type='text/template' id='board-list--template'>
+        <script type='text/template' id='boards-list-template'>
+            <h3 class="chuj">Boards List</h3>
+            <ul class="js-boards-list"></ul>
+        </script>
+        <!-- TEMPLATE END -->
+
+        <!-- TEMPLATE -->
+        <script type='text/template' id='board-item-template'>
             <img src='images/valid-board.png' /><span><%= title %></span>
         </script>
         <!-- TEMPLATE END -->
-    </div>
+
+        <!-- TEMPLATE -->
+        <script type='text/template' id='popup-template'>
+            <div class='popup'>
+                <div class='popup--close js-popup-close'> close</div>
+                <div class='popup--content js-popup-content'>
+                    KURWA MAĆ
+                </div>
+                <!-- <div class='change-board--container active--popup'>
+                    <div class='change-board--box-description'>
+                        <span>Change active board</span>
+                    </div>
+                    <div class='change-board--available-boards' id='change-board--available-boards'></div>
+                    <div class='change-board--new-board'>
+                        <span>Add a new board:</span>
+                        <form>
+                            <input class='change-board--new-board--input-name' type='text' autocomplete='off' placeholder='new board name' id='new-board-name'></input>
+                            <img src='images/board-add.png' id='add--new-board-btn'/>
+                        </form>
+                    </div>
+                </div> -->
+            </div>
+        </script>
+        <!-- TEMPLATE END -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <!-- <script>
@@ -171,14 +186,16 @@
         <script src='js/app/stickers/views/list.js'></script>
         <script src='js/app/stickers/views/new.js'></script>
 
-        <script src='js/app/boards/models/model.js'></script>
-        <script src='js/app/boards/models/collection.js'></script>
-        <script src='js/app/boards/views/collection.js'></script>
+        <!-- <script src='js/app/boards/models/model.js'></script>
+        <script src='js/app/boards/models/collection.js'></script> -->
+        <script src='js/app/boards/views/item.js'></script>
         <script src='js/app/boards/views/list.js'></script>
-        <script src='js/app/boards/views/change.js'></script>
+
+        <!-- <script src='js/app/boards/views/change.js'></script> -->
 
         <script src='js/app/common/views/header.js'></script>
         <script src='js/app/common/views/layout.js'></script>
+        <script src='js/app/common/views/popup.js'></script>
 
         <script src='js/app/routers/routers.controller.js'></script>
         <script src='js/app/routers/app.router.js'></script>

@@ -1,4 +1,4 @@
-var Board = Backbone.Model.extend({
+var BoardModel = Backbone.Model.extend({
     defaults: {
         title: '',
         stickers: ''

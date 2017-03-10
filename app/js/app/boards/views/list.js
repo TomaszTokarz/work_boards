@@ -1,10 +1,11 @@
-var BoardListCollectionView = Backbone.Marionette.CollectionView.extend( {
-    el: '#change-board--available-boards',
-    tagName: 'ul',
+var BoardsListView = Backbone.Marionette.CompositeView.extend( {
+    el: '.js-popup-content',
+    template: _.template( $('#boards-list-template').html()),
 
-    childView:  BoardListView
+    childViewContainer: '.js-boards-list',
+    childView: BoardItemView
 });
 
-var board = new BoardListCollectionView( {
-    collection: boardList
-});
+// var board = new BoardListCollectionView( {
+//     collection: boardList
+// });

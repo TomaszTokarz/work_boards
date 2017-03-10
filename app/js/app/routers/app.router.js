@@ -1,7 +1,7 @@
 var Router = Marionette.AppRouter.extend({
     controller: new Controller(),
     appRoutes: {
-        'board': 'boardlist',
+        'boards': 'boardlist',
         'board/:name': 'boardName',
         'newsticker': 'newSticker',
         '': 'home'

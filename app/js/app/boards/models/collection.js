@@ -1,6 +1,5 @@
-var BoardListCollection = Backbone.Collection.extend({
-  model: Board
-
+var BoardsListCollection = Backbone.Collection.extend({
+    model: Board
 });
 
-boardList = new BoardListCollection;      //all boards
+//boardList = new BoardListCollection;      //all boards

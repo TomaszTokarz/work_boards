@@ -34,9 +34,9 @@ var database = {
             //mainCollection = Stickers
         })
 
-        firebase.database().ref('Boards').on('child_added', function(snapshot){
-            boardList.add(snapshot.val());
-            //console.log(snapshot.val())
-        })
+        // firebase.database().ref('Boards').on('child_added', function(snapshot){
+        //     boardList.add(snapshot.val());
+        //     //console.log(snapshot.val())
+        // })
     }
 };

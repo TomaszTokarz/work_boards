@@ -4,10 +4,11 @@ var Controller = Marionette.Object.extend({
     },
     boardlist: function() {
         //console.log('router boardlist activated')
-        popups.close();
-        $('.change-board').css( {
-            'display': 'flex'
-        });
+        // popups.close();
+        // $('.change-board').css( {
+        //     'display': 'flex'
+        // });
+        app.layout.showPopup('chuj');
     },
 
     boardName: function(name){

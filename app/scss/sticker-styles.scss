@@ -4,10 +4,15 @@
     width: $sticker-width;
     background-color: $sticker-background-color;
     margin: 0.2em;
-    @include border-radius(0.25em);
-    @include shadow(0.03em);
-    @include sticker-underline();
-    float: left;
+    //@include border-radius(0.25em);
+    display: inline-block;
+    cursor: pointer;
+    @include shadow(0.15em);
+    @include column-brake-inside(avoid);
+
+    &:hover {
+        background-color: $sticker-background-color--hover;
+    }
 
     &--name {
         text-align: center;
@@ -19,31 +24,35 @@
             font-weight: bold;
         }
     }
+
     &--picture {
         @include border-radius(0.25em);
 
-        & img{
+        &--img {
             width: $sticker-width;
             margin-top: 0.2em;
         }
     }
+
     &--link {
         text-align: center;
         margin: 0 0.2em;
         @include sticker-underline();
 
-        & a {
+        &--path {
             text-decoration: none;
             font-style: italic;
             color: $font-color;
         }
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
+
     &--content {
         text-indent: 1em;
         text-align: justify;
         padding: 0.2em 0.1em;
-    }
-    &--tags {
-
     }
 }

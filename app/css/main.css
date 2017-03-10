@@ -46,9 +46,13 @@ table {
   border-spacing: 0; }
 
 .body {
-  background: #F2F2F2;
+  background-image: url("../images/seigaiha.png");
+  background-attachment: fixed;
   font-family: Calibri;
   color: #333; }
+
+.main {
+  padding-top: 2.5em; }
 
 .templates--container {
   display: none; }
@@ -64,54 +68,67 @@ table {
 .active--popup {
   z-index: 200; }
 
+.columns {
+  width: 95%;
+  margin: auto;
+  -webkit-column-width: 10em;
+  -moz-column-width: 10em;
+  column-width: 10em; }
+
 .header {
   padding: 0.25em;
-  height: 2em; }
-  .header .header--logo {
+  height: 2em;
+  width: 100%;
+  position: fixed;
+  background-image: url("../images/seigaiha.png");
+  background-attachment: fixed; }
+  .header--logo {
     height: 2em;
-    position: absolute; }
-  .header .header--menu-right {
+    position: absolute;
+    left: 1em;
+    cursor: pointer; }
+  .header--menu-right {
     position: absolute;
     margin: 0.25em;
     top: 0;
-    right: 0; }
-    .header .header--menu-right > * {
-      height: 2em; }
-  .header .search-bar--container {
-    display: block;
-    margin: 0 6.75em 0 2.2em;
-    width: auto; }
-    .header .search-bar--container form {
-      width: 100%; }
-      .header .search-bar--container form .search-bar {
-        height: auto;
-        font-size: 1.6em;
-        width: 100%;
-        text-align: center;
-        border: 0.05em solid #E6E6E6;
-        -webkit-border-radius: 0.25em;
-        -moz-border-radius: 0.25em;
-        -ms-border-radius: 0.25em;
-        border-radius: 0.25em;
-        -webkit-box-shadow: 0 0.03em 0.03em 0;
-        -moz-box-shadow: 0 0.03em 0.03em 0;
-        -ms-box-shadow: 0 0.03em 0.03em 0;
-        box-shadow: 0 0.03em 0.03em 0; }
+    right: 1em; }
+    .header--menu-right--btn {
+      height: 2em;
+      cursor: pointer; }
+  .header .search-bar {
+    background-color: rgba(180, 180, 230, 0.1);
+    height: auto;
+    font-size: 1.6em;
+    width: 100%;
+    text-align: center;
+    border: 0.05em solid #E6E6E6;
+    cursor: pointer;
+    -webkit-box-shadow: 0.08em 0.08em 0.04em #D9D9D9;
+    -moz-box-shadow: 0.08em 0.08em 0.04em #D9D9D9;
+    -ms-box-shadow: 0.08em 0.08em 0.04em #D9D9D9;
+    box-shadow: 0.08em 0.08em 0.04em #D9D9D9; }
+    .header .search-bar--container {
+      display: block;
+      margin: 0 8em 0 3em;
+      width: auto; }
+    .header .search-bar:focus {
+      background-color: #FFF; }
 
 .sticker {
   width: 10em;
-  background-color: #E6E6E6;
+  background-color: rgba(180, 180, 230, 0.1);
   margin: 0.2em;
-  -webkit-border-radius: 0.25em;
-  -moz-border-radius: 0.25em;
-  -ms-border-radius: 0.25em;
-  border-radius: 0.25em;
-  -webkit-box-shadow: 0 0.03em 0.03em 0;
-  -moz-box-shadow: 0 0.03em 0.03em 0;
-  -ms-box-shadow: 0 0.03em 0.03em 0;
-  box-shadow: 0 0.03em 0.03em 0;
-  border-bottom: 1px solid #FFF;
-  float: left; }
+  display: inline-block;
+  cursor: pointer;
+  -webkit-box-shadow: 0.15em 0.15em 0.075em #D9D9D9;
+  -moz-box-shadow: 0.15em 0.15em 0.075em #D9D9D9;
+  -ms-box-shadow: 0.15em 0.15em 0.075em #D9D9D9;
+  box-shadow: 0.15em 0.15em 0.075em #D9D9D9;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid; }
+  .sticker:hover {
+    background-color: #F1F1FA; }
   .sticker--name {
     text-align: center;
     font-size: 1.2em;
@@ -124,17 +141,19 @@ table {
     -moz-border-radius: 0.25em;
     -ms-border-radius: 0.25em;
     border-radius: 0.25em; }
-    .sticker--picture img {
+    .sticker--picture--img {
       width: 10em;
       margin-top: 0.2em; }
   .sticker--link {
     text-align: center;
     margin: 0 0.2em;
     border-bottom: 1px solid #FFF; }
-    .sticker--link a {
+    .sticker--link--path {
       text-decoration: none;
       font-style: italic;
       color: #333; }
+    .sticker--link:hover {
+      text-decoration: underline; }
   .sticker--content {
     text-indent: 1em;
     text-align: justify;
@@ -158,7 +177,7 @@ table {
   text-align: center; }
   .new-sticker--container, .change-board--container {
     margin: auto;
-    background-color: #E6E6E6;
+    background-color: rgba(180, 180, 230, 0.1);
     -webkit-border-radius: 0.25em;
     -moz-border-radius: 0.25em;
     -ms-border-radius: 0.25em;
@@ -183,10 +202,10 @@ table {
       -moz-border-radius: 0.25em;
       -ms-border-radius: 0.25em;
       border-radius: 0.25em;
-      -webkit-box-shadow: 0 0.03em 0.03em 0;
-      -moz-box-shadow: 0 0.03em 0.03em 0;
-      -ms-box-shadow: 0 0.03em 0.03em 0;
-      box-shadow: 0 0.03em 0.03em 0; }
+      -webkit-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
+      -moz-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
+      -ms-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
+      box-shadow: 0.03em 0.03em 0.015em #D9D9D9; }
   .new-sticker--image {
     font-size: 1em;
     padding-bottom: 0.2em;
@@ -205,10 +224,10 @@ table {
       -moz-border-radius: 0.25em;
       -ms-border-radius: 0.25em;
       border-radius: 0.25em;
-      -webkit-box-shadow: 0 0.03em 0.03em 0;
-      -moz-box-shadow: 0 0.03em 0.03em 0;
-      -ms-box-shadow: 0 0.03em 0.03em 0;
-      box-shadow: 0 0.03em 0.03em 0; }
+      -webkit-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
+      -moz-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
+      -ms-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
+      box-shadow: 0.03em 0.03em 0.015em #D9D9D9; }
   .new-sticker--content {
     font-size: 1em;
     padding-bottom: 0.2em;
@@ -223,10 +242,10 @@ table {
       -moz-border-radius: 0.25em;
       -ms-border-radius: 0.25em;
       border-radius: 0.25em;
-      -webkit-box-shadow: 0 0.03em 0.03em 0;
-      -moz-box-shadow: 0 0.03em 0.03em 0;
-      -ms-box-shadow: 0 0.03em 0.03em 0;
-      box-shadow: 0 0.03em 0.03em 0;
+      -webkit-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
+      -moz-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
+      -ms-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
+      box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
       resize: none;
       height: 3em; }
   .new-sticker--tag {
@@ -261,7 +280,7 @@ table {
   text-align: center; }
   .new-sticker--container, .change-board--container {
     margin: auto;
-    background-color: #E6E6E6;
+    background-color: rgba(180, 180, 230, 0.1);
     -webkit-border-radius: 0.25em;
     -moz-border-radius: 0.25em;
     -ms-border-radius: 0.25em;
@@ -286,10 +305,10 @@ table {
       -moz-border-radius: 0.25em;
       -ms-border-radius: 0.25em;
       border-radius: 0.25em;
-      -webkit-box-shadow: 0 0.03em 0.03em 0;
-      -moz-box-shadow: 0 0.03em 0.03em 0;
-      -ms-box-shadow: 0 0.03em 0.03em 0;
-      box-shadow: 0 0.03em 0.03em 0; }
+      -webkit-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
+      -moz-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
+      -ms-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
+      box-shadow: 0.03em 0.03em 0.015em #D9D9D9; }
   .new-sticker--image {
     font-size: 1em;
     padding-bottom: 0.2em;
@@ -308,10 +327,10 @@ table {
       -moz-border-radius: 0.25em;
       -ms-border-radius: 0.25em;
       border-radius: 0.25em;
-      -webkit-box-shadow: 0 0.03em 0.03em 0;
-      -moz-box-shadow: 0 0.03em 0.03em 0;
-      -ms-box-shadow: 0 0.03em 0.03em 0;
-      box-shadow: 0 0.03em 0.03em 0; }
+      -webkit-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
+      -moz-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
+      -ms-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
+      box-shadow: 0.03em 0.03em 0.015em #D9D9D9; }
   .new-sticker--content {
     font-size: 1em;
     padding-bottom: 0.2em;
@@ -326,10 +345,10 @@ table {
       -moz-border-radius: 0.25em;
       -ms-border-radius: 0.25em;
       border-radius: 0.25em;
-      -webkit-box-shadow: 0 0.03em 0.03em 0;
-      -moz-box-shadow: 0 0.03em 0.03em 0;
-      -ms-box-shadow: 0 0.03em 0.03em 0;
-      box-shadow: 0 0.03em 0.03em 0;
+      -webkit-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
+      -moz-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
+      -ms-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
+      box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
       resize: none;
       height: 3em; }
   .new-sticker--tag {
@@ -379,10 +398,10 @@ table {
     -moz-border-radius: 0.25em;
     -ms-border-radius: 0.25em;
     border-radius: 0.25em;
-    -webkit-box-shadow: 0 0.03em 0.03em 0;
-    -moz-box-shadow: 0 0.03em 0.03em 0;
-    -ms-box-shadow: 0 0.03em 0.03em 0;
-    box-shadow: 0 0.03em 0.03em 0; }
+    -webkit-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
+    -moz-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
+    -ms-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
+    box-shadow: 0.03em 0.03em 0.015em #D9D9D9; }
   .change-board--new-board img {
     height: 1.5em;
     position: relative;

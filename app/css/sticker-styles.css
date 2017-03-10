@@ -1,17 +1,18 @@
 .sticker {
   width: 10em;
-  background-color: #E6E6E6;
+  background-color: rgba(180, 180, 230, 0.1);
   margin: 0.2em;
-  -webkit-border-radius: 0.25em;
-  -moz-border-radius: 0.25em;
-  -ms-border-radius: 0.25em;
-  border-radius: 0.25em;
-  -webkit-box-shadow: 0 0.03em 0.03em 0;
-  -moz-box-shadow: 0 0.03em 0.03em 0;
-  -ms-box-shadow: 0 0.03em 0.03em 0;
-  box-shadow: 0 0.03em 0.03em 0;
-  border-bottom: 1px solid #FFF;
-  float: left; }
+  display: inline-block;
+  cursor: pointer;
+  -webkit-box-shadow: 0.15em 0.15em 0.075em #D9D9D9;
+  -moz-box-shadow: 0.15em 0.15em 0.075em #D9D9D9;
+  -ms-box-shadow: 0.15em 0.15em 0.075em #D9D9D9;
+  box-shadow: 0.15em 0.15em 0.075em #D9D9D9;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid; }
+  .sticker:hover {
+    background-color: #F1F1FA; }
   .sticker--name {
     text-align: center;
     font-size: 1.2em;
@@ -24,17 +25,19 @@
     -moz-border-radius: 0.25em;
     -ms-border-radius: 0.25em;
     border-radius: 0.25em; }
-    .sticker--picture img {
+    .sticker--picture--img {
       width: 10em;
       margin-top: 0.2em; }
   .sticker--link {
     text-align: center;
     margin: 0 0.2em;
     border-bottom: 1px solid #FFF; }
-    .sticker--link a {
+    .sticker--link--path {
       text-decoration: none;
       font-style: italic;
       color: #333; }
+    .sticker--link:hover {
+      text-decoration: underline; }
   .sticker--content {
     text-indent: 1em;
     text-align: justify;

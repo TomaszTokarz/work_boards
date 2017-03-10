@@ -14,25 +14,29 @@ var defaultApp = firebase.initializeApp(defaultAppConfig);
 var defaultDatabase = defaultApp.database();
 
 var database = {
-    saveSticker: function(data){
+        saveSticker: function(data){
         firebase.database().ref('id').once('value', function(snapshot){
             var id = parseInt(snapshot.val());
             firebase.database().ref('Stickers/' + id).set(data);
             firebase.database().ref('id').set(id+1);
         });
     },
+
     saveBoard: function(data){
         firebase.database().ref('Boards/' + data.title).set(data);
         console.log('new board added')
+    },
+
+    runListeners: function(){
+        firebase.database().ref('Stickers').on('child_added', function(snapshot){
+            Stickers.add(snapshot.val());
+
+            //mainCollection = Stickers
+        })
+
+        firebase.database().ref('Boards').on('child_added', function(snapshot){
+            boardList.add(snapshot.val());
+            //console.log(snapshot.val())
+        })
     }
 };
-
-firebase.database().ref('Stickers').on('child_added', function(snapshot){
-    Stickers.add(snapshot.val());
-    mainCollection = Stickers
-})
-
-firebase.database().ref('Boards').on('child_added', function(snapshot){
-    boardList.add(snapshot.val());
-    //console.log(snapshot.val())
-})

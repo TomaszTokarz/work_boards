@@ -4,7 +4,7 @@ var StickerCollectionView = Backbone.Marionette.CollectionView.extend( {
 
     childView:  StickerLayoutView,
     initialize: function() {
-        console.log(this.collection);
+        //console.log(this.collection);
     }
 });
 

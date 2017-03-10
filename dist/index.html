@@ -22,7 +22,7 @@
     <![endif]-->
 
     <div class='main--app'>
-        <header class='header'>
+        <header class='header' id="header">
             <img src='images/logo.png' class='header--logo' />
             <div class='search-bar--container'>
                 <form name='search'>
@@ -30,8 +30,8 @@
                 </form>
             </div>
             <div class='header--menu-right'>
-                <img src='images/add.png' class='add--new-sticker-btn' />
-                <img src='images/change-board.png' class='change--board-btn' />
+                <img src='images/add.png' id='add--new-sticker-btn' />
+                <img src='images/change-board.png' id='change--board-btn' />
                 <img src='images/logo.png' class='settings-btn' />
             </div>
         </header>
@@ -49,6 +49,7 @@
     </div>
 
     <div class='new-sticker popup'>
+        <div class='closePopup'></div>
         <div class='new-sticker--container active--popup'>
             <form class='new-sticker--add' id='new-sticker--form'>
                 <div class='new-sticker--box-description'>
@@ -84,21 +85,20 @@
     </div>
 
     <div class='change-board popup'>
+        <div class='closePopup'></div>
         <div class='change-board--container active--popup'>
             <div class='change-board--box-description'>
                 <span>Change active board</span>
             </div>
-            <div class='change-board--available-boards'>
-                <ul class='change-board--available-boards--list'>
-                    <li><img src='images/valid-board.png' /><span>Main board</span></li>
-                    <li><img src='images/valid-board.png' /><span>Best free sermons</span></li>
-                    <li><img src='images/valid-board.png' /><span>Naked bitches</span></li>
-                </ul>
+            <div class='change-board--available-boards' id='change-board--available-boards'>
+                <!-- boards list template -->
             </div>
             <div class='change-board--new-board'>
                 <span>Add a new board:</span>
-                <input class='change-board--new-board--input-name' type='text' autocomplete='off' placeholder='new board name'></input>
-                <img src='images/board-add.png' />
+                <form>
+                    <input class='change-board--new-board--input-name' type='text' autocomplete='off' placeholder='new board name' id='new-board-name'></input>
+                    <img src='images/board-add.png' id='add--new-board-btn'/>
+                </form>
             </div>
         </div>
     </div>
@@ -107,9 +107,20 @@
         <!-- TEMPLATE -->
         <script type='text/template' id='sticker-template'>
             <div class='sticker--name'><h3 class='sticker--title'><%= title %></h3></div>
-
-            <% if (pictureSrc) {%><div class='sticker--picture'><a href='<%= link %>'><img src='<%= pictureSrc %>' /></a></div><%} %>
-            <% if (linkDesc) {%><div class='sticker--link'><a href='<%= link %>'><%= linkDesc %></a></div><%} %>
+            <% if (pictureSrc) {%>
+                <div class='sticker--picture'>
+                    <a href='<%= link %>'>
+                        <img src='<%= pictureSrc %>' />
+                    </a>
+                </div>
+            <%} %>
+            <% if (linkDesc) {%>
+                <div class='sticker--link'>
+                    <a href='<%= link %>'>
+                        <%= linkDesc %>
+                    </a>
+                </div>
+            <%} %>
             <% if (content) {%>
                 <div class='sticker--content'>
                     <p class='sticker--content'>
@@ -117,8 +128,13 @@
                     </p>
                 </div>
             <%} %>
-
             <div class='sticker--tags'></div>
+        </script>
+        <!-- TEMPLATE END -->
+
+        <!-- TEMPLATE -->
+        <script type='text/template' id='board-list--template'>
+            <img src='images/valid-board.png' /><span><%= title %></span>
         </script>
         <!-- TEMPLATE END -->
     </div>
@@ -136,24 +152,7 @@
     <!-- <script src='bower_components/requirejs/require.js' data-main='js/main'></script>
     <script src='bower_components/modernizr/modernizr.js'></script> -->
 
-    <!-- build:js js/main.min.js -->
-        <script src='bower_components/jquery/dist/jquery.js'></script>
-        <script src='bower_components/underscore/underscore.js'></script>
-        <script src='bower_components/backbone/backbone.js'></script>
-        <script src='bower_components/backbone-localstorage/backbone-localstorage.js'></script>
-        <script src='bower_components/backbone.radio/build/backbone.radio.js'></script>
-        <script src='bower_components/backbone.marionette/lib/backbone.marionette.js'></script>
-
-        <script src='js/model/sticker.model.js'></script>
-        <script src='js/collection/sticker.collection.js'></script>
-        <script src='js/view/sticker.view.js'></script>
-        <script src='js/view/new.sticker.view.js'></script>
-        <script src='js/view/sticker.collection.view.js'></script>
-
-        <script src='js/test.js'></script>
-
-        <script src='js/user_interface/display.js'></script>
-    <!-- endbuild -->
+    <script src="js/main.min.js"></script>
 
 </body>
 </html>

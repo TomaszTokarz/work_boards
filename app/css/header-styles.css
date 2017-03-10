@@ -1,33 +1,38 @@
 .header {
   padding: 0.25em;
-  height: 2em; }
-  .header .header--logo {
+  height: 2em;
+  width: 100%;
+  position: fixed;
+  background-image: url("../images/seigaiha.png");
+  background-attachment: fixed; }
+  .header--logo {
     height: 2em;
-    position: absolute; }
-  .header .header--menu-right {
+    position: absolute;
+    left: 1em;
+    cursor: pointer; }
+  .header--menu-right {
     position: absolute;
     margin: 0.25em;
     top: 0;
-    right: 0; }
-    .header .header--menu-right > * {
-      height: 2em; }
-  .header .search-bar--container {
-    display: block;
-    margin: 0 6.75em 0 2.2em;
-    width: auto; }
-    .header .search-bar--container form {
-      width: 100%; }
-      .header .search-bar--container form .search-bar {
-        height: auto;
-        font-size: 1.6em;
-        width: 100%;
-        text-align: center;
-        border: 0.05em solid #E6E6E6;
-        -webkit-border-radius: 0.25em;
-        -moz-border-radius: 0.25em;
-        -ms-border-radius: 0.25em;
-        border-radius: 0.25em;
-        -webkit-box-shadow: 0 0.03em 0.03em 0;
-        -moz-box-shadow: 0 0.03em 0.03em 0;
-        -ms-box-shadow: 0 0.03em 0.03em 0;
-        box-shadow: 0 0.03em 0.03em 0; }
+    right: 1em; }
+    .header--menu-right--btn {
+      height: 2em;
+      cursor: pointer; }
+  .header .search-bar {
+    background-color: rgba(180, 180, 230, 0.1);
+    height: auto;
+    font-size: 1.6em;
+    width: 100%;
+    text-align: center;
+    border: 0.05em solid #E6E6E6;
+    cursor: pointer;
+    -webkit-box-shadow: 0.08em 0.08em 0.04em #D9D9D9;
+    -moz-box-shadow: 0.08em 0.08em 0.04em #D9D9D9;
+    -ms-box-shadow: 0.08em 0.08em 0.04em #D9D9D9;
+    box-shadow: 0.08em 0.08em 0.04em #D9D9D9; }
+    .header .search-bar--container {
+      display: block;
+      margin: 0 8em 0 3em;
+      width: auto; }
+    .header .search-bar:focus {
+      background-color: #FFF; }

@@ -26,7 +26,7 @@ var Controller = Marionette.Object.extend({
     },
 
     home: function() {
-        console.log(app);
-        app.layout.renderHome();
+        //console.log(app);
+        //app.layout.renderHome();
     }
 });

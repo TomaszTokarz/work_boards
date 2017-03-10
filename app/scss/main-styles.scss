@@ -2,9 +2,14 @@
 
 // Styles
 .body {
-    background: $primary-background-color;
+    background-image: $main-background-src;
+    background-attachment: fixed;
     font-family: $font-stack;
     color: $font-color;
+}
+
+.main {
+    padding-top: 2.5em;
 }
 
 .templates--container {
@@ -22,4 +27,10 @@
 
 .active--popup {
     z-index: 200;
+}
+
+.columns {
+    width: 95%;
+	margin: auto;
+    @include column-width();
 }

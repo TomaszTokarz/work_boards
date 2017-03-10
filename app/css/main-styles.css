@@ -1,7 +1,11 @@
 .body {
-  background: #F2F2F2;
+  background-image: url("../images/seigaiha.png");
+  background-attachment: fixed;
   font-family: Calibri;
   color: #333; }
+
+.main {
+  padding-top: 2.5em; }
 
 .templates--container {
   display: none; }
@@ -16,3 +20,10 @@
 
 .active--popup {
   z-index: 200; }
+
+.columns {
+  width: 95%;
+  margin: auto;
+  -webkit-column-width: 10em;
+  -moz-column-width: 10em;
+  column-width: 10em; }

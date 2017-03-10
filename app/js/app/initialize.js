@@ -1,11 +1,22 @@
 var activePopupFlag = false;
+var app = {
+    init: function() {
+        app.layout = new LayoutView();
+        app.router = new Router();
+        app.history = Backbone.history.start();
+
+        app.layout.render();
+        database.runListeners();
+        app.layout.renderHome();
+    }
+};
+
+$(function() {
+    app.init();
+});
 
 
-var app = {};
 
-app.layout = new LayoutView();
-app.router = new Router();
-app.history = Backbone.history.start();
 
 // test = {
 //     run: function(){
@@ -17,4 +28,3 @@ app.history = Backbone.history.start();
 // }
 //
 // test.run();
-app.layout.render();

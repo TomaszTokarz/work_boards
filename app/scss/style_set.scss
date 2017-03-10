@@ -1,11 +1,18 @@
 // Variables
 $font-stack: Calibri;
 $font-color: #333;
-$primary-background-color: #F2F2F2;
-$sticker-background-color: #E6E6E6;
+$sticker-background-color: rgba(180, 180, 230, 0.1);
+$search-bar-background-color: rgba(180, 180, 230, 0.1);
+$search-bar-background-color-focus: #FFF;
+$sticker-background-color--hover: #F1F1FA;
+$shadow-color: rgba(70, 70, 190, 0.8);
+$main-background-src: url('../images/seigaiha.png');
 $new-sticker-input-size: 1em;
 $sticker-width: 10em;
 $shadow-color: #D9D9D9;
+$footer-color: #B2B2B2;
+$search-bar-border: 0.05em solid #E6E6E6;
+
 
 $breakpoint--small: 540px;
 $breakpoint--medium: 768px;
@@ -24,10 +31,22 @@ $font-size--big: 24px;
 }
 
 @mixin shadow($radius) {
-  -webkit-box-shadow: 0 $radius $radius 0;
-     -moz-box-shadow: 0 $radius $radius 0;
-      -ms-box-shadow: 0 $radius $radius 0;
-          box-shadow: 0 $radius $radius 0;
+  -webkit-box-shadow: $radius $radius $radius/2 $shadow-color;
+     -moz-box-shadow: $radius $radius $radius/2 $shadow-color;
+      -ms-box-shadow: $radius $radius $radius/2 $shadow-color;
+          box-shadow: $radius $radius $radius/2 $shadow-color;
+}
+
+@mixin column-brake-inside($parameter) {
+    -webkit-column-break-inside: $parameter;
+              page-break-inside: $parameter;
+                   break-inside: $parameter;
+}
+
+@mixin column-width() {
+    -webkit-column-width: $sticker-width;
+       -moz-column-width: $sticker-width;
+            column-width: $sticker-width;
 }
 
 @mixin popup() {

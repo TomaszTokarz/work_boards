@@ -16,7 +16,6 @@
 
     <!--build:css css/styles.min.css-->
         <link rel='stylesheet' href='css/main.css'>
-        <!-- <link rel='stylesheet' href='css/reset.css'> -->
     <!-- endbuild -->
 </head>
 <body class='body'>
@@ -90,15 +89,15 @@
                     </form>
                 </div>
                 <div class='header--menu-right'>
-                    <img src='images/add.png' id='add--new-sticker-btn' />
-                    <img src='images/change-board.png' id='change--board-btn' />
-                    <img src='images/logo.png' class='settings-btn' />
+                    <img src='images/add.png' id='add--new-sticker-btn' class='header--menu-right--btn' />
+                    <img src='images/change-board.png' id='change--board-btn' class='header--menu-right--btn' />
+                    <img src='images/logo.png' class='header--menu-right--btn' />
                 </div>
             </header>
 
-            <main>
+            <main class="main">
                 <div class='main-container'>
-                    <div class='column column1 js-sticker-container'>
+                    <div class='columns js-sticker-container'>
                     </div>
                 </div>
             </main>
@@ -113,13 +112,13 @@
             <% if (pictureSrc) {%>
                 <div class='sticker--picture'>
                     <a href='<%= link %>'>
-                        <img src='<%= pictureSrc %>' />
+                        <img src='<%= pictureSrc %>' class='sticker--picture--img'/>
                     </a>
                 </div>
             <%} %>
             <% if (linkDesc) {%>
                 <div class='sticker--link'>
-                    <a href='<%= link %>'>
+                    <a href='<%= link %>' class='sticker--link--path'>
                         <%= linkDesc %>
                     </a>
                 </div>
@@ -157,7 +156,6 @@
 
     <!-- build:js js/main.min.js -->
         <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
-        <script src='js/database/firebase.js'></script>
 
         <script src='bower_components/jquery/dist/jquery.js'></script>
         <script src='bower_components/underscore/underscore.js'></script>
@@ -186,6 +184,7 @@
         <script src='js/app/routers/app.router.js'></script>
 
         <script src='js/app/initialize.js'></script>
+        <script src='js/database/firebase.js'></script>
         <!-- <script src='js/test.js'></script> -->
 
         <script src='js/app/user_interface/display.js'></script>

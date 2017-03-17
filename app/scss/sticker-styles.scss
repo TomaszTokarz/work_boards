@@ -9,9 +9,19 @@
     cursor: pointer;
     @include shadow(0.15em);
     @include column-brake-inside(avoid);
+    z-index: 0;
 
     &:hover {
         background-color: $sticker-background-color--hover;
+    }
+
+    &:hover > &-bar {
+        display: block;
+        height: auto;
+    }
+
+    &-id {
+        display: none;
     }
 
     &--name {
@@ -54,5 +64,24 @@
         text-indent: 1em;
         text-align: justify;
         padding: 0.2em 0.1em;
+    }
+
+    &-bar {
+        height: 0;
+        z-index: 10;
+        display: none;
+
+        &--menu {
+            display: flex;
+            justify-content: space-around;
+
+            &-item {
+                display: inline-block;
+
+                &:hover {
+                    color: red;
+                }
+            }
+        }
     }
 }

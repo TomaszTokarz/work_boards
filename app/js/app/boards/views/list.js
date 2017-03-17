@@ -3,9 +3,29 @@ var BoardsListView = Backbone.Marionette.CompositeView.extend( {
     template: _.template( $('#boards-list-template').html()),
 
     childViewContainer: '.js-boards-list',
-    childView: BoardItemView
-});
+    childView: BoardItemView,
+    collection: boardList,
 
-// var board = new BoardListCollectionView( {
-//     collection: boardList
-// });
+    ui: {
+        newBoardBtn: '.js-add-board-btn',
+        title: '.new-board-name'
+    },
+
+    events: {
+        'click @ui.newBoardBtn': 'addNewBoard'
+    },
+
+    addNewBoard: function() {
+        //FIXME: this function is doubled in check.boards.list.js (boards)
+        if (!this.ui.title.val()) {
+            return console.error('Please fill board name field!');
+            //TODO: change this error for backbone validate method
+        } else {
+            var data = {
+                title: this.ui.title.val()
+                //NOTE: it is just an initial sticker-array, it should be changed soon
+            };
+            database.saveBoard(data);
+        }
+    }
+});

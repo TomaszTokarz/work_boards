@@ -4,8 +4,9 @@
 @import 'header-styles';
 @import 'sticker-styles';
 @import 'footer-styles';
-@import 'popups/new-sticker-popup';
-@import 'popups/change-board-popup';
+@import 'popup';
+// @import 'popups/new-sticker-popup';
+// @import 'popups/change-board-popup';
 
 @media screen and (max-width: $breakpoint--small) {
     .body {

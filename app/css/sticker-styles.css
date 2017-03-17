@@ -10,9 +10,15 @@
   box-shadow: 0.15em 0.15em 0.075em #D9D9D9;
   -webkit-column-break-inside: avoid;
   page-break-inside: avoid;
-  break-inside: avoid; }
+  break-inside: avoid;
+  z-index: 0; }
   .sticker:hover {
     background-color: #F1F1FA; }
+  .sticker:hover > .sticker-bar {
+    display: block;
+    height: auto; }
+  .sticker-id {
+    display: none; }
   .sticker--name {
     text-align: center;
     font-size: 1.2em;
@@ -42,3 +48,14 @@
     text-indent: 1em;
     text-align: justify;
     padding: 0.2em 0.1em; }
+  .sticker-bar {
+    height: 0;
+    z-index: 10;
+    display: none; }
+    .sticker-bar--menu {
+      display: flex;
+      justify-content: space-around; }
+      .sticker-bar--menu-item {
+        display: inline-block; }
+        .sticker-bar--menu-item:hover {
+          color: red; }

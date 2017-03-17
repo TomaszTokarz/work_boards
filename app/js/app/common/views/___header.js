@@ -4,8 +4,8 @@ var HeaderLayoutView = Backbone.Marionette.View.extend({
     template: false,
 
     ui: {
-        newStickerBtn: '#add--new-sticker-btn',
-        changeBoardBtn: '#change--board-btn'
+        newStickerBtn: '.js-add-sticker-btn',
+        changeBoardBtn: '.js-change-baord-btn'
     },
 
     events: {

@@ -3,27 +3,18 @@ var Controller = Marionette.Object.extend({
         //console.log('router controller initialized')
     },
     boardlist: function() {
-        //console.log('router boardlist activated')
-        // popups.close();
-        // $('.change-board').css( {
-        //     'display': 'flex'
-        // });
-        app.layout.showPopup('chuj');
+        app.layout.showPopup('boards');
     },
 
     boardName: function(name){
-        Stickers = Stickers.workBoard(name);
-        sticker.collection = Stickers
-        console.log(sticker);
-        sticker.render();
+        app.layout.renderBoard(name);
+        // stickerCollection = stickerCollection.workBoard(name);
+        // sticker.collection = stickerCollection
+        // sticker.render();
     },
 
     newSticker: function() {
-        console.log('router newsticker activated')
-        popups.close();
-        $('.new-sticker').css( {
-            'display': 'flex'
-        });
+        app.layout.showPopup('newSticker');
     },
 
     home: function() {

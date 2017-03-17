@@ -16,20 +16,8 @@
     display: none;
 }
 
-.closePopup {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-}
-
-.active--popup {
-    z-index: 200;
-}
-
 .columns {
+    min-width: 320px;
     width: 95%;
 	margin: auto;
     @include column-width();

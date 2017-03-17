@@ -57,18 +57,8 @@ table {
 .templates--container {
   display: none; }
 
-.closePopup {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0; }
-
-.active--popup {
-  z-index: 200; }
-
 .columns {
+  min-width: 320px;
   width: 95%;
   margin: auto;
   -webkit-column-width: 10em;
@@ -126,9 +116,15 @@ table {
   box-shadow: 0.15em 0.15em 0.075em #D9D9D9;
   -webkit-column-break-inside: avoid;
   page-break-inside: avoid;
-  break-inside: avoid; }
+  break-inside: avoid;
+  z-index: 0; }
   .sticker:hover {
     background-color: #F1F1FA; }
+  .sticker:hover > .sticker-bar {
+    display: block;
+    height: auto; }
+  .sticker-id {
+    display: none; }
   .sticker--name {
     text-align: center;
     font-size: 1.2em;
@@ -158,6 +154,17 @@ table {
     text-indent: 1em;
     text-align: justify;
     padding: 0.2em 0.1em; }
+  .sticker-bar {
+    height: 0;
+    z-index: 10;
+    display: none; }
+    .sticker-bar--menu {
+      display: flex;
+      justify-content: space-around; }
+      .sticker-bar--menu-item {
+        display: inline-block; }
+        .sticker-bar--menu-item:hover {
+          color: red; }
 
 .footer {
   clear: both;
@@ -165,248 +172,74 @@ table {
   color: #B2B2B2;
   text-align: center; }
 
-.new-sticker, .change-board {
+.popup {
+  background-image: url("../images/seigaiha-transparent.png");
   width: 100%;
   height: 100%;
-  position: absolute;
+  display: flex;
+  align-items: center;
+  position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(10, 20, 50, 0.9);
-  z-index: 100;
-  display: none;
-  text-align: center; }
-  .new-sticker--container, .change-board--container {
-    margin: auto;
-    background-color: rgba(180, 180, 230, 0.1);
-    -webkit-border-radius: 0.25em;
-    -moz-border-radius: 0.25em;
-    -ms-border-radius: 0.25em;
-    border-radius: 0.25em; }
-  .new-sticker--add, .change-board--container {
-    width: 10em; }
-  .new-sticker--box-description, .change-board--box-description {
+  z-index: 10; }
+  .popup-title {
     font-size: 1.5em;
-    padding-bottom: 0.2em;
-    border-bottom: 1px solid #FFF; }
-  .new-sticker--title {
-    font-size: 1em;
-    padding-bottom: 0.2em;
-    border-bottom: 1px solid #FFF; }
-    .new-sticker--title--input {
-      height: auto;
-      font-size: 1em;
-      width: 8em;
-      text-align: center;
-      border: 0.05em solid #E6E6E6;
-      -webkit-border-radius: 0.25em;
-      -moz-border-radius: 0.25em;
-      -ms-border-radius: 0.25em;
-      border-radius: 0.25em;
-      -webkit-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-      -moz-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-      -ms-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-      box-shadow: 0.03em 0.03em 0.015em #D9D9D9; }
-  .new-sticker--image {
-    font-size: 1em;
-    padding-bottom: 0.2em;
-    border-bottom: 1px solid #FFF; }
-  .new-sticker--link {
-    font-size: 1em;
-    padding-bottom: 0.2em;
-    border-bottom: 1px solid #FFF; }
-    .new-sticker--link--input {
-      height: auto;
-      font-size: 1em;
-      width: 8em;
-      text-align: center;
-      border: 0.05em solid #E6E6E6;
-      -webkit-border-radius: 0.25em;
-      -moz-border-radius: 0.25em;
-      -ms-border-radius: 0.25em;
-      border-radius: 0.25em;
-      -webkit-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-      -moz-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-      -ms-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-      box-shadow: 0.03em 0.03em 0.015em #D9D9D9; }
-  .new-sticker--content {
-    font-size: 1em;
-    padding-bottom: 0.2em;
-    border-bottom: 1px solid #FFF; }
-    .new-sticker--content--input {
-      height: auto;
-      font-size: 1em;
-      width: 8em;
-      text-align: center;
-      border: 0.05em solid #E6E6E6;
-      -webkit-border-radius: 0.25em;
-      -moz-border-radius: 0.25em;
-      -ms-border-radius: 0.25em;
-      border-radius: 0.25em;
-      -webkit-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-      -moz-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-      -ms-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-      box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-      resize: none;
-      height: 3em; }
-  .new-sticker--tag {
-    font-size: 1em;
-    padding-bottom: 0.2em;
-    border-bottom: 1px solid #FFF;
-    margin-bottom: 0.3em; }
-  .new-sticker--button--clear {
-    font-size: 1em;
-    -webkit-border-radius: 0.25em;
-    -moz-border-radius: 0.25em;
-    -ms-border-radius: 0.25em;
-    border-radius: 0.25em;
-    float: left; }
-  .new-sticker--button--add {
-    font-size: 1em;
-    -webkit-border-radius: 0.25em;
-    -moz-border-radius: 0.25em;
-    -ms-border-radius: 0.25em;
-    border-radius: 0.25em;
-    float: right; }
-
-.new-sticker, .change-board {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(10, 20, 50, 0.9);
-  z-index: 100;
-  display: none;
-  text-align: center; }
-  .new-sticker--container, .change-board--container {
-    margin: auto;
-    background-color: rgba(180, 180, 230, 0.1);
-    -webkit-border-radius: 0.25em;
-    -moz-border-radius: 0.25em;
-    -ms-border-radius: 0.25em;
-    border-radius: 0.25em; }
-  .new-sticker--add, .change-board--container {
-    width: 10em; }
-  .new-sticker--box-description, .change-board--box-description {
-    font-size: 1.5em;
-    padding-bottom: 0.2em;
-    border-bottom: 1px solid #FFF; }
-  .new-sticker--title {
-    font-size: 1em;
-    padding-bottom: 0.2em;
-    border-bottom: 1px solid #FFF; }
-    .new-sticker--title--input {
-      height: auto;
-      font-size: 1em;
-      width: 8em;
-      text-align: center;
-      border: 0.05em solid #E6E6E6;
-      -webkit-border-radius: 0.25em;
-      -moz-border-radius: 0.25em;
-      -ms-border-radius: 0.25em;
-      border-radius: 0.25em;
-      -webkit-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-      -moz-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-      -ms-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-      box-shadow: 0.03em 0.03em 0.015em #D9D9D9; }
-  .new-sticker--image {
-    font-size: 1em;
-    padding-bottom: 0.2em;
-    border-bottom: 1px solid #FFF; }
-  .new-sticker--link {
-    font-size: 1em;
-    padding-bottom: 0.2em;
-    border-bottom: 1px solid #FFF; }
-    .new-sticker--link--input {
-      height: auto;
-      font-size: 1em;
-      width: 8em;
-      text-align: center;
-      border: 0.05em solid #E6E6E6;
-      -webkit-border-radius: 0.25em;
-      -moz-border-radius: 0.25em;
-      -ms-border-radius: 0.25em;
-      border-radius: 0.25em;
-      -webkit-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-      -moz-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-      -ms-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-      box-shadow: 0.03em 0.03em 0.015em #D9D9D9; }
-  .new-sticker--content {
-    font-size: 1em;
-    padding-bottom: 0.2em;
-    border-bottom: 1px solid #FFF; }
-    .new-sticker--content--input {
-      height: auto;
-      font-size: 1em;
-      width: 8em;
-      text-align: center;
-      border: 0.05em solid #E6E6E6;
-      -webkit-border-radius: 0.25em;
-      -moz-border-radius: 0.25em;
-      -ms-border-radius: 0.25em;
-      border-radius: 0.25em;
-      -webkit-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-      -moz-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-      -ms-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-      box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-      resize: none;
-      height: 3em; }
-  .new-sticker--tag {
-    font-size: 1em;
-    padding-bottom: 0.2em;
-    border-bottom: 1px solid #FFF;
-    margin-bottom: 0.3em; }
-  .new-sticker--button--clear {
-    font-size: 1em;
-    -webkit-border-radius: 0.25em;
-    -moz-border-radius: 0.25em;
-    -ms-border-radius: 0.25em;
-    border-radius: 0.25em;
-    float: left; }
-  .new-sticker--button--add {
-    font-size: 1em;
-    -webkit-border-radius: 0.25em;
-    -moz-border-radius: 0.25em;
-    -ms-border-radius: 0.25em;
-    border-radius: 0.25em;
-    float: right; }
-
-.change-board--available-boards {
-  border-bottom: 1px solid #FFF; }
-  .change-board--available-boards--list {
-    text-align: left;
-    padding-left: 0.5em;
-    margin: 0.2em 0;
-    cursor: pointer; }
-    .change-board--available-boards--list:hover {
-      color: red; }
-  .change-board--available-boards--list img {
-    height: 0.8em;
-    position: relative;
-    top: 0.1em;
-    left: -0.1em; }
-
-.change-board--new-board {
-  padding-bottom: 0.2em; }
-  .change-board--new-board--input-name {
-    height: auto;
-    font-size: 1em;
-    width: 8em;
     text-align: center;
-    border: 0.05em solid #E6E6E6;
-    -webkit-border-radius: 0.25em;
-    -moz-border-radius: 0.25em;
-    -ms-border-radius: 0.25em;
-    border-radius: 0.25em;
-    -webkit-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-    -moz-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-    -ms-box-shadow: 0.03em 0.03em 0.015em #D9D9D9;
-    box-shadow: 0.03em 0.03em 0.015em #D9D9D9; }
-  .change-board--new-board img {
-    height: 1.5em;
-    position: relative;
-    top: 0.5em;
+    margin: 0.2em 0; }
+  .popup-subtitle {
+    font-size: 1.2em;
+    text-align: center;
+    margin: 0.2em 0; }
+  .popup-input, .popup-textarea {
+    font-size: 1em;
+    display: block;
+    width: 90%;
+    margin: 0.2em auto; }
+  .popup-textarea {
+    resize: none; }
+  .popup--content {
+    margin: auto;
+    width: 10em;
+    z-index: 30;
+    background-color: #FFF; }
+  .popup--close {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20; }
+
+.boards-list {
+  margin: 0.5em; }
+  .boards-list-item {
+    font-size: 1em;
+    margin-bottom: 0.2em;
     cursor: pointer; }
+    .boards-list-item:hover {
+      color: red; }
+    .boards-list-item-image {
+      height: 0.7em;
+      margin-right: 0.1em; }
+  .boards-list-add {
+    font-size: 1em;
+    text-align: center;
+    margin: 0.2em 0; }
+    .boards-list-add-form {
+      margin: 0.5em;
+      display: flex;
+      align-items: flex-start; }
+    .boards-list-add-title-input {
+      font-size: 0.8em;
+      width: 9em; }
+    .boards-list-add-btn {
+      height: 1.3em;
+      padding-left: 0.2em;
+      cursor: pointer; }
+
+.activeBoard {
+  color: lightgreen;
+  font-weight: bold; }
 
 @media screen and (max-width: 540px) {
   .body {

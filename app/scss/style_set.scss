@@ -4,6 +4,7 @@ $font-color: #333;
 $sticker-background-color: rgba(180, 180, 230, 0.1);
 $search-bar-background-color: rgba(180, 180, 230, 0.1);
 $search-bar-background-color-focus: #FFF;
+$popup-background-src: url('../images/seigaiha-transparent.png');
 $sticker-background-color--hover: #F1F1FA;
 $shadow-color: rgba(70, 70, 190, 0.8);
 $main-background-src: url('../images/seigaiha.png');
@@ -49,32 +50,32 @@ $font-size--big: 24px;
             column-width: $sticker-width;
 }
 
-@mixin popup() {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(10, 20, 50, 0.9);
-    z-index: 100;
-    //display: none;
-}
-
-@mixin popup-title() {
-    font-size: $new-sticker-input-size;
-    padding-bottom: 0.2em;
-    @include sticker-underline();
-}
-
-@mixin popup-input() {
-    height: auto;
-    font-size: $new-sticker-input-size;
-    width: $sticker-width - 2em;
-    text-align: center;
-    border: 0.05em solid #E6E6E6;
-    @include border-radius(0.25em);
-    @include shadow(0.03em);
-}
+// @mixin popup() {
+//     width: 100%;
+//     height: 100%;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     background-color: rgba(10, 20, 50, 0.9);
+//     z-index: 100;
+//     //display: none;
+// }
+//
+// @mixin popup-title() {
+//     font-size: $new-sticker-input-size;
+//     padding-bottom: 0.2em;
+//     @include sticker-underline();
+// }
+//
+// @mixin popup-input() {
+//     height: auto;
+//     font-size: $new-sticker-input-size;
+//     width: $sticker-width - 2em;
+//     text-align: center;
+//     border: 0.05em solid #E6E6E6;
+//     @include border-radius(0.25em);
+//     @include shadow(0.03em);
+// }
 
 @mixin sticker-underline() {
     border-bottom: 1px solid #FFF;

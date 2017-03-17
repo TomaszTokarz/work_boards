@@ -1,7 +1,7 @@
 var NewStickerLayoutView = Backbone.Marionette.View.extend({
 
-    el: '.new-sticker',
-    template: false,
+    el: '.js-popup-content',
+    template: _.template( $('#new-sticker-template').html()),
 
     ui: {
         title: '#sticker-title-input',
@@ -11,18 +11,14 @@ var NewStickerLayoutView = Backbone.Marionette.View.extend({
         content: '#sticker-description-input',
         //tags: '',
         //workBoard: 'main',
-        addButton: '.new-sticker--button--add',
-        closePopupField: '.closePopup'
+        addButton: '.new-sticker--button--add'
     },
 
     events: {
-        'click @ui.addButton': 'addSticker',
-        'click @ui.closePopupField': 'closePopup'
+        'click @ui.addButton': 'addSticker'
     },
 
-
-
-    addSticker: function(){
+    addSticker: function() {
         console.log('Add sticker - clicked');
         var data = {
             title: this.checkUndefined(this.ui.title.val()),
@@ -34,20 +30,11 @@ var NewStickerLayoutView = Backbone.Marionette.View.extend({
             //workBoard: this.checkUndefined(this.ui.workBoard.val())
         };
         database.saveSticker(data);
-        popups.close();
-    },
-    closePopup: function(event){
-        if ( !activePopupFlag ) {
-            Backbone.history.navigate('', {trigger: true});
-        };
+        app.popupView.closePopup();
     },
 
-    editSticker: function(){
-        console.log(this);
-    },
-
-    checkUndefined: function(value){
-        if(!value){
+    checkUndefined: function(value) {
+        if (!value) {
             return null
         } else {
             return value

@@ -10,5 +10,5 @@ var StickerCollectionView = Backbone.Marionette.CollectionView.extend( {
 
 //Sticker should be names stickerCollectionView - same way as constructor but starting from lowercase
 // var sticker = new StickerCollectionView( {
-//     collection: Stickers
+//     collection: stickerCollection
 // });

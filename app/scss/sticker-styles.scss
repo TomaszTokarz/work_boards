@@ -3,7 +3,9 @@
 .sticker {
     width: $sticker-width;
     background-color: $sticker-background-color;
+    position: relative;
     margin: 0.2em;
+    overflow: hidden;
     //@include border-radius(0.25em);
     display: inline-block;
     cursor: pointer;
@@ -20,24 +22,14 @@
         height: auto;
     }
 
-    &-id {
-        display: none;
-    }
-
-    &--name {
+    &--title {
         text-align: center;
         font-size: 1.2em;
-        margin: 0 0.2em;
+        padding: 0.5em;
         @include sticker-underline();
-
-        .sticker--title {
-            font-weight: bold;
-        }
     }
 
     &--picture {
-        @include border-radius(0.25em);
-
         &--img {
             width: $sticker-width;
             margin-top: 0.2em;
@@ -45,14 +37,15 @@
     }
 
     &--link {
-        text-align: center;
-        margin: 0 0.2em;
+        padding: 0.5em;
+        font-size: 1em;
         @include sticker-underline();
 
         &--path {
             text-decoration: none;
             font-style: italic;
-            color: $font-color;
+            color: #c1c1c1;
+            font-weight: 100;
         }
 
         &:hover {
@@ -61,25 +54,40 @@
     }
 
     &--content {
+        font-size: 0.8em;
+        padding: 0.5em;
         text-indent: 1em;
         text-align: justify;
-        padding: 0.2em 0.1em;
     }
 
     &-bar {
-        height: 0;
         z-index: 10;
+        position: absolute;
+        right: 0.2em;
+        top: 0.2em;
+        width: 2em;
         display: none;
 
         &--menu {
-            display: flex;
-            justify-content: space-around;
-
             &-item {
                 display: inline-block;
+                background: #5bd32c;
+                width: 2em;
+                line-height: 2em;
+                margin-bottom: 0.2em;
+                text-align: center;
+                color: #fff;
+
+                &:nth-child(1) {
+                    background: #2c7dd3;
+                }
+
+                &:nth-child(2) {
+                    background: #dd1919;
+                }
 
                 &:hover {
-                    color: red;
+                    transform: translate(-.2em);
                 }
             }
         }

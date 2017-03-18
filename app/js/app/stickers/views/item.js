@@ -20,13 +20,11 @@ var StickerLayoutView = Backbone.Marionette.View.extend({
     editSticker: function() {
     },
 
-    chooseBoards: function(content) {
-        app.popupView.showContent('chooseBoards', this.model.id);
+    chooseBoards: function() {
+        app.popupView.showContent('chooseBoards', this);
     },
 
     deleteSticker: function() {
-        //console.log(this.$('.js-sticker-id').html())
-        var stickerId = this.$('.js-sticker-id').html()
-        database.deleteSticker(stickerId);
+        database.deleteSticker(this.model.id);
     }
 });

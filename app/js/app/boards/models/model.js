@@ -1,7 +1,6 @@
 var BoardModel = Backbone.Model.extend({
     defaults: {
-        title: '',
-        stickers: ''
+        title: ''
     },
     initialize: function(){
         console.log('New board added');

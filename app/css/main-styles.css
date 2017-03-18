@@ -12,8 +12,8 @@
 
 .columns {
   min-width: 320px;
-  width: 95%;
+  width: 98%;
   margin: auto;
-  -webkit-column-width: 10em;
-  -moz-column-width: 10em;
-  column-width: 10em; }
+  -webkit-column-width: 15.5em;
+  -moz-column-width: 15.5em;
+  column-width: 15.5em; }

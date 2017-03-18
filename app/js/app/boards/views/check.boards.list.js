@@ -1,17 +1,9 @@
 var CheckBoardsListView = Backbone.Marionette.CompositeView.extend( {
     el: '.js-popup-content',
     template: _.template( $('#check-boards-template').html()),
-
-    stickerId: null,
-
     childViewContainer: '.js-check-boards-list',
     childView: CheckBoardsItemView,
     collection: boardList,
-
-    initialize: function(){
-    },
-    onRender: function() {
-    },
 
     ui: {
         boardBtn: '.js-check-board-title',
@@ -22,12 +14,6 @@ var CheckBoardsListView = Backbone.Marionette.CompositeView.extend( {
     events: {
         'click @ui.boardBtn': 'toggleBoard',
         'click @ui.newBoardBtn': 'addNewBoard'
-    },
-
-    toggleBoard: function(ev) {
-        //ev.target.attributes.value.value - boardId
-        database.updateBoards(this.stickerId, ev.target.attributes.value.value);
-        //TODO: this entry is probably not as good as it should to be.
     },
 
     addNewBoard: function(){

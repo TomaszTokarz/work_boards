@@ -23,61 +23,16 @@ var database = {
         });
     },
 
-    updateBoards: function(stickerId, boardId) {
-        firebase.database().ref('Stickers/' + stickerId + '/boards').once('value', function(snapshot){
-            var boards = snapshot.val();
-            var isDuplicated = false;
-
-            if (boards == null){
-                boards = [];
-                //NOTE: there is an error in case of lack of definied board's list, in feature this problem shouldn't occur.
-                //TODO: add main board with ID: 0 to each sticker
-            };
-
-            for (var i=0; i<boards.length; i++){
-                if ( boards[i] == parseInt(boardId)){
-                    //console.log(boards[i] +', '+ parseInt(boardId))
-                    boards.splice(i,1)
-                    isDuplicated = true;
-                };
-            };
-
-            if (isDuplicated) {
-                firebase.database().ref('Stickers/' + stickerId + '/boards').set(boards);
-            } else {
-                boards.push(parseInt(boardId));
-                boards.sort();
-                firebase.database().ref('Stickers/' + stickerId + '/boards').set(boards);
-            }
-        });
-        database.checkChoosenBoards(stickerId);
-    },
-
-    checkChoosenBoards: function(stickerId) {
-        firebase.database().ref('Stickers/' + stickerId + '/boards').once('value', function(snapshot) {
-            var boards = snapshot.val();
-            var boardsList = $('.js-check-boards-list-item').children();
-            var board = [];
-
-            $('.js-check-boards-list-item').children().removeClass('activeBoard');
-
-            if (boards == null) {
-                boards = [];
-                //NOTE: there is an error in case of lack of definied board's list, in feature this problem shouldn't occur.
-                //TODO: add main board with ID: 0 to each sticker
-            };
-
-            //FIXME: it's not working, it should compare a real id, not a position
-            for (var i=0; i<boardsList.length; i++) {
-                for (var j=0; j<boards.length; j++) {
-                    if (i == boards[j]) {
-                        var childId = i+1;
-                        $('.js-check-boards-list-item:nth-child('+ childId +')').children().addClass('activeBoard');
-                    } else {
-                    };
-                };
-            };
-        });
+    toggleBoard: function(sticker, boardId) {
+        var boards = sticker.model.attributes.boards;
+        var position = $.inArray(boardId, boards);
+        if (position !== -1) {
+            boards.splice(position,1);
+        } else {
+            boards.push(boardId);
+        }
+        boards.sort();
+        firebase.database().ref('Stickers/' + sticker.model.id + '/boards').set(boards);
     },
 
     saveBoard: function(data) {

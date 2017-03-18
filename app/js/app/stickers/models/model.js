@@ -6,8 +6,9 @@ var Sticker = Backbone.Model.extend({
         linkDesc: '',
         content: '',
         tags: '',
-        workBoard: 'main'
+        boards: []
     },
+    
     initialize: function(){
         console.log('New sticker added');
     }

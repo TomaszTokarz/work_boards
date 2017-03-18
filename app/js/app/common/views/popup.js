@@ -4,53 +4,46 @@ var PopupView = Backbone.Marionette.View.extend({
     currentView: null,
 
     ui: {
-        closeBtn: '.js-popup-close',
-        boardBtn: '.js-board-list-item'
+        closeBtn: '.js-popup-close'
     },
 
     events: {
-        'click @ui.closeBtn': 'closePopup',
-        'click @ui.boardBtn': 'changeBoard'
+        'click @ui.closeBtn': 'closePopup'
     },
 
-    showContent: function(content, stickerId) {
-        switch(content) {
+    showContent: function(content, sticker) {
+        this.render();
 
+        switch(content) {
             case 'boards':
-                this.render();
-                currentView = new BoardsListView();
-                currentView.render();
+                this.currentView = new BoardsListView();
             break;
 
             case 'chooseBoards':
-                this.render();
-                currentView = new CheckBoardsListView();
-                currentView.stickerId = stickerId;
-                currentView.render();
-                database.checkChoosenBoards(stickerId);
+                this.currentView = new CheckBoardsListView({
+                    childViewOptions: {
+                        sticker: sticker
+                    }
+                });
+
+                //database.checkChoosenBoards(stickerId);
             break;
 
             case 'newSticker':
-                this.render();
-                currentView = new NewStickerLayoutView();
-                currentView.render();
+                this.currentView = new NewStickerLayoutView();
             break;
 
             default:
                 return console.error('Wrong popup name!')
         }
-    },
 
-    changeBoard: function(ev) {
-        Backbone.history.navigate('board/' + ev.target.innerHTML, {trigger: true});
-        //TODO: it should be probably changed, this function takes board name from span, not from object
+        this.currentView.render();
     },
 
     closePopup: function() {
         this.$el.html('');
-        currentView = null;
-        //TODO: current view remove/destroy to clear it from RAM
-        //currentView.remove();
+        this.currentView.destroy();
+        this.currentView = null;
         Backbone.history.navigate('', {trigger: true});
     }
 });

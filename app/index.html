@@ -63,13 +63,12 @@
         <script type='text/template' id='sticker-template'>
             <div class='sticker-bar'>
                 <ul class='sticker-bar--menu'>
-                    <li class='sticker-bar--menu-item js-edit-sticker'>Edit</li>
-                    <li class='sticker-bar--menu-item js-add-to-board'>Add2Brd</li>
-                    <li class='sticker-bar--menu-item js-delete-sticker'>Delete</li>
+                    <li class='sticker-bar--menu-item js-edit-sticker'>E</li>
+                    <li class='sticker-bar--menu-item js-add-to-board'>A</li>
+                    <li class='sticker-bar--menu-item js-delete-sticker'>D</li>
                 </ul>
             </div>
-            <div class='sticker-id js-sticker-id' value='<%= id %>'></div>
-            <div class='sticker--name'><h3 class='sticker--title'><%= title %></h3></div>
+            <h3 class='sticker--title'><%= title %></h3>
             <% if (pictureSrc) {%>
                 <div class='sticker--picture'>
                     <a href='<%= link %>'>

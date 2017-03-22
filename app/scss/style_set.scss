@@ -8,7 +8,7 @@ $sticker-background-color--hover: rgba(255, 255, 255, 1);
 $search-bar-background-color: rgba(180, 180, 230, 0.1);
 $search-bar-background-color-focus: #FFF;
 $popup-background-src: url('../images/seigaiha-transparent.png');
-$shadow-color: rgba(70, 70, 190, 0.8);
+// $shadow-color: rgba(70, 70, 190, 0.8);
 $main-background-src: url('../images/seigaiha.png');
 $new-sticker-input-size: 1em;
 $sticker-width: 15.5em;
@@ -86,4 +86,8 @@ $font-size--big: 24px;
 @mixin button() {
     font-size: $new-sticker-input-size;
     @include border-radius(0.25em);
+}
+
+@mixin main-border() {
+    border: 2px solid #E6E6E6;
 }

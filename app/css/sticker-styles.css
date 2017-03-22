@@ -48,10 +48,9 @@
     position: absolute;
     right: 0.2em;
     top: 0.2em;
-    width: 2em;
-    display: none; }
+    width: 2em; }
     .sticker-bar--menu-item {
-      display: inline-block;
+      position: relative;
       background: #5bd32c;
       width: 2em;
       line-height: 2em;
@@ -62,5 +61,3 @@
         background: #2c7dd3; }
       .sticker-bar--menu-item:nth-child(2) {
         background: #dd1919; }
-      .sticker-bar--menu-item:hover {
-        transform: translate(-0.2em); }

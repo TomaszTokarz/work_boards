@@ -20,23 +20,37 @@ var PopupView = Backbone.Marionette.View.extend({
             break;
 
             case 'chooseBoards':
+            console.log(sticker.model.id)
+                if (!sticker.model.id && sticker.model.id != '0') {
+                    console.error('There is no defined sticker at the choose board module');
+                    debugger;
+                };
+
                 this.currentView = new CheckBoardsListView({
                     childViewOptions: {
                         sticker: sticker
                     }
                 });
-
-                //database.checkChoosenBoards(stickerId);
             break;
 
             case 'newSticker':
                 this.currentView = new NewStickerLayoutView();
             break;
 
+            case 'editSticker':
+                if (!sticker.model.id && sticker.model.id != '0') {
+                    console.error('There is no defined sticker at the edit sticker module');
+                    debugger;
+                };
+
+                this.currentView = new EditStickerLayoutView({
+                    model: sticker.model
+                });
+            break;
+
             default:
                 return console.error('Wrong popup name!')
-        }
-
+        };
         this.currentView.render();
     },
 

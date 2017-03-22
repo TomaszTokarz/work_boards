@@ -1,16 +1,11 @@
 var Controller = Marionette.Object.extend({
-    initialize: function(){
-        //console.log('router controller initialized')
-    },
+    
     boardlist: function() {
         app.layout.showPopup('boards');
     },
 
-    boardName: function(name){
-        app.layout.renderBoard(name);
-        // stickerCollection = stickerCollection.workBoard(name);
-        // sticker.collection = stickerCollection
-        // sticker.render();
+    boardId: function(id) {
+        app.layout.renderBoard(id);
     },
 
     newSticker: function() {
@@ -18,7 +13,10 @@ var Controller = Marionette.Object.extend({
     },
 
     home: function() {
-        //console.log(app);
-        //app.layout.renderHome();
+        console.log('home route')
+        if (app.stickersView) {
+            app.stickersView.$el.html('');
+        };
+        app.layout.renderHome();
     }
 });

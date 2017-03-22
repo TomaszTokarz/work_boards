@@ -5,19 +5,19 @@ var StickerLayoutView = Backbone.Marionette.View.extend({
     template: _.template( $('#sticker-template').html()),
 
     ui: {
+        editBtn: '.js-edit-sticker',
         deleteBtn: '.js-delete-sticker',
-        addToBoardBtn: '.js-add-to-board',
-        boardBtn: '.boards-list-item'
+        addToBoardBtn: '.js-add-to-board'
     },
 
     events: {
-        'click': 'editSticker',
+        'click @ui.editBtn': 'editSticker',
         'click @ui.deleteBtn': 'deleteSticker',
-        'click @ui.addToBoardBtn': 'chooseBoards',
-        'click @ui.boardBtn': 'toggleBoard'
+        'click @ui.addToBoardBtn': 'chooseBoards'
     },
 
     editSticker: function() {
+        app.popupView.showContent('editSticker', this);
     },
 
     chooseBoards: function() {

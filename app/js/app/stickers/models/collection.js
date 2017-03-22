@@ -1,24 +1,12 @@
 var StickerCollection = Backbone.Collection.extend({
   model: Sticker,
 
-  workBoard: function(boardName){
-    //console.log('workBoard filter initialized')
-    //var boardMatrix = boardList.toJSON()]
-
-    var stickerList;
-    boardList.find(function(model){
-        if (model.get('title') === boardName){
-            return stickerList = model.toJSON().stickers
-        };
-    })
-
-    var filtered = this.filter(function(Sticker){
-        return _.contains(stickerList, Sticker.get('id'));
-    });
-
-    return new StickerCollection(filtered);
+  workBoard: function(id) {
+      var filtered = this.filter(function(sticker){
+          return _.contains(sticker.attributes.boards, parseInt(id));
+      });
+      return new StickerCollection(filtered);
   }
-
 });
 
 stickerCollection = new StickerCollection;      //all stickers

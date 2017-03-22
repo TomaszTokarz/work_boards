@@ -27,11 +27,13 @@ var LayoutView = Backbone.Marionette.View.extend({
         app.stickersView.render();
     },
 
-    renderBoard: function() {
-        //console.log(stickerCollection)
-        stickerCollection = stickerCollection.workBoard(name);
+    renderBoard: function(id) {
+        if (app.stickersView) {
+            app.stickersView.$el.html('');
+        };
+        stickerCollectionFiltered = stickerCollection.workBoard(id);
         app.stickersView = new StickerCollectionView({
-            collection: stickerCollection
+            collection: stickerCollectionFiltered
         });
         app.stickersView.render();
     },

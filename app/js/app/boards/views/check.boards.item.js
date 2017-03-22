@@ -10,6 +10,8 @@ var CheckBoardsItemView = Backbone.Marionette.View.extend({
     initialize: function() {
         if ($.inArray(this.model.id, this.options.sticker.model.attributes.boards) !== -1) {
             this.$el.addClass('activeBoard');
+        } else {
+            this.$el.removeClass('activeBoard');
         }
     },
 

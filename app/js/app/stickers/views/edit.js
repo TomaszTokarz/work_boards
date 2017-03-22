@@ -1,7 +1,8 @@
-var NewStickerLayoutView = Backbone.Marionette.View.extend({
+var EditStickerLayoutView = Backbone.Marionette.View.extend({
 
     el: '.js-popup-content',
-    template: _.template( $('#new-sticker-template').html()),
+    template: _.template( $('#edit-sticker-template').html()),
+
 
     ui: {
         title: '#sticker-title-input',
@@ -17,8 +18,11 @@ var NewStickerLayoutView = Backbone.Marionette.View.extend({
         'click @ui.addButton': 'addSticker'
     },
 
+    onRender: function() {
+        $('#sticker-description-input').html(this.model.attributes.content);
+    },
+
     addSticker: function() {
-        console.log('Add sticker - clicked');
         var data = {
             title: this.checkUndefined(this.ui.title.val()),
             //pictureSrc: this.checkUndefined(this.ui.pictureSrc.val()),
@@ -27,6 +31,7 @@ var NewStickerLayoutView = Backbone.Marionette.View.extend({
             content: this.checkUndefined(this.ui.content.val()),
             //tags: this.checkUndefined(this.ui.tags.val()),
             //workBoard: this.checkUndefined(this.ui.workBoard.val())
+            id: this.model.id
         };
         database.saveSticker(data);
         app.popupView.closePopup();

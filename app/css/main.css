@@ -71,7 +71,8 @@ table {
   width: 100%;
   position: fixed;
   background-image: url("../images/seigaiha.png");
-  background-attachment: fixed; }
+  background-attachment: fixed;
+  z-index: 50; }
   .header--logo {
     height: 2em;
     position: absolute;
@@ -154,13 +155,12 @@ table {
     position: absolute;
     right: 0.2em;
     top: 0.2em;
-    width: 2em; }
+    display: none; }
     .sticker-bar--menu-item {
-      position: relative;
+      float: left;
       background: #5bd32c;
       width: 2em;
       line-height: 2em;
-      margin-bottom: 0.2em;
       text-align: center;
       color: #fff; }
       .sticker-bar--menu-item:nth-child(1) {

@@ -58,6 +58,6 @@ var PopupView = Backbone.Marionette.View.extend({
         this.$el.html('');
         this.currentView.destroy();
         this.currentView = null;
-        Backbone.history.navigate('', {trigger: true});
+        Backbone.history.navigate(app.lastRoutes[0], {trigger: true});
     }
 });

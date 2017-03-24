@@ -4,7 +4,8 @@
   width: 100%;
   position: fixed;
   background-image: url("../images/seigaiha.png");
-  background-attachment: fixed; }
+  background-attachment: fixed;
+  z-index: 50; }
   .header--logo {
     height: 2em;
     position: absolute;

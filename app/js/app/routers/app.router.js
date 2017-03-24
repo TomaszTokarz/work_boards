@@ -6,5 +6,4 @@ var Router = Marionette.AppRouter.extend({
         'newsticker': 'newSticker',
         '': 'home'
     }
-
 });

@@ -4,12 +4,14 @@ var LayoutView = Backbone.Marionette.View.extend({
     template: _.template( $('#layout-template').html()),
     ui: {
         newStickerBtn: '.js-add-sticker-btn',
-        changeBoardBtn: '.js-change-board-btn'
+        changeBoardBtn: '.js-change-board-btn',
+        homeBtn: '.js-main-page-btn'
     },
 
     events: {
         'click @ui.newStickerBtn': 'newStickerView',
-        'click @ui.changeBoardBtn': 'boardsListView'
+        'click @ui.changeBoardBtn': 'boardsListView',
+        'click @ui.homeBtn': 'renderHome'
     },
 
     initialize: function() {
@@ -21,16 +23,16 @@ var LayoutView = Backbone.Marionette.View.extend({
     },
 
     renderHome: function() {
+        this.clearView();
         app.stickersView = new StickerCollectionView({
             collection: stickerCollection
         });
         app.stickersView.render();
+        Backbone.history.navigate('', {trigger: true});
     },
 
     renderBoard: function(id) {
-        if (app.stickersView) {
-            app.stickersView.$el.html('');
-        };
+        this.clearView();
         stickerCollectionFiltered = stickerCollection.workBoard(id);
         app.stickersView = new StickerCollectionView({
             collection: stickerCollectionFiltered
@@ -44,6 +46,12 @@ var LayoutView = Backbone.Marionette.View.extend({
 
     boardsListView: function() {
         Backbone.history.navigate('/boards', {trigger: true});
+    },
+
+    clearView: function() {
+        if (app.stickersView) {
+            app.stickersView.$el.html('');
+        };
     }
 
 });

@@ -1,7 +1,7 @@
 var CheckBoardsItemView = Backbone.Marionette.View.extend({
     tagName: 'li',
     className: 'boards-list-item js-check-boards-list-item',
-    template: _.template( $('#check-boards-list-template').html()),
+    template: _.template( $('#board-item-template').html()),
 
     events: {
         'click': 'toggleBoard'
@@ -12,7 +12,8 @@ var CheckBoardsItemView = Backbone.Marionette.View.extend({
             this.$el.addClass('activeBoard');
         } else {
             this.$el.removeClass('activeBoard');
-        }
+        };
+        $('.js-sticker-id').html('('+ this.options.sticker.model.attributes.id +') '+this.options.sticker.model.attributes.title)
     },
 
     toggleBoard: function() {

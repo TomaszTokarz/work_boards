@@ -5,7 +5,7 @@
   position: fixed;
   background-image: url("../images/seigaiha.png");
   background-attachment: fixed;
-  z-index: 50; }
+  z-index: 5; }
   .header--logo {
     height: 2em;
     position: absolute;
@@ -20,13 +20,13 @@
       height: 2em;
       cursor: pointer; }
   .header .search-bar {
-    background-color: rgba(180, 180, 230, 0.1);
+    background-color: rgba(235, 235, 245, 0.2);
     height: auto;
     font-size: 1.6em;
     width: 100%;
     text-align: center;
-    border: 0.05em solid #E6E6E6;
     cursor: pointer;
+    border: 2px solid #E6E6E6;
     -webkit-box-shadow: 0.08em 0.08em 0.04em #D9D9D9;
     -moz-box-shadow: 0.08em 0.08em 0.04em #D9D9D9;
     -ms-box-shadow: 0.08em 0.08em 0.04em #D9D9D9;

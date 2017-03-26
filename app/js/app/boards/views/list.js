@@ -8,7 +8,7 @@ var BoardsListView = Backbone.Marionette.CompositeView.extend( {
 
     ui: {
         newBoardBtn: '.js-add-board-btn',
-        title: '.new-board-name'
+        title: '.js-new-board-name'
     },
 
     events: {

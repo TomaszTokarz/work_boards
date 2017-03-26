@@ -5,15 +5,19 @@
   color: #333; }
 
 .main {
-  padding-top: 2.5em; }
+  padding-top: 2.7em; }
 
 .templates--container {
   display: none; }
 
 .columns {
-  min-width: 320px;
   width: 98%;
   margin: auto;
   -webkit-column-width: 15.5em;
   -moz-column-width: 15.5em;
-  column-width: 15.5em; }
+  column-width: 15.5em;
+  -webkit-column-gap: 1em;
+  /* Chrome, Safari, Opera */
+  -moz-column-gap: 1em;
+  /* Firefox */
+  column-gap: 1em; }

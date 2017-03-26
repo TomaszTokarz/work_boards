@@ -4,22 +4,19 @@
     width: $sticker-width;
     background-color: $sticker-background-color;
     position: relative;
-    margin: 0.2em;
-    overflow: hidden;
-    //@include border-radius(0.25em);
+    margin-bottom: 0.8em;
     display: inline-block;
     cursor: pointer;
+    z-index: 0;
     @include shadow(0.15em);
     @include column-brake-inside(avoid);
-    z-index: 0;
 
     &:hover {
         background-color: $sticker-background-color--hover;
     }
 
     &:hover > &-bar {
-        display: block;
-        height: auto;
+        @include show(1, 0.30s);
     }
 
     &--title {
@@ -65,31 +62,29 @@
         position: absolute;
         right: 0.2em;
         top: 0.2em;
-        display: none;
+        opacity: 0;
 
         &--menu {
             &-item {
-                // display: block;
                 float: left;
-                // position: relative;
-                background: #5bd32c;
+                background: $sticker-bar-edit-background;
                 width: 2em;
                 line-height: 2em;
-                // margin-bottom: 0.2em;
+                margin-right: 0.2em;
                 text-align: center;
                 color: #fff;
 
                 &:nth-child(1) {
-                    background: #2c7dd3;
+                    background: $sticker-bar-boards-background;
                 }
 
                 &:nth-child(2) {
-                    background: #dd1919;
+                    background: $sticker-bar-delete-background;
                 }
 
                 &:hover {
-                    // transform: translate(0.2em, .2em);
-                    // Transform works only in 1'st column
+                    @include zoom(1.2);
+                    transition-duration: 0.2s;
                 }
             }
         }

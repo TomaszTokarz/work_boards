@@ -1,6 +1,6 @@
 @import 'style_set';
 
-// Styles
+
 .body {
     background-image: $main-background-src;
     background-attachment: fixed;
@@ -9,7 +9,7 @@
 }
 
 .main {
-    padding-top: 2.5em;
+    padding-top: 2.7em;
 }
 
 .templates--container {
@@ -17,8 +17,8 @@
 }
 
 .columns {
-    min-width: 320px;
     width: 98%;
-	   margin: auto;
+	margin: auto;
     @include column-width();
+    @include column-gap(1em);
 }

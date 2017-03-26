@@ -20,12 +20,11 @@ var PopupView = Backbone.Marionette.View.extend({
             break;
 
             case 'chooseBoards':
-            console.log(sticker.model.id)
                 if (!sticker.model.id && sticker.model.id != '0') {
                     console.error('There is no defined sticker at the choose board module');
                     debugger;
                 };
-
+                
                 this.currentView = new CheckBoardsListView({
                     childViewOptions: {
                         sticker: sticker

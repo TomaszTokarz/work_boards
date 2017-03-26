@@ -2,23 +2,26 @@
   width: 15.5em;
   background-color: rgba(255, 255, 255, 0.4);
   position: relative;
-  margin: 0.2em;
-  overflow: hidden;
+  margin-bottom: 0.8em;
   display: inline-block;
   cursor: pointer;
+  z-index: 0;
   -webkit-box-shadow: 0.15em 0.15em 0.075em #D9D9D9;
   -moz-box-shadow: 0.15em 0.15em 0.075em #D9D9D9;
   -ms-box-shadow: 0.15em 0.15em 0.075em #D9D9D9;
   box-shadow: 0.15em 0.15em 0.075em #D9D9D9;
   -webkit-column-break-inside: avoid;
   page-break-inside: avoid;
-  break-inside: avoid;
-  z-index: 0; }
+  break-inside: avoid; }
   .sticker:hover {
     background-color: white; }
   .sticker:hover > .sticker-bar {
-    display: block;
-    height: auto; }
+    opacity: 1;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -moz-transition: opacity 0.3s ease-in-out;
+    -ms-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out; }
   .sticker--title {
     text-align: center;
     font-size: 1.2em;
@@ -48,15 +51,21 @@
     position: absolute;
     right: 0.2em;
     top: 0.2em;
-    display: none; }
+    opacity: 0; }
     .sticker-bar--menu-item {
       float: left;
       background: #5bd32c;
       width: 2em;
       line-height: 2em;
+      margin-right: 0.2em;
       text-align: center;
       color: #fff; }
       .sticker-bar--menu-item:nth-child(1) {
         background: #2c7dd3; }
       .sticker-bar--menu-item:nth-child(2) {
         background: #dd1919; }
+      .sticker-bar--menu-item:hover {
+        -ms-transform: scale(1.2, 1.2);
+        -webkit-transform: scale(1.2, 1.2);
+        transform: scale(1.2, 1.2);
+        transition-duration: 0.2s; }

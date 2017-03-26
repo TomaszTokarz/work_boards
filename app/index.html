@@ -23,7 +23,6 @@
     <!--[if lt IE 10]>
         <p class='browsehappy'>You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
     <div class='check-boards-list js-check-boards'></div>
 
     <div class='popup--wrapper js-popup-wrapper'></div>
@@ -61,9 +60,15 @@
         <script type='text/template' id='sticker-template'>
             <div class='sticker-bar'>
                 <ul class='sticker-bar--menu'>
-                    <li class='sticker-bar--menu-item js-edit-sticker'>E</li>
-                    <li class='sticker-bar--menu-item js-add-to-board'>A</li>
-                    <li class='sticker-bar--menu-item js-delete-sticker'>D</li>
+                    <li class='sticker-bar--menu-item js-edit-sticker'>
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </li>
+                    <li class='sticker-bar--menu-item js-add-to-board'>
+                        <i class="fa fa-list-alt" aria-hidden="true"></i>
+                    </li>
+                    <li class='sticker-bar--menu-item js-delete-sticker'>
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </li>
                 </ul>
             </div>
             <h3 class='sticker--title'><%= title %></h3>
@@ -97,34 +102,30 @@
             <h3 class='popup-title'>Boards List</h3>
             <ul class='boards-list js-boards-list'></ul>
             <h2 class='boards-list-add'>Add new board</h2>
-            <input class='boards-list-add-title-input new-board-name' type='text' autocomplete='off' placeholder='new board name' id='new-board-name'></input>
-            <img src='images/board-add.png' class='boards-list-add-btn js-add-board-btn'/>
-
-
+            <input class='boards-list-add-title js-new-board-name' type='text' autocomplete='off' placeholder='new board name' id='js-new-board-name'></input>
+            <div class='boards-list-add-btn js-add-board-btn'>
+                <i class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i>
+            </div>
         </script>
         <!-- TEMPLATE END -->
 
         <!-- TEMPLATE -->
         <script type='text/template' id='board-item-template'>
-            <span><%= title %></span>
+            <span class='js-check-board-title'><%= title %></span>
         </script>
         <!-- TEMPLATE END -->
 
         <!-- TEMPLATE -->
         <script type='text/template' id='check-boards-template'>
             <h3 class='popup-title'>Add sticker:</h3>
-            <h2 class='boards-list-add'></h2>
+            <h2 class='boards-list-add js-sticker-id'></h2>
             <h2 class='boards-list-add'>To boards:</h2>
-            <ul class='js-check-boards-list'></ul>
+            <ul class='boards-list js-check-boards-list'></ul>
             <h2 class='boards-list-add'>Add new board</h2>
-            <input class='boards-list-add-title-input new-board-name' type='text' autocomplete='off' placeholder='new board name' id='new-board-name'></input>
-            <img src='images/board-add.png' class='boards-list-add-btn js-add-board-btn'/>
-        </script>
-        <!-- TEMPLATE END -->
-
-        <!-- TEMPLATE -->
-        <script type='text/template' id='check-boards-list-template'>
-            <span class='js-check-board-title' value='<%= id %>'><%= title %></span>
+            <input class='boards-list-add-title js-new-board-name' type='text' autocomplete='off' placeholder='new board name' id='js-new-board-name'></input>
+            <div class='boards-list-add-btn js-add-board-btn'>
+                <i class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i>
+            </div>
         </script>
         <!-- TEMPLATE END -->
 
@@ -140,11 +141,16 @@
         <!-- TEMPLATE -->
         <script type='text/template' id='new-sticker-template'>
             <div class='popup-title'>
-                <span>New sticker</span>
+                <% if (typeof(id) !== 'undefined') { %>
+                    <span>Edit sticker:</span><br />
+                    <span><%= title %> (<%= id %>)</span>
+                <% } else { %>
+                    <span>Add sticker:</span>
+                <% } %>
             </div>
             <div class='popup-subtitle'>
                 <span>Title</span>
-                <input class='popup-input' id='sticker-title-input' type='text' autocomplete='off' placeholder=''></input>
+                <input class='popup-input' id='sticker-title-input' type='text' autocomplete='off' placeholder='' value='<% if (typeof(title) !== 'undefined') {%><%= title %><%} %>'></input>
             </div>
             <div class='popup-subtitle'>
                 <span>Place an image</span>
@@ -152,9 +158,9 @@
             </div>
             <div class='popup-subtitle'>
                 <span>Link source</span>
-                <input class='popup-input' id='sticker-link-input' type='text' autocomplete='off' placeholder=''></input>
+                <input class='popup-input' id='sticker-link-input' type='text' autocomplete='off' placeholder='' value='<% if (typeof(link) !== 'undefined') {%><%= link %><%} %>'></input>
                 <span>Link description</span>
-                <input class='popup-input' id='sticker-link-description-input' type='text' autocomplete='off' placeholder=''></input>
+                <input class='popup-input' id='sticker-link-description-input' type='text' autocomplete='off' placeholder='' value='<% if (typeof(linkDesc) !== 'undefined') {%><%= linkDesc %><%} %>'></input>
             </div>
             <div class='popup-subtitle'>
                 <span>Content</span>
@@ -170,39 +176,7 @@
         </script>
         <!-- TEMPLATE END -->
 
-        <!-- TEMPLATE -->
 
-        <script type='text/template' id='edit-sticker-template'>
-            <div class='popup-title'>
-                <span>Edit sticker with id: <%= id %></span>
-            </div>
-            <div class='popup-subtitle'>
-                <span>Title</span>
-                <input class='popup-input' id='sticker-title-input' type='text' autocomplete='off' placeholder='' value="<% if (title) {%><%= title %><%} %>"></input>
-            </div>
-            <div class='popup-subtitle'>
-                <span>Place an image</span>
-                <input class='popup-input' type='file' name='fileupload' value='fileupload' id='fileupload'></input>
-            </div>
-            <div class='popup-subtitle'>
-                <span>Link source</span>
-                <input class='popup-input' id='sticker-link-input' type='text' autocomplete='off' placeholder='' value="<% if (link) {%><%= link %><%} %>"></input>
-                <span>Link description</span>
-                <input class='popup-input' id='sticker-link-description-input' type='text' autocomplete='off' placeholder='' value="<% if (linkDesc) {%><%= linkDesc %><%} %>"></input>
-            </div>
-            <div class='popup-subtitle'>
-                <span>Content</span>
-                <textarea class='popup-textarea' id='sticker-description-input' type='text'></textarea>
-            </div>
-            <div class='popup-subtitle'>
-                <span>Tags</span>
-            </div>
-            <div class='popup-subtitle'>
-                <div class='new-sticker--button'>Clear</div>
-                <div class='new-sticker--button js-add-new-sticker'>Add sticker</div>
-            </div>
-        </script>
-        <!-- TEMPLATE END -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <!-- <script>

@@ -7,7 +7,7 @@
     position: fixed;
     background-image: $main-background-src;
     background-attachment: fixed;
-    z-index: 50;
+    z-index: 5;
 
     &--logo {
         height: 2em;
@@ -34,8 +34,8 @@
         font-size: 1.6em;
         width: 100%;
         text-align: center;
-        border: $search-bar-border;
         cursor: pointer;
+        @include main-border();
         @include shadow(0.08em);
 
         &--container {

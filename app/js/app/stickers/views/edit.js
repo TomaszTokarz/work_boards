@@ -1,8 +1,7 @@
 var EditStickerLayoutView = Backbone.Marionette.View.extend({
 
     el: '.js-popup-content',
-    template: _.template( $('#edit-sticker-template').html()),
-
+    template: _.template( $('#new-sticker-template').html()),
 
     ui: {
         title: '#sticker-title-input',

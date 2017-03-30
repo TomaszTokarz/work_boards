@@ -23,21 +23,12 @@ var LayoutView = Backbone.Marionette.View.extend({
     },
 
     renderHome: function() {
-        this.clearView();
-        app.stickersView = new StickerCollectionView({
-            collection: stickerCollection
-        });
-        app.stickersView.render();
+        this.loadStickersList(stickerCollection);
         Backbone.history.navigate('', {trigger: true});
     },
 
     renderBoard: function(id) {
-        this.clearView();
-        stickerCollectionFiltered = stickerCollection.workBoard(id);
-        app.stickersView = new StickerCollectionView({
-            collection: stickerCollectionFiltered
-        });
-        app.stickersView.render();
+        this.loadStickersList(stickerCollection.workBoard(id));
     },
 
     newStickerView: function() {
@@ -48,10 +39,15 @@ var LayoutView = Backbone.Marionette.View.extend({
         Backbone.history.navigate('/boards', {trigger: true});
     },
 
-    clearView: function() {
+    loadStickersList: function(collection) {
         if (app.stickersView) {
-            app.stickersView.$el.html('');
-        };
+            app.stickersView.collection = collection;
+        } else {
+            app.stickersView = new StickerCollectionView({
+                collection: collection
+            });
+        }
+        app.stickersView.render();
     }
 
 });

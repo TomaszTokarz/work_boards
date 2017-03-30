@@ -24,7 +24,7 @@ var PopupView = Backbone.Marionette.View.extend({
                     console.error('There is no defined sticker at the choose board module');
                     debugger;
                 };
-                
+
                 this.currentView = new CheckBoardsListView({
                     childViewOptions: {
                         sticker: sticker
@@ -56,7 +56,7 @@ var PopupView = Backbone.Marionette.View.extend({
     closePopup: function() {
         this.$el.html('');
         this.currentView.destroy();
-        this.currentView = null;
+        console.log(app.lastRoutes);
         Backbone.history.navigate(app.lastRoutes[0], {trigger: true});
     }
 });

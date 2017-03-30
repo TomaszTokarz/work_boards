@@ -16,12 +16,14 @@ var defaultDatabase = defaultApp.database();
 var database = {
     saveSticker: function(data, stickerId) {
         if (!data.id && data.id != '0') {
-            firebase.database().ref('id').once('value', function(snapshot){
+            firebase.database().ref('id').once('value', function(snapshot) {
                 data.id = parseInt(snapshot.val());
-                firebase.database().ref('id').set(data.id+1);
+                firebase.database().ref('id').set(data.id + 1);
+                firebase.database().ref('Stickers/' + data.id).set(data);
             });
+        } else {
+            firebase.database().ref('Stickers/' + data.id).set(data);
         }
-        firebase.database().ref('Stickers/' + data.id).set(data);
     },
 
     toggleBoard: function(sticker, boardId) {

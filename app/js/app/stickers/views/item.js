@@ -16,6 +16,12 @@ var StickerLayoutView = Backbone.Marionette.View.extend({
         'click @ui.addToBoardBtn': 'chooseBoards'
     },
 
+    onDomRefresh: function() {
+        setTimeout(function() {
+            this.$el.addClass('animated');
+        }.bind(this), 100 * this._index);
+    },
+
     editSticker: function() {
         app.popupView.showContent('editSticker', this);
     },

@@ -11,9 +11,9 @@ var app = {
         app.layout.renderHome();
 
         app.router.on('route', function() {
+            console.log(Backbone.history.fragment);
             app.lastRoutes.push(Backbone.history.fragment);
             app.lastRoutes.splice(0,1);
-            //console.log();
         })
     }
 };

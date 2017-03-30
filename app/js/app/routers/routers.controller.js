@@ -1,5 +1,5 @@
 var Controller = Marionette.Object.extend({
-    
+
     boardlist: function() {
         app.layout.showPopup('boards');
     },
@@ -13,10 +13,6 @@ var Controller = Marionette.Object.extend({
     },
 
     home: function() {
-        console.log('home route')
-        if (app.stickersView) {
-            app.stickersView.$el.html('');
-        };
         app.layout.renderHome();
     }
 });

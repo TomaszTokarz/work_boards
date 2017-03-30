@@ -9,4 +9,4 @@ var StickerCollection = Backbone.Collection.extend({
   }
 });
 
-stickerCollection = new StickerCollection;      //all stickers
+stickerCollection = new StickerCollection();      //all stickers

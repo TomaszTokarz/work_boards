@@ -4,6 +4,6 @@ var Router = Marionette.AppRouter.extend({
         'boards': 'boardlist',
         'board/:id': 'boardId',
         'newsticker': 'newSticker',
-        '': 'home'
+        '*path': 'home'
     }
 });

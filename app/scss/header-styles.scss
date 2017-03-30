@@ -1,16 +1,16 @@
 @import 'style_set';
 
 .header {
-    padding: 0.25em;
-    height: 2em;
     width: 100%;
     position: fixed;
-    background-image: $main-background-src;
+    background: #fff;
+    padding: 0.5em;
     background-attachment: fixed;
     z-index: 5;
 
+
     &--logo {
-        height: 2em;
+        height: 1.75em;
         position: absolute;
         left: 1em;
         cursor: pointer;
@@ -18,29 +18,40 @@
 
     &--menu-right {
         position: absolute;
-        margin: 0.25em;
-        top: 0;
-        right: 1em;
+        font-size: 1.5em;
+        top: 0.35em;
+        right: 1.5em;
 
         &--btn {
-            height: 2em;
+            display: inline-block;
+            height: 1em;
+            padding: 0.2em 0.05em;
+            line-height: 1em;
             cursor: pointer;
+            @include transition(all 0.2s ease-in);
+
+            &:hover {
+                color: #b01f24;
+            }
         }
     }
 
     .search-bar {
-        background-color: $search-bar-background-color;
-        height: auto;
-        font-size: 1.6em;
+        background-color: #e1e1e1;
+        height: 2em;
+        line-height: 2em;
+        font-size: 0.8em;
+        font-weight: 100;
         width: 100%;
         text-align: center;
         cursor: pointer;
+        outline: none;
+
         @include main-border();
-        @include shadow(0.08em);
 
         &--container {
             display: block;
-            margin: 0 8em 0 3em;
+            margin: 0 6em 0 3em;
             width: auto;
         }
 

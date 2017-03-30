@@ -76,6 +76,21 @@ $font-size--big: 24px;
         transform: scale($scale, $scale);
 }
 
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+@mixin transform($transforms) {
+	   -moz-transform: $transforms;
+	     -o-transform: $transforms;
+	    -ms-transform: $transforms;
+	-webkit-transform: $transforms;
+          transform: $transforms;
+}
+
 @mixin sticker-underline() {
     border-bottom: 2px solid #f1f1f1;
 }

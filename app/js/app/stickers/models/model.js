@@ -7,9 +7,5 @@ var Sticker = Backbone.Model.extend({
         content: '',
         tags: '',
         boards: []
-    },
-    
-    initialize: function(){
-        console.log('New sticker added');
     }
 });

@@ -8,8 +8,16 @@
     display: inline-block;
     cursor: pointer;
     z-index: 0;
+    opacity: 0;
     @include shadow(0.15em);
     @include column-brake-inside(avoid);
+    @include transition(all 0.5s linear);
+    @include transform(translate(0, 10px));
+
+    &.animated {
+        opacity: 1;
+        @include transform(translate(0, 0));
+    }
 
     &:hover {
         background-color: $sticker-background-color--hover;

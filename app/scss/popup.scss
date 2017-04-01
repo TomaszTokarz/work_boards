@@ -7,30 +7,41 @@
     display: flex;
     align-items: center;
     position: fixed;
-    top: 0;
-    left: 0;
     z-index: 10;
+    opacity: 0;
+    @include transition(all 0.5s);
+
+    &-active:hover {
+        //FIXME: it doesn't work without :hover
+        opacity: 1;
+    }
 
     &-title {
-        font-size: 1.5em;
+        font-size: 1.2em;
         text-align: center;
-        margin: 0.2em 0;
-        padding-bottom: 0.2em;
+        padding: 0.5em;
         @include sticker-underline();
+        font-style: italic;
     }
 
     &-subtitle {
-        font-size: 1.2em;
-        text-align: center;
-        margin: 0.5em 0 0.2em 0;
+        display: inline-block;
+        position: relative;
+        float: right;
+        color: $color-red;
+        top: 0.4em;
+        right: 1.2em;
+        font-size: 0.8em;
+        background-color: #fff;
+        padding: 0 0.3em;
     }
 
     &-input {
         font-size: 1em;
         display: block;
-        width: 90%;
+        width: 85%;
         margin: 0.2em auto;
-        cursor: pointer;
+        padding: 0.3em;
         @include main-border();
     }
 
@@ -106,14 +117,58 @@
     }
 
     &-button {
-        margin: 0.3em;
-        padding: 0.5em;
+        position: relative;
+        float: right;
+        bottom: -1em;
+        right: -1em;
+        padding: 0.6em 0;
+        margin:auto;
+        width: 7em;
+        font-size: 1.5em;
         cursor: pointer;
+        background-color: $color-red;
+        color: $color-white;
         transition-duration: 0.5s;
-        @include main-border();
+        text-align: center;
+        @include transition(opacity 0.5s);
+        //border: 0.1em solid $color-red;
+
+        &-save{
+            display: inline-block;
+            @include transition(all 0.5s ease-out);
+            @include transform(translate(0.5em, 0));
+        }
+
+        &:hover > &-save{
+            @include transform(translate(-5em, 0));
+            opacity: 0;
+        }
+
+        &:hover > &-hovered{
+            @include transform(translate(-1em, 0));
+            opacity: 1;
+        }
+
+        &-hovered {
+            display: inline-block;
+            @include transition(all 0.5s ease-out);
+            @include transform(translate(5em, 0));
+            opacity: 0;
+        }
+    }
+
+    &-button-clear {
+        display: inline-block;
+        float: left;
+        position: relative;
+        top: 1.5em;
+        left: 1em;
+        border-bottom: 2px solid $color-red;
+        cursor: pointer;
+        @include transition(all 0.5s ease-in-out);
 
         &:hover {
-            background-color: #f3f3ff;
+            @include zoom(1.5)
         }
     }
 }

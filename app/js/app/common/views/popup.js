@@ -11,6 +11,11 @@ var PopupView = Backbone.Marionette.View.extend({
         'click @ui.closeBtn': 'closePopup'
     },
 
+    onDomRefresh: function() {
+        //console.log(this.$el.children())
+        this.$el.children().addClass('popup-active');
+    },
+
     showContent: function(content, sticker) {
         this.render();
 
@@ -56,7 +61,7 @@ var PopupView = Backbone.Marionette.View.extend({
     closePopup: function() {
         this.$el.html('');
         this.currentView.destroy();
-        console.log(app.lastRoutes);
+        //console.log(app.lastRoutes);
         Backbone.history.navigate(app.lastRoutes[0], {trigger: true});
     }
 });

@@ -12,6 +12,13 @@ var Controller = Marionette.Object.extend({
         app.layout.showPopup('newSticker');
     },
 
+    editSticker: function(id) {
+    },
+
+    chooseBoards: function() {
+        console.log('chooseBoards router')
+    },
+
     home: function() {
         app.layout.renderHome();
     }

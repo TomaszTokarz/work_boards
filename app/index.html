@@ -151,30 +151,26 @@
                     <span>Add sticker:</span>
                 <% } %>
             </div>
-            <div class='popup-subtitle'>
-                <span>Title</span>
-                <input class='popup-input' id='sticker-title-input' type='text' autocomplete='off' placeholder='' value='<% if (typeof(title) !== 'undefined') {%><%= title %><%} %>'></input>
-            </div>
-            <div class='popup-subtitle'>
-                <span>Place an image</span>
-                <input class='popup-input' type='file' name='fileupload' value='fileupload' id='fileupload'></input>
-            </div>
-            <div class='popup-subtitle'>
-                <span>Link source</span>
-                <input class='popup-input' id='sticker-link-input' type='text' autocomplete='off' placeholder='' value='<% if (typeof(link) !== 'undefined') {%><%= link %><%} %>'></input>
-                <span>Link description</span>
-                <input class='popup-input' id='sticker-link-description-input' type='text' autocomplete='off' placeholder='' value='<% if (typeof(linkDesc) !== 'undefined') {%><%= linkDesc %><%} %>'></input>
-            </div>
-            <div class='popup-subtitle'>
-                <span>Content</span>
-                <textarea class='popup-textarea' id='sticker-description-input' rows='4'></textarea>
-            </div>
-            <div class='popup-subtitle'>
-                <span>Tags</span>
-            </div>
-            <div class='popup-subtitle new-sticker-bar'>
-                <div class='new-sticker-button'>Clear</div>
-                <div class='new-sticker-button js-add-new-sticker'>Add sticker</div>
+
+            <span class='popup-subtitle'>Title</span>
+            <input class='popup-input' id='sticker-title-input' type='text' autocomplete='off' placeholder='' value='<% if (typeof(title) !== 'undefined') {%><%= title %><%} %>'></input>
+
+            <span class='popup-subtitle'>Place an image</span>
+            <input class='popup-input' type='file' name='fileupload' value='fileupload' id='fileupload'></input>
+
+            <span class='popup-subtitle'>Link source</span>
+            <input class='popup-input' id='sticker-link-input' type='text' autocomplete='off' placeholder='' value='<% if (typeof(link) !== 'undefined') {%><%= link %><%} %>'></input>
+
+            <span class='popup-subtitle'>Link description</span>
+            <input class='popup-input' id='sticker-link-description-input' type='text' autocomplete='off' placeholder='' value='<% if (typeof(linkDesc) !== 'undefined') {%><%= linkDesc %><%} %>'></input>
+
+            <span class='popup-subtitle'>Content</span>
+            <textarea class='popup-textarea' id='sticker-description-input' rows='4'></textarea>
+
+            <div class='new-sticker-button-clear'>Clear</div>
+            <div class='new-sticker-button js-add-new-sticker'>
+                <span class='new-sticker-button-save'>Save</span>
+                <span class='new-sticker-button-hovered'><i class="fa fa-floppy-o" aria-hidden="true"></i></span>
             </div>
         </script>
         <!-- TEMPLATE END -->

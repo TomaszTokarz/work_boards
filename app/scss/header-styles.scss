@@ -31,7 +31,7 @@
             @include transition(all 0.2s ease-in);
 
             &:hover {
-                color: #b01f24;
+                color: $color-red;
             }
         }
     }

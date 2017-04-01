@@ -22,7 +22,7 @@ var EditStickerLayoutView = Backbone.Marionette.View.extend({
     },
 
     addSticker: function() {
-        var data = {
+        database.saveSticker({
             title: this.ui.title.val() || '',
             //pictureSrc: this.checkUndefined(this.ui.pictureSrc.val()),
             link: this.ui.link.val() || '',
@@ -31,8 +31,7 @@ var EditStickerLayoutView = Backbone.Marionette.View.extend({
             //tags: this.checkUndefined(this.ui.tags.val()),
             //workBoard: this.checkUndefined(this.ui.workBoard.val())
             id: this.model.id
-        };
-        database.saveSticker(data);
+        });        
         app.popupView.closePopup();
     }
 });

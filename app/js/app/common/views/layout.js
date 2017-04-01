@@ -49,5 +49,4 @@ var LayoutView = Backbone.Marionette.View.extend({
         }
         app.stickersView.render();
     }
-
 });

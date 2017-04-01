@@ -25,7 +25,10 @@ $breakpoint--medium: 768px;
 $breakpoint--big: 1200px;
 $font-size--small: 12px;
 $font-size--medium: 18px;
-$font-size--big: 24px;
+$font-size--big: 1.45vw;
+
+$color-red: #b01f24;
+$color-white: #fff;
 
 
 
@@ -56,18 +59,18 @@ $font-size--big: 24px;
 }
 
 @mixin column-gap($width) {
-    -webkit-column-gap: $width; /* Chrome, Safari, Opera */
-       -moz-column-gap: $width; /* Firefox */
+    -webkit-column-gap: $width;
+       -moz-column-gap: $width;
             column-gap: $width;
 }
 
 @mixin show($opacity, $duration) {
     opacity: $opacity;
-    -webkit-transition: opacity $duration ease-in-out;
-       -moz-transition: opacity $duration ease-in-out;
-        -ms-transition: opacity $duration ease-in-out;
-         -o-transition: opacity $duration ease-in-out;
-            transition: opacity $duration ease-in-out;
+    -webkit-transition: opacity $duration ease-out;
+       -moz-transition: opacity $duration ease-out;
+        -ms-transition: opacity $duration ease-out;
+         -o-transition: opacity $duration ease-out;
+            transition: opacity $duration ease-out;
 }
 
 @mixin zoom($scale) {
@@ -76,11 +79,11 @@ $font-size--big: 24px;
         transform: scale($scale, $scale);
 }
 
-@mixin transition($transition...) {
-    -moz-transition:    $transition;
-    -o-transition:      $transition;
+@mixin transition($transition) {
+       -moz-transition: $transition;
+         -o-transition: $transition;
     -webkit-transition: $transition;
-    transition:         $transition;
+            transition: $transition;
 }
 
 @mixin transform($transforms) {
@@ -88,16 +91,11 @@ $font-size--big: 24px;
 	     -o-transform: $transforms;
 	    -ms-transform: $transforms;
 	-webkit-transform: $transforms;
-          transform: $transforms;
+            transform: $transforms;
 }
 
 @mixin sticker-underline() {
     border-bottom: 2px solid #f1f1f1;
-}
-
-@mixin button() {
-    font-size: $new-sticker-input-size;
-    @include border-radius(0.25em);
 }
 
 @mixin main-border() {

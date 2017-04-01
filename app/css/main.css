@@ -65,9 +65,7 @@ table {
   -moz-column-width: 15.5em;
   column-width: 15.5em;
   -webkit-column-gap: 1em;
-  /* Chrome, Safari, Opera */
   -moz-column-gap: 1em;
-  /* Firefox */
   column-gap: 1em; }
 
 .header {
@@ -133,10 +131,10 @@ table {
   -webkit-column-break-inside: avoid;
   page-break-inside: avoid;
   break-inside: avoid;
-  -moz-transition: all 0.5s linear;
-  -o-transition: all 0.5s linear;
-  -webkit-transition: all 0.5s linear;
-  transition: all 0.5s linear;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
   -moz-transform: translate(0, 10px);
   -o-transform: translate(0, 10px);
   -ms-transform: translate(0, 10px);
@@ -153,11 +151,11 @@ table {
     background-color: white; }
   .sticker:hover > .sticker-bar {
     opacity: 1;
-    -webkit-transition: opacity 0.3s ease-in-out;
-    -moz-transition: opacity 0.3s ease-in-out;
-    -ms-transition: opacity 0.3s ease-in-out;
-    -o-transition: opacity 0.3s ease-in-out;
-    transition: opacity 0.3s ease-in-out; }
+    -webkit-transition: opacity 0.3s ease-out;
+    -moz-transition: opacity 0.3s ease-out;
+    -ms-transition: opacity 0.3s ease-out;
+    -o-transition: opacity 0.3s ease-out;
+    transition: opacity 0.3s ease-out; }
   .sticker--title {
     text-align: center;
     font-size: 1.2em;
@@ -221,25 +219,36 @@ table {
   display: flex;
   align-items: center;
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10; }
+  z-index: 10;
+  opacity: 0;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s; }
+  .popup-active:hover {
+    opacity: 1; }
   .popup-title {
-    font-size: 1.5em;
-    text-align: center;
-    margin: 0.2em 0;
-    padding-bottom: 0.2em;
-    border-bottom: 2px solid #f1f1f1; }
-  .popup-subtitle {
     font-size: 1.2em;
     text-align: center;
-    margin: 0.5em 0 0.2em 0; }
+    padding: 0.5em;
+    border-bottom: 2px solid #f1f1f1;
+    font-style: italic; }
+  .popup-subtitle {
+    display: inline-block;
+    position: relative;
+    float: right;
+    color: #b01f24;
+    top: 0.4em;
+    right: 1.2em;
+    font-size: 0.8em;
+    background-color: #fff;
+    padding: 0 0.3em; }
   .popup-input, .popup-textarea {
     font-size: 1em;
     display: block;
-    width: 90%;
+    width: 85%;
     margin: 0.2em auto;
-    cursor: pointer;
+    padding: 0.3em;
     border: 2px solid #E6E6E6; }
   .popup-textarea {
     font-size: 0.8em;
@@ -291,13 +300,77 @@ table {
   justify-content: space-between; }
 
 .new-sticker-button {
-  margin: 0.3em;
-  padding: 0.5em;
+  position: relative;
+  float: right;
+  bottom: -1em;
+  right: -1em;
+  padding: 0.6em 0;
+  margin: auto;
+  width: 7em;
+  font-size: 1.5em;
   cursor: pointer;
+  background-color: #b01f24;
+  color: #fff;
   transition-duration: 0.5s;
-  border: 2px solid #E6E6E6; }
-  .new-sticker-button:hover {
-    background-color: #f3f3ff; }
+  text-align: center;
+  -moz-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s; }
+  .new-sticker-button-save {
+    display: inline-block;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    -webkit-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+    -moz-transform: translate(0.5em, 0);
+    -o-transform: translate(0.5em, 0);
+    -ms-transform: translate(0.5em, 0);
+    -webkit-transform: translate(0.5em, 0);
+    transform: translate(0.5em, 0); }
+  .new-sticker-button:hover > .new-sticker-button-save {
+    -moz-transform: translate(-5em, 0);
+    -o-transform: translate(-5em, 0);
+    -ms-transform: translate(-5em, 0);
+    -webkit-transform: translate(-5em, 0);
+    transform: translate(-5em, 0);
+    opacity: 0; }
+  .new-sticker-button:hover > .new-sticker-button-hovered {
+    -moz-transform: translate(-1em, 0);
+    -o-transform: translate(-1em, 0);
+    -ms-transform: translate(-1em, 0);
+    -webkit-transform: translate(-1em, 0);
+    transform: translate(-1em, 0);
+    opacity: 1; }
+  .new-sticker-button-hovered {
+    display: inline-block;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    -webkit-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+    -moz-transform: translate(5em, 0);
+    -o-transform: translate(5em, 0);
+    -ms-transform: translate(5em, 0);
+    -webkit-transform: translate(5em, 0);
+    transform: translate(5em, 0);
+    opacity: 0; }
+
+.new-sticker-button-clear {
+  display: inline-block;
+  float: left;
+  position: relative;
+  top: 1.5em;
+  left: 1em;
+  border-bottom: 2px solid #b01f24;
+  cursor: pointer;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out; }
+  .new-sticker-button-clear:hover {
+    -ms-transform: scale(1.5, 1.5);
+    -webkit-transform: scale(1.5, 1.5);
+    transform: scale(1.5, 1.5); }
 
 .activeBoard {
   color: lightgreen;

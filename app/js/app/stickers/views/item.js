@@ -24,10 +24,12 @@ var StickerLayoutView = Backbone.Marionette.View.extend({
 
     editSticker: function() {
         app.popupView.showContent('editSticker', this);
+        Backbone.history.navigate('editsticker/' + this.model.attributes.id, {trigger: true});
     },
 
     chooseBoards: function() {
         app.popupView.showContent('chooseBoards', this);
+        Backbone.history.navigate('chooseboards', {trigger: true});
     },
 
     deleteSticker: function() {

@@ -1,7 +1,7 @@
 var CheckBoardsListView = Backbone.Marionette.CompositeView.extend( {
     el: '.js-popup-content',
-    template: _.template( $('#check-boards-template').html()),
-    childViewContainer: '.js-check-boards-list',
+    template: _.template( $('#boards-list-template').html()),
+    childViewContainer: '.js-boards-list',
     childView: CheckBoardsItemView,
     collection: boardList,
 
@@ -29,5 +29,4 @@ var CheckBoardsListView = Backbone.Marionette.CompositeView.extend( {
             database.saveBoard(data);
         }
     }
-
 });

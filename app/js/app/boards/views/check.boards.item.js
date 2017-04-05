@@ -7,17 +7,26 @@ var CheckBoardsItemView = Backbone.Marionette.View.extend({
         'click': 'toggleBoard'
     },
 
+    onRender: function() {
+        this.$('.js-check-board-counter').html(function() {
+            return database.countStickers(this.model.id);
+        }.bind(this));
+    },
+
     initialize: function() {
         if ($.inArray(this.model.id, this.options.sticker.model.attributes.boards) !== -1) {
             this.$el.addClass('activeBoard');
         } else {
             this.$el.removeClass('activeBoard');
         };
-        $('.js-sticker-id').html('('+ this.options.sticker.model.attributes.id +') '+this.options.sticker.model.attributes.title)
     },
 
     toggleBoard: function() {
         this.$el.toggleClass('activeBoard');
         database.toggleBoard(this.options.sticker, this.model.id);
+        
+        this.$('.js-check-board-counter').html(function() {
+            return database.countStickers(this.model.id);
+        }.bind(this));
     },
 });

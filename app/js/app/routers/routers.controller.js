@@ -15,8 +15,7 @@ var Controller = Marionette.Object.extend({
     editSticker: function(id) {
     },
 
-    chooseBoards: function() {
-        console.log('chooseBoards router')
+    chooseBoards: function(id) {
     },
 
     home: function() {

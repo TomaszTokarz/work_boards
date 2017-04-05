@@ -102,33 +102,28 @@
 
         <!-- TEMPLATE -->
         <script type='text/template' id='boards-list-template'>
-            <h3 class='popup-title'>Boards List</h3>
+            <% if (typeof(id) !== 'undefined') { %>
+                <h3 class='popup-title'>
+                    Add sticker:<br />
+                    <span class='boards-list-sticker-title'><%= title %> (id: <%= id %>)</span><br />
+                    to Boards:
+                </h3>
+            <% } else { %>
+                <h3 class='popup-title'>Boards list:</h3>
+            <% } %>
             <ul class='boards-list js-boards-list'></ul>
             <h2 class='boards-list-add'>Add new board</h2>
             <input class='boards-list-add-title js-new-board-name' type='text' autocomplete='off' placeholder='new board name' id='js-new-board-name'></input>
-            <div class='boards-list-add-btn js-add-board-btn'>
-                <i class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i>
+            <div class='new-sticker-button js-add-board-btn'>
+                <span class='new-sticker-button-save'>Save</span>
+                <span class='new-sticker-button-hovered'><i class="fa fa-floppy-o" aria-hidden="true"></i></span>
             </div>
         </script>
         <!-- TEMPLATE END -->
 
         <!-- TEMPLATE -->
         <script type='text/template' id='board-item-template'>
-            <span class='js-check-board-title'><%= title %></span>
-        </script>
-        <!-- TEMPLATE END -->
-
-        <!-- TEMPLATE -->
-        <script type='text/template' id='check-boards-template'>
-            <h3 class='popup-title'>Add sticker:</h3>
-            <h2 class='boards-list-add js-sticker-id'></h2>
-            <h2 class='boards-list-add'>To boards:</h2>
-            <ul class='boards-list js-check-boards-list'></ul>
-            <h2 class='boards-list-add'>Add new board</h2>
-            <input class='boards-list-add-title js-new-board-name' type='text' autocomplete='off' placeholder='new board name' id='js-new-board-name'></input>
-            <div class='boards-list-add-btn js-add-board-btn'>
-                <i class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i>
-            </div>
+            <span class='js-check-board-title'><%= title %></span><span class='boards-list-counter js-check-board-counter'></span>
         </script>
         <!-- TEMPLATE END -->
 
@@ -190,9 +185,9 @@
     <!-- <script src='bower_components/requirejs/require.js' data-main='js/main'></script>
     <script src='bower_components/modernizr/modernizr.js'></script> -->
 
-    <!-- build:js js/main.min.js -->
         <script src='https://www.gstatic.com/firebasejs/3.6.10/firebase.js'></script>
 
+    <!-- build:js js/main.min.js -->
         <script src='bower_components/jquery/dist/jquery.js'></script>
         <script src='bower_components/underscore/underscore.js'></script>
         <script src='bower_components/backbone/backbone.js'></script>

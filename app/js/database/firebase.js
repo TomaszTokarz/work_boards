@@ -61,6 +61,18 @@ var database = {
         })
     },
 
+    countStickers: function(boardId) {
+        var counter = 0;
+        firebase.database().ref('Stickers').once('value', function(snapshot) {
+            snapshot.forEach(function(childSnapshot) {
+                if ($.inArray(boardId, childSnapshot.val().boards) !== -1){
+                    counter++;
+                }
+            })
+        });
+        return counter;
+    },
+
     deleteSticker: function(id) {
         var confirm = window.confirm('Do you want to delete this sticker?');
         if (confirm == true) {

@@ -225,12 +225,14 @@ table {
   -o-transition: all 0.5s;
   -webkit-transition: all 0.5s;
   transition: all 0.5s; }
-  .popup-active:hover {
+  .popup-active {
     opacity: 1; }
+  .popup-close {
+    opacity: 0; }
   .popup-title {
     font-size: 1.2em;
     text-align: center;
-    padding: 0.5em;
+    padding: 0.7em;
     border-bottom: 2px solid #f1f1f1;
     font-style: italic; }
   .popup-subtitle {
@@ -239,15 +241,15 @@ table {
     float: right;
     color: #b01f24;
     top: 0.4em;
-    right: 1.2em;
+    right: 1.5em;
     font-size: 0.8em;
     background-color: #fff;
     padding: 0 0.3em; }
   .popup-input, .popup-textarea {
     font-size: 1em;
     display: block;
-    width: 85%;
-    margin: 0.2em auto;
+    width: 88%;
+    margin: 0.7em auto;
     padding: 0.3em;
     border: 2px solid #E6E6E6; }
   .popup-textarea {
@@ -255,7 +257,7 @@ table {
     resize: none; }
   .popup--content {
     margin: auto;
-    width: 15.5em;
+    width: 20.5em;
     z-index: 30;
     background-color: #FFF; }
   .popup--close {
@@ -270,16 +272,24 @@ table {
   margin: 0.5em; }
   .boards-list-item {
     font-size: 1em;
-    margin-bottom: 0.2em;
+    margin-bottom: 0.5em;
     cursor: pointer;
     transition-duration: 0.4s; }
     .boards-list-item:hover {
       padding-left: 1em;
       font-weight: bold;
-      color: lightgreen; }
+      color: #b01f24; }
     .boards-list-item-image {
       height: 0.7em;
       margin-right: 0.1em; }
+  .boards-list-sticker-title {
+    font-style: normal;
+    display: inline-block;
+    margin: 0.2em 0;
+    color: #b01f24; }
+  .boards-list-counter {
+    float: right;
+    font-style: italic; }
   .boards-list-add {
     font-size: 1em;
     text-align: center;
@@ -302,17 +312,18 @@ table {
 .new-sticker-button {
   position: relative;
   float: right;
-  bottom: -1em;
-  right: -1em;
+  bottom: -0.5em;
+  right: -0.5em;
   padding: 0.6em 0;
   margin: auto;
   width: 7em;
-  font-size: 1.5em;
+  font-size: 1.2em;
   cursor: pointer;
   background-color: #b01f24;
   color: #fff;
   transition-duration: 0.5s;
   text-align: center;
+  overflow: hidden;
   -moz-transition: opacity 0.5s;
   -o-transition: opacity 0.5s;
   -webkit-transition: opacity 0.5s;
@@ -359,18 +370,16 @@ table {
   display: inline-block;
   float: left;
   position: relative;
-  top: 1.5em;
-  left: 1em;
-  border-bottom: 2px solid #b01f24;
+  top: 1.2em;
+  left: 0.8em;
+  font-size: 1em;
   cursor: pointer;
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out; }
   .new-sticker-button-clear:hover {
-    -ms-transform: scale(1.5, 1.5);
-    -webkit-transform: scale(1.5, 1.5);
-    transform: scale(1.5, 1.5); }
+    color: #b01f24; }
 
 .activeBoard {
   color: lightgreen;

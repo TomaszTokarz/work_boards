@@ -12,8 +12,9 @@ var PopupView = Backbone.Marionette.View.extend({
     },
 
     onDomRefresh: function() {
-        //console.log(this.$el.children())
-        this.$el.children().addClass('popup-active');
+        setTimeout(function(){
+            this.$el.children().addClass('popup-active');
+        }.bind(this), 100);
     },
 
     showContent: function(content, sticker) {
@@ -31,6 +32,7 @@ var PopupView = Backbone.Marionette.View.extend({
                 };
 
                 this.currentView = new CheckBoardsListView({
+                    model: sticker.model,
                     childViewOptions: {
                         sticker: sticker
                     }
@@ -59,9 +61,12 @@ var PopupView = Backbone.Marionette.View.extend({
     },
 
     closePopup: function() {
-        this.$el.html('');
-        this.currentView.destroy();
-        //console.log(app.lastRoutes);
+        this.$el.children().addClass('popup-close');
         Backbone.history.navigate(app.lastRoutes[0], {trigger: true});
+        setTimeout(function(){
+            this.$el.html('');
+            this.currentView.destroy();
+        }.bind(this), 500);
+
     }
 });

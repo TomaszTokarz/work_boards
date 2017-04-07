@@ -1,0 +1,126 @@
+@import 'reset';
+@import 'style-set';
+
+html {
+    font-family: 'Lato';
+}
+
+.wrapper {
+    width: 976px;
+    margin: 0 auto;
+}
+
+.section {
+    &.about {
+        margin-top: 100px;
+    }
+}
+
+.header {
+    height: 500px;
+    background: url('/../images/header.jpg') top center no-repeat;
+    background-size: cover;
+    overflow: visible;
+
+    &--title {
+        color: $color-white;
+        font-size: 90px;
+        font-weight: 600;
+        text-align: center;
+        padding: 100px 0 20px;
+
+        &-strong {
+            color: $color-red;
+            font-weight: 900;
+            font-size: 100px;
+            vertical-align: top;
+        }
+    }
+
+    &--subtitle {
+        color: rgba(255,255,255, 0.6);
+        font-size: 40px;
+        font-weight: 100;
+        text-align: center;
+    }
+
+    &--photo {
+        display: block;
+        @include border-radius(50%);
+        border: 10px solid $color-white;
+        margin: 95px auto 0;
+        width: 300px;
+    }
+}
+
+.slider {
+    &--item {
+        &--title {
+            @include title-styles($color-black, $color-red);
+        }
+
+        &--body {
+            font-size: $p-font-size;
+            line-height: $p-line-height;
+            text-align: justify;
+            height: 300px;
+        }
+
+        &--columns-text {
+            column-count: 3;
+            column-gap: 40px;
+        }
+    }
+}
+
+.skills {
+    background: url('/../images/bgr2.jpg') top center no-repeat;
+    background-size: cover;
+    height: 1000px;
+    margin-top: 150px;
+
+    &--title {
+        padding: 100px 0 60px;
+        @include title-styles($color-white, $color-white);
+    }
+
+    &--list {
+        margin: 0 -5px;
+        text-align: center;
+    }
+
+    &--item {
+        display: inline-block;
+        width: 233px;
+        margin: 5px;
+        background: rgba(255, 255, 255, 0.6);
+        height: 140px;
+        vertical-align: middle;
+
+        &.odd {
+            background: rgba(255, 0, 0, 0.25);
+        }
+    }
+
+    &--level {
+        font-weight: 300;
+        padding: 30px 0 5px;
+        font-size: 20px;
+        color: #2b2b2b;
+        display: block;
+
+        .odd & {
+            color: rgba(255,255,255,0.5);
+        }
+    }
+
+    &--name {
+        color: $color-black;
+        font-weight: 600;
+        font-size: 25px;
+
+        .odd & {
+            color: rgba(255,255,255,0.9);
+        }
+    }
+}

@@ -1,0 +1,153 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+html {
+  font-family: 'Lato'; }
+
+.wrapper {
+  width: 976px;
+  margin: 0 auto; }
+
+.section.about {
+  margin-top: 100px; }
+
+.header {
+  height: 500px;
+  background: url("/../images/header.jpg") top center no-repeat;
+  background-size: cover;
+  overflow: visible; }
+  .header--title {
+    color: #ffffff;
+    font-size: 90px;
+    font-weight: 600;
+    text-align: center;
+    padding: 100px 0 20px; }
+    .header--title-strong {
+      color: #b01f24;
+      font-weight: 900;
+      font-size: 100px;
+      vertical-align: top; }
+  .header--subtitle {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 40px;
+    font-weight: 100;
+    text-align: center; }
+  .header--photo {
+    display: block;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    border: 10px solid #ffffff;
+    margin: 95px auto 0;
+    width: 300px; }
+
+.slider--item--title {
+  font-size: 60px;
+  font-weight: 900;
+  color: #000000; }
+  .slider--item--title:after {
+    content: '';
+    display: block;
+    width: 100px;
+    background: #b01f24;
+    height: 10px;
+    margin: 20px 0; }
+
+.slider--item--body {
+  font-size: 18px;
+  line-height: 24px;
+  text-align: justify;
+  height: 300px; }
+
+.slider--item--columns-text {
+  column-count: 3;
+  column-gap: 40px; }
+
+.skills {
+  background: url("/../images/bgr2.jpg") top center no-repeat;
+  background-size: cover;
+  height: 1000px;
+  margin-top: 150px; }
+  .skills--title {
+    padding: 100px 0 60px;
+    font-size: 60px;
+    font-weight: 900;
+    color: #ffffff; }
+    .skills--title:after {
+      content: '';
+      display: block;
+      width: 100px;
+      background: #ffffff;
+      height: 10px;
+      margin: 20px 0; }
+  .skills--list {
+    margin: 0 -5px;
+    text-align: center; }
+  .skills--item {
+    display: inline-block;
+    width: 233px;
+    margin: 5px;
+    background: rgba(255, 255, 255, 0.6);
+    height: 140px;
+    vertical-align: middle; }
+    .skills--item.odd {
+      background: rgba(255, 0, 0, 0.25); }
+  .skills--level {
+    font-weight: 300;
+    padding: 30px 0 5px;
+    font-size: 20px;
+    color: #2b2b2b;
+    display: block; }
+    .odd .skills--level {
+      color: rgba(255, 255, 255, 0.5); }
+  .skills--name {
+    color: #000000;
+    font-weight: 600;
+    font-size: 25px; }
+    .odd .skills--name {
+      color: rgba(255, 255, 255, 0.9); }

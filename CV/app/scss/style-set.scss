@@ -1,0 +1,107 @@
+
+
+// sizes:
+$p-font-size: 18px;
+$p-line-height: 24px;
+
+$breakpoint--small: 540px;
+$breakpoint--medium: 768px;
+$breakpoint--big: 1200px;
+$font-size--small: 12px;
+$font-size--medium: 18px;
+$font-size--big: 1.45vw;
+
+// colors:
+$color-white: #ffffff;
+$color-black: #000000;
+$color-red: #b01f24;
+$color-light-grey: #f7f7f7;
+$color-medium-grey: #b2b2b2;
+$color-green: #3ccc3c;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin shadow($radius) {
+  -webkit-box-shadow: $radius $radius $radius/2 $shadow-color;
+     -moz-box-shadow: $radius $radius $radius/2 $shadow-color;
+      -ms-box-shadow: $radius $radius $radius/2 $shadow-color;
+          box-shadow: $radius $radius $radius/2 $shadow-color;
+}
+
+@mixin column-brake-inside($parameter) {
+    -webkit-column-break-inside: $parameter;
+              page-break-inside: $parameter;
+                   break-inside: $parameter;
+}
+
+@mixin column-width() {
+    -webkit-column-width: $sticker-width;
+       -moz-column-width: $sticker-width;
+            column-width: $sticker-width;
+}
+
+@mixin column-gap($width) {
+    -webkit-column-gap: $width;
+       -moz-column-gap: $width;
+            column-gap: $width;
+}
+
+@mixin show($opacity, $duration) {
+    opacity: $opacity;
+    -webkit-transition: opacity $duration ease-out;
+       -moz-transition: opacity $duration ease-out;
+        -ms-transition: opacity $duration ease-out;
+         -o-transition: opacity $duration ease-out;
+            transition: opacity $duration ease-out;
+}
+
+@mixin zoom($scale) {
+    -ms-transform: scale($scale, $scale);
+-webkit-transform: scale($scale, $scale);
+        transform: scale($scale, $scale);
+}
+
+@mixin transition($transition) {
+       -moz-transition: $transition;
+         -o-transition: $transition;
+    -webkit-transition: $transition;
+            transition: $transition;
+}
+
+@mixin transform($transforms) {
+	   -moz-transform: $transforms;
+	     -o-transform: $transforms;
+	    -ms-transform: $transforms;
+	-webkit-transform: $transforms;
+            transform: $transforms;
+}
+
+@mixin animation($transforms) {
+    webkit-animation: $transforms;
+      -moz-animation: $transforms;
+           animation: $transforms;
+
+    @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+    @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+    @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+}
+
+@mixin title-styles ($txt-color, $border-color) {
+    font-size: 60px;
+    font-weight: 900;
+    color: $txt-color;
+
+    &:after {
+        content: '';
+        display: block;
+        width: 100px;
+        background: $border-color;
+        height: 10px;
+        margin: 20px 0;
+    }
+}

@@ -5,7 +5,6 @@ var app = {
         app.layout = new LayoutView();
         app.router = new Router();
         app.lastRoutes = ['',''];
-        //app.layout.showPopup('loading');
         app.layout.renderLoadingView();
 
         app.router.on('route', function() {

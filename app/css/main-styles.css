@@ -1,18 +1,21 @@
 .body {
-  background: #F2F2F2;
+  background-image: url("../images/seigaiha.png");
+  background-attachment: fixed;
   font-family: Calibri;
   color: #333; }
+
+.main {
+  padding-top: 3.5em; }
 
 .templates--container {
   display: none; }
 
-.closePopup {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0; }
-
-.active--popup {
-  z-index: 200; }
+.columns {
+  width: 98%;
+  margin: auto;
+  -webkit-column-width: 15.5em;
+  -moz-column-width: 15.5em;
+  column-width: 15.5em;
+  -webkit-column-gap: 1em;
+  -moz-column-gap: 1em;
+  column-gap: 1em; }

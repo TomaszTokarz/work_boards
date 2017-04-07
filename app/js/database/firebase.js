@@ -10,29 +10,127 @@ var defaultAppConfig = {
 // Initialize the default app
 var defaultApp = firebase.initializeApp(defaultAppConfig);
 
+
 // You can retrieve services via the defaultApp variable...
 var defaultDatabase = defaultApp.database();
 
+firebase.database().ref(".info/connected").on("value", function(snap) {
+    if (snap.val() === true) {
+        database.runListeners();
+        app.layout.render();
+        app.layout.renderHome();
+        $('.loading-screen').addClass('loading-screen-close');
+        setTimeout(function(){
+            app.loadingView.destroy();
+        }, 500);
+    };
+});
+
+
 var database = {
-    saveSticker: function(data){
-        firebase.database().ref('id').once('value', function(snapshot){
+    saveSticker: function(data, file) {
+        if (!data.id && data.id != '0') {
+            firebase.database().ref('id').once('value', function(snapshot) {
+                data.id = parseInt(snapshot.val());
+                firebase.database().ref('id').set(data.id + 1);
+                if (file) {
+                    this.saveFile(data, file);
+                } else {
+                    console.log(data.id)
+                    firebase.database().ref('Stickers/' + data.id).set(data);
+                }
+            });
+        } else {
+            if (file) {
+                this.saveFile(data, file);
+            } else {
+                firebase.database().ref('Stickers/' + data.id).set(data);
+            }
+        };
+    },
+
+    toggleBoard: function(sticker, boardId) {
+        var boards = sticker.model.attributes.boards;
+        var position = $.inArray(boardId, boards);
+        if (position !== -1) {
+            boards.splice(position,1);
+        } else {
+            boards.push(boardId);
+        }
+        boards.sort();
+        firebase.database().ref('Stickers/' + sticker.model.id + '/boards').set(boards);
+    },
+
+    saveBoard: function(data) {
+        firebase.database().ref('board-id').once('value', function(snapshot) {
             var id = parseInt(snapshot.val());
-            firebase.database().ref('Stickers/' + id).set(data);
-            firebase.database().ref('id').set(id+1);
+            data.id = id;
+            firebase.database().ref('Boards/' + id).set(data);
+            firebase.database().ref('board-id').set(id+1);
         });
     },
-    saveBoard: function(data){
-        firebase.database().ref('Boards/' + data.title).set(data);
-        console.log('new board added')
+
+    runListeners: function() {
+        firebase.database().ref('Stickers').on('child_added', function(snapshot) {
+            stickerCollection.add(snapshot.val());
+        })
+
+        firebase.database().ref('Boards').on('child_added', function(snapshot) {
+            boardList.add(snapshot.val());
+        })
+
+        firebase.database().ref('Stickers').on('child_removed', function(snapshot) {
+            stickerCollection.remove(snapshot.val());
+        })
+    },
+
+    countStickers: function(boardId) {
+        var counter = 0;
+        firebase.database().ref('Stickers').once('value', function(snapshot) {
+            snapshot.forEach(function(childSnapshot) {
+                if ($.inArray(boardId, childSnapshot.val().boards) !== -1){
+                    counter++;
+                }
+            })
+        });
+        return counter;
+    },
+
+    deleteSticker: function(id) {
+        var confirm = window.confirm('Do you want to delete this sticker?');
+        if (confirm == true) {
+            firebase.database().ref('Stickers/' + id).remove();
+        } else {
+            return false;
+        }
+    },
+
+    saveFile: function(data, file) {
+        console.log(data)
+        var metadata = {
+          contentType: 'image'
+        };
+
+        var uploadTask = firebase.storage().ref('images/' + data.id + '/' + file.name).put(file, metadata);
+
+        uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
+          function(snapshot) {
+            // var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            // console.log('Upload is ' + progress + '% done');
+            //
+            // switch (snapshot.state) {
+            //   case firebase.storage.TaskState.PAUSED:
+            //     console.log('Upload is paused');
+            //     break;
+            //   case firebase.storage.TaskState.RUNNING:
+            //     console.log('Upload is running');
+            //     break;
+            // }
+          }, function(error) {
+              console.error(error);
+        }, function() {
+          data.pictureSrc = uploadTask.snapshot.downloadURL;
+          firebase.database().ref('Stickers/' + data.id).set(data);
+        });
     }
 };
-
-firebase.database().ref('Stickers').on('child_added', function(snapshot){
-    Stickers.add(snapshot.val());
-    mainCollection = Stickers
-})
-
-firebase.database().ref('Boards').on('child_added', function(snapshot){
-    boardList.add(snapshot.val());
-    //console.log(snapshot.val())
-})

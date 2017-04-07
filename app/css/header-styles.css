@@ -1,33 +1,46 @@
 .header {
-  padding: 0.25em;
-  height: 2em; }
-  .header .header--logo {
-    height: 2em;
-    position: absolute; }
-  .header .header--menu-right {
+  width: 100%;
+  position: fixed;
+  background: #fff;
+  padding: 0.5em;
+  background-attachment: fixed;
+  z-index: 5; }
+  .header--logo {
+    height: 1.75em;
     position: absolute;
-    margin: 0.25em;
-    top: 0;
-    right: 0; }
-    .header .header--menu-right > * {
-      height: 2em; }
-  .header .search-bar--container {
-    display: block;
-    margin: 0 6.75em 0 2.2em;
-    width: auto; }
-    .header .search-bar--container form {
-      width: 100%; }
-      .header .search-bar--container form .search-bar {
-        height: auto;
-        font-size: 1.6em;
-        width: 100%;
-        text-align: center;
-        border: 0.05em solid #E6E6E6;
-        -webkit-border-radius: 0.25em;
-        -moz-border-radius: 0.25em;
-        -ms-border-radius: 0.25em;
-        border-radius: 0.25em;
-        -webkit-box-shadow: 0 0.03em 0.03em 0;
-        -moz-box-shadow: 0 0.03em 0.03em 0;
-        -ms-box-shadow: 0 0.03em 0.03em 0;
-        box-shadow: 0 0.03em 0.03em 0; }
+    left: 1em;
+    cursor: pointer; }
+  .header--menu-right {
+    position: absolute;
+    font-size: 1.5em;
+    top: 0.35em;
+    right: 1.5em; }
+    .header--menu-right--btn {
+      display: inline-block;
+      height: 1em;
+      padding: 0.2em 0.05em;
+      line-height: 1em;
+      cursor: pointer;
+      -moz-transition: all 0.2s ease-in;
+      -o-transition: all 0.2s ease-in;
+      -webkit-transition: all 0.2s ease-in;
+      transition: all 0.2s ease-in; }
+      .header--menu-right--btn:hover {
+        color: #b01f24; }
+  .header .search-bar {
+    background-color: #e1e1e1;
+    height: 2em;
+    line-height: 2em;
+    font-size: 0.8em;
+    font-weight: 100;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid #E6E6E6; }
+    .header .search-bar--container {
+      display: block;
+      margin: 0 6em 0 3em;
+      width: auto; }
+    .header .search-bar:focus {
+      background-color: #FFF; }

@@ -46,28 +46,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-.body {
-  background-image: url("../images/seigaiha.png");
-  background-attachment: fixed;
-  font-family: Calibri;
-  color: #333; }
-
-.main {
-  padding-top: 3.5em; }
-
-.templates--container {
-  display: none; }
-
-.columns {
-  width: 98%;
-  margin: auto;
-  -webkit-column-width: 15.5em;
-  -moz-column-width: 15.5em;
-  column-width: 15.5em;
-  -webkit-column-gap: 1em;
-  -moz-column-gap: 1em;
-  column-gap: 1em; }
-
 .header {
   width: 100%;
   position: fixed;
@@ -98,7 +76,7 @@ table {
       .header--menu-right--btn:hover {
         color: #b01f24; }
   .header .search-bar {
-    background-color: #e1e1e1;
+    background-color: #e8e8e8;
     height: 2em;
     line-height: 2em;
     font-size: 0.8em;
@@ -124,10 +102,10 @@ table {
   cursor: pointer;
   z-index: 0;
   opacity: 0;
-  -webkit-box-shadow: 0.15em 0.15em 0.075em #D9D9D9;
-  -moz-box-shadow: 0.15em 0.15em 0.075em #D9D9D9;
-  -ms-box-shadow: 0.15em 0.15em 0.075em #D9D9D9;
-  box-shadow: 0.15em 0.15em 0.075em #D9D9D9;
+  -webkit-box-shadow: 0.15em 0.15em 0.075em #d9d9d9;
+  -moz-box-shadow: 0.15em 0.15em 0.075em #d9d9d9;
+  -ms-box-shadow: 0.15em 0.15em 0.075em #d9d9d9;
+  box-shadow: 0.15em 0.15em 0.075em #d9d9d9;
   -webkit-column-break-inside: avoid;
   page-break-inside: avoid;
   break-inside: avoid;
@@ -171,7 +149,7 @@ table {
     .sticker--link--path {
       text-decoration: none;
       font-style: italic;
-      color: #c1c1c1;
+      color: #b2b2b2;
       font-weight: 100; }
     .sticker--link:hover {
       text-decoration: underline; }
@@ -202,12 +180,12 @@ table {
         -ms-transform: scale(1.2, 1.2);
         -webkit-transform: scale(1.2, 1.2);
         transform: scale(1.2, 1.2);
-        transition-duration: 0.2s; }
+        transition-duration: 0.3s; }
 
 .footer {
   clear: both;
   font-size: 0.8em;
-  color: #B2B2B2;
+  color: #b2b2b2;
   text-align: center; }
   .footer--content {
     font-style: italic; }
@@ -233,8 +211,8 @@ table {
     font-size: 1.2em;
     text-align: center;
     padding: 0.7em;
-    border-bottom: 2px solid #f1f1f1;
-    font-style: italic; }
+    font-style: italic;
+    border-bottom: 2px solid #f1f1f1; }
   .popup-subtitle {
     display: inline-block;
     position: relative;
@@ -269,19 +247,22 @@ table {
     z-index: 20; }
 
 .boards-list {
-  margin: 0.5em; }
+  margin-bottom: 0.7em;
+  padding: 0.5em 0;
+  border-bottom: 2px solid #f1f1f1; }
   .boards-list-item {
     font-size: 1em;
-    margin-bottom: 0.5em;
+    padding: 0.5em 0.7em;
     cursor: pointer;
     transition-duration: 0.4s; }
     .boards-list-item:hover {
-      padding-left: 1em;
-      font-weight: bold;
+      padding-left: 1.5em;
       color: #b01f24; }
-    .boards-list-item-image {
-      height: 0.7em;
-      margin-right: 0.1em; }
+    .boards-list-item-title {
+      display: inline-block;
+      width: 17.5em; }
+    .boards-list-item:nth-child(odd) {
+      background-color: #f7f7f7; }
   .boards-list-sticker-title {
     font-style: normal;
     display: inline-block;
@@ -290,20 +271,6 @@ table {
   .boards-list-counter {
     float: right;
     font-style: italic; }
-  .boards-list-add {
-    font-size: 1em;
-    text-align: center;
-    margin: 0.2em 0; }
-    .boards-list-add-title {
-      font-size: 1em;
-      width: 9em;
-      margin: 0.5em;
-      width: 11.5em;
-      border: 2px solid #E6E6E6; }
-    .boards-list-add-btn {
-      display: inline-block;
-      padding-left: 0.1em;
-      cursor: pointer; }
 
 .new-sticker-bar {
   display: flex;
@@ -355,6 +322,7 @@ table {
     opacity: 1; }
   .new-sticker-button-hovered {
     display: inline-block;
+    opacity: 0;
     -moz-transition: all 0.5s ease-out;
     -o-transition: all 0.5s ease-out;
     -webkit-transition: all 0.5s ease-out;
@@ -363,8 +331,7 @@ table {
     -o-transform: translate(5em, 0);
     -ms-transform: translate(5em, 0);
     -webkit-transform: translate(5em, 0);
-    transform: translate(5em, 0);
-    opacity: 0; }
+    transform: translate(5em, 0); }
 
 .new-sticker-button-clear {
   display: inline-block;
@@ -382,8 +349,46 @@ table {
     color: #b01f24; }
 
 .activeBoard {
-  color: lightgreen;
+  color: #3ccc3c;
   font-weight: bold; }
+
+.loading-screen {
+  background-image: url("../images/seigaiha-transparent.png");
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  top: 0;
+  z-index: 100;
+  opacity: 1;
+  -moz-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s; }
+  .loading-screen-logo {
+    webkit-animation: spin 2s linear infinite;
+    -moz-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite; }
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg); } }
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg); } }
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+  .loading-screen-content {
+    display: block;
+    margin: auto; }
+  .loading-screen-description {
+    margin-top: 1em; }
+  .loading-screen-close {
+    opacity: 0; }
 
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -2725,3 +2730,25 @@ table {
 @media screen and (min-width: 1200px) {
   .body {
     font-size: 1.45vw; } }
+
+.body {
+  background-image: url("../images/seigaiha.png");
+  background-attachment: fixed;
+  font-family: Calibri;
+  color: #444; }
+
+.main {
+  padding-top: 3.5em; }
+
+.templates--container {
+  display: none; }
+
+.columns {
+  width: 98%;
+  margin: auto;
+  -webkit-column-width: 15.5em;
+  -moz-column-width: 15.5em;
+  column-width: 15.5em;
+  -webkit-column-gap: 1em;
+  -moz-column-gap: 1em;
+  column-gap: 1em; }

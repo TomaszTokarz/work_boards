@@ -5,12 +5,15 @@ var NewStickerLayoutView = Backbone.Marionette.View.extend({
 
     ui: {
         title: '#sticker-title-input',
-        //pictureSrc: '',
+        pictureSrc: '#fileupload',
         link: '#sticker-link-input',
         linkDesc: '#sticker-link-description-input',
         content: '#sticker-description-input',
-        //tags: '',
         addButton: '.js-add-new-sticker'
+    },
+
+    initialize: function() {
+
     },
 
     events: {
@@ -20,13 +23,10 @@ var NewStickerLayoutView = Backbone.Marionette.View.extend({
     addSticker: function() {
         database.saveSticker({
             title: this.ui.title.val() || '',
-            //pictureSrc: this.checkUndefined(this.ui.pictureSrc.val()),
             link: this.ui.link.val() || '',
             linkDesc: this.ui.linkDesc.val() || '',
             content: this.ui.content.val() || '',
-            //tags: this.checkUndefined(this.ui.tags.val()),
-            //workBoard: this.checkUndefined(this.ui.workBoard.val())
-        });
+        }, this.ui.pictureSrc[0].files[0]);
         app.popupView.closePopup();
     }
 });

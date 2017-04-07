@@ -22,6 +22,11 @@ var LayoutView = Backbone.Marionette.View.extend({
         app.popupView.showContent(content);
     },
 
+    renderLoadingView: function() {
+        app.loadingView = new LoadingView();
+        app.loadingView.render();
+    },
+
     renderHome: function() {
         this.loadStickersList(stickerCollection);
         Backbone.history.navigate('', {trigger: true});

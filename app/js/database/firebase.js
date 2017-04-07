@@ -10,20 +10,43 @@ var defaultAppConfig = {
 // Initialize the default app
 var defaultApp = firebase.initializeApp(defaultAppConfig);
 
+
 // You can retrieve services via the defaultApp variable...
 var defaultDatabase = defaultApp.database();
 
+firebase.database().ref(".info/connected").on("value", function(snap) {
+    if (snap.val() === true) {
+        database.runListeners();
+        app.layout.render();
+        app.layout.renderHome();
+        $('.loading-screen').addClass('loading-screen-close');
+        setTimeout(function(){
+            app.loadingView.destroy();
+        }, 500);
+    };
+});
+
+
 var database = {
-    saveSticker: function(data, stickerId) {
+    saveSticker: function(data, file) {
         if (!data.id && data.id != '0') {
             firebase.database().ref('id').once('value', function(snapshot) {
                 data.id = parseInt(snapshot.val());
                 firebase.database().ref('id').set(data.id + 1);
-                firebase.database().ref('Stickers/' + data.id).set(data);
+                if (file) {
+                    this.saveFile(data, file);
+                } else {
+                    console.log(data.id)
+                    firebase.database().ref('Stickers/' + data.id).set(data);
+                }
             });
         } else {
-            firebase.database().ref('Stickers/' + data.id).set(data);
-        }
+            if (file) {
+                this.saveFile(data, file);
+            } else {
+                firebase.database().ref('Stickers/' + data.id).set(data);
+            }
+        };
     },
 
     toggleBoard: function(sticker, boardId) {
@@ -80,5 +103,34 @@ var database = {
         } else {
             return false;
         }
+    },
+
+    saveFile: function(data, file) {
+        console.log(data)
+        var metadata = {
+          contentType: 'image'
+        };
+
+        var uploadTask = firebase.storage().ref('images/' + data.id + '/' + file.name).put(file, metadata);
+
+        uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
+          function(snapshot) {
+            // var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            // console.log('Upload is ' + progress + '% done');
+            //
+            // switch (snapshot.state) {
+            //   case firebase.storage.TaskState.PAUSED:
+            //     console.log('Upload is paused');
+            //     break;
+            //   case firebase.storage.TaskState.RUNNING:
+            //     console.log('Upload is running');
+            //     break;
+            // }
+          }, function(error) {
+              console.error(error);
+        }, function() {
+          data.pictureSrc = uploadTask.snapshot.downloadURL;
+          firebase.database().ref('Stickers/' + data.id).set(data);
+        });
     }
 };

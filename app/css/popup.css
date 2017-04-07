@@ -19,8 +19,8 @@
     font-size: 1.2em;
     text-align: center;
     padding: 0.7em;
-    border-bottom: 2px solid #f1f1f1;
-    font-style: italic; }
+    font-style: italic;
+    border-bottom: 2px solid #f1f1f1; }
   .popup-subtitle {
     display: inline-block;
     position: relative;
@@ -55,19 +55,22 @@
     z-index: 20; }
 
 .boards-list {
-  margin: 0.5em; }
+  margin-bottom: 0.7em;
+  padding: 0.5em 0;
+  border-bottom: 2px solid #f1f1f1; }
   .boards-list-item {
     font-size: 1em;
-    margin-bottom: 0.5em;
+    padding: 0.5em 0.7em;
     cursor: pointer;
     transition-duration: 0.4s; }
     .boards-list-item:hover {
-      padding-left: 1em;
-      font-weight: bold;
+      padding-left: 1.5em;
       color: #b01f24; }
-    .boards-list-item-image {
-      height: 0.7em;
-      margin-right: 0.1em; }
+    .boards-list-item-title {
+      display: inline-block;
+      width: 17.5em; }
+    .boards-list-item:nth-child(odd) {
+      background-color: #f7f7f7; }
   .boards-list-sticker-title {
     font-style: normal;
     display: inline-block;
@@ -76,20 +79,6 @@
   .boards-list-counter {
     float: right;
     font-style: italic; }
-  .boards-list-add {
-    font-size: 1em;
-    text-align: center;
-    margin: 0.2em 0; }
-    .boards-list-add-title {
-      font-size: 1em;
-      width: 9em;
-      margin: 0.5em;
-      width: 11.5em;
-      border: 2px solid #E6E6E6; }
-    .boards-list-add-btn {
-      display: inline-block;
-      padding-left: 0.1em;
-      cursor: pointer; }
 
 .new-sticker-bar {
   display: flex;
@@ -141,6 +130,7 @@
     opacity: 1; }
   .new-sticker-button-hovered {
     display: inline-block;
+    opacity: 0;
     -moz-transition: all 0.5s ease-out;
     -o-transition: all 0.5s ease-out;
     -webkit-transition: all 0.5s ease-out;
@@ -149,8 +139,7 @@
     -o-transform: translate(5em, 0);
     -ms-transform: translate(5em, 0);
     -webkit-transform: translate(5em, 0);
-    transform: translate(5em, 0);
-    opacity: 0; }
+    transform: translate(5em, 0); }
 
 .new-sticker-button-clear {
   display: inline-block;
@@ -168,5 +157,5 @@
     color: #b01f24; }
 
 .activeBoard {
-  color: lightgreen;
+  color: #3ccc3c;
   font-weight: bold; }

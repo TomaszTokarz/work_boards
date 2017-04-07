@@ -1,4 +1,4 @@
-@import 'style_set';
+@import 'style-set';
 
 .popup {
     background-image: $popup-background-src;
@@ -23,8 +23,8 @@
         font-size: 1.2em;
         text-align: center;
         padding: 0.7em;
-        @include sticker-underline();
         font-style: italic;
+        border-bottom: $underline;
     }
 
     &-subtitle {
@@ -35,7 +35,7 @@
         top: 0.4em;
         right: 1.5em;
         font-size: 0.8em;
-        background-color: #fff;
+        background-color: $color-white;
         padding: 0 0.3em;
     }
 
@@ -45,7 +45,7 @@
         width: 88%;
         margin: 0.7em auto;
         padding: 0.3em;
-        @include main-border();
+        border: $main-border;
     }
 
     &-textarea {
@@ -58,7 +58,7 @@
         margin: auto;
         width: $sticker-width + 5em;
         z-index: 30;
-        background-color: $search-bar-background-color-focus;
+        background-color: $search-bar-focus;
     }
 
     &--close {
@@ -72,23 +72,28 @@
 }
 
 .boards-list {
-    margin: 0.5em;
+    margin-bottom: 0.7em;
+    padding: 0.5em 0;
+    border-bottom: $underline;
 
     &-item {
         font-size: 1em;
-        margin-bottom: 0.5em;
+        padding: 0.5em 0.7em;
         cursor: pointer;
         transition-duration: 0.4s;
 
         &:hover {
-            padding-left: 1em;
-            font-weight: bold;
+            padding-left: 1.5em;
             color: $color-red;
         }
 
-        &-image {
-            height: 0.7em;
-            margin-right: 0.1em;
+        &-title {
+            display: inline-block;
+            width: $sticker-width + 2em;
+        }
+
+        &:nth-child(odd) {
+            background-color: $color-light-grey;
         }
     }
 
@@ -102,26 +107,6 @@
     &-counter {
         float: right;
         font-style: italic;
-    }
-
-    &-add {
-        font-size: 1em;
-        text-align: center;
-        margin: 0.2em 0;
-
-        &-title {
-            font-size: 1em;
-            width: 9em;
-            margin: 0.5em;
-            width: $sticker-width - 4em;
-            @include main-border();
-        }
-
-        &-btn {
-            display: inline-block;
-            padding-left: 0.1em;
-            cursor: pointer;
-        }
     }
 }
 
@@ -166,9 +151,9 @@
 
         &-hovered {
             display: inline-block;
+            opacity: 0;
             @include transition(all 0.5s ease-out);
             @include transform(translate(5em, 0));
-            opacity: 0;
         }
     }
 
@@ -189,6 +174,6 @@
 }
 
 .activeBoard {
-    color: lightgreen;
+    color: $color-green;
     font-weight: bold;
 }

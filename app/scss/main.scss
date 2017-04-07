@@ -1,14 +1,12 @@
 @import 'reset';
-@import 'style_set';
-@import 'main-styles';
-@import 'header-styles';
-@import 'sticker-styles';
-@import 'footer-styles';
+@import 'style-set';
+@import 'header';
+@import 'sticker';
+@import 'footer';
 @import 'popup';
+@import 'loading';
 
 @import 'font-awesome/font-awesome';
-// @import 'popups/new-sticker-popup';
-// @import 'popups/change-board-popup';
 
 @media screen and (max-width: $breakpoint--small) {
     .body {
@@ -26,4 +24,26 @@
     .body {
         font-size: $font-size--big;
     }
+}
+
+.body {
+    background-image: $main-background-src;
+    background-attachment: fixed;
+    font-family: $font-stack;
+    color: $font-color;
+}
+
+.main {
+    padding-top: 3.5em;
+}
+
+.templates--container {
+    display: none;
+}
+
+.columns {
+    width: 98%;
+	margin: auto;
+    @include column-width();
+    @include column-gap(1em);
 }

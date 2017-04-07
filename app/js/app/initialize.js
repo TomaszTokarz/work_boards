@@ -1,17 +1,14 @@
 var activePopupFlag = false;
 var app = {
     init: function() {
-
         app.history = Backbone.history.start();
         app.layout = new LayoutView();
         app.router = new Router();
         app.lastRoutes = ['',''];
-        database.runListeners();
-        app.layout.render();
-        app.layout.renderHome();
+        //app.layout.showPopup('loading');
+        app.layout.renderLoadingView();
 
         app.router.on('route', function() {
-            //console.log(Backbone.history.fragment);
             app.lastRoutes.push(Backbone.history.fragment);
             app.lastRoutes.splice(0,1);
         })

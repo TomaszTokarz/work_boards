@@ -16,9 +16,9 @@ var BoardsListView = Backbone.Marionette.CompositeView.extend( {
     },
 
     addNewBoard: function() {
-        //FIXME: this function is doubled in check.boards.list.js (boards)
+        //FIXME: this function is doubled in check.boards.list.js (boards)        
         if (!this.ui.title.val()) {
-            return console.error('Please fill board name field!');
+            return console.error('Please fill sticker name field!');
             //TODO: change this error for backbone validate method
         } else {
             var data = {

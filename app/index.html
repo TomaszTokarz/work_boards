@@ -24,10 +24,9 @@
         <p class='browsehappy'>You are using an <strong>outdated</strong> browser. Please <a href='http://browsehappy.com/'>upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div class='check-boards-list js-check-boards'></div>
-
     <div class='popup--wrapper js-popup-wrapper'></div>
-
     <div class='main--app js-layout-container'></div>
+    <div class='loading-screen js-loading-screen'></div>
 
     <div class='templates--container'>
         <!-- TEMPLATE -->
@@ -112,8 +111,8 @@
                 <h3 class='popup-title'>Boards list:</h3>
             <% } %>
             <ul class='boards-list js-boards-list'></ul>
-            <h2 class='boards-list-add'>Add new board</h2>
-            <input class='boards-list-add-title js-new-board-name' type='text' autocomplete='off' placeholder='new board name' id='js-new-board-name'></input>
+            <h2 class='popup-subtitle'>Add new board</h2>
+            <input class='popup-input js-new-board-name' type='text' autocomplete='off' placeholder='new board name' id='js-new-board-name'></input>
             <div class='new-sticker-button js-add-board-btn'>
                 <span class='new-sticker-button-save'>Save</span>
                 <span class='new-sticker-button-hovered'><i class="fa fa-floppy-o" aria-hidden="true"></i></span>
@@ -123,7 +122,7 @@
 
         <!-- TEMPLATE -->
         <script type='text/template' id='board-item-template'>
-            <span class='js-check-board-title'><%= title %></span><span class='boards-list-counter js-check-board-counter'></span>
+            <span class='boards-list-item-title js-check-board-title'><%= title %></span><span class='boards-list-counter js-check-board-counter'></span>
         </script>
         <!-- TEMPLATE END -->
 
@@ -141,7 +140,7 @@
             <div class='popup-title'>
                 <% if (typeof(id) !== 'undefined') { %>
                     <span>Edit sticker:</span><br />
-                    <span><%= title %> (<%= id %>)</span>
+                    <span class='boards-list-sticker-title'><%= title %> (id: <%= id %>)</span>
                 <% } else { %>
                     <span>Add sticker:</span>
                 <% } %>
@@ -170,7 +169,16 @@
         </script>
         <!-- TEMPLATE END -->
 
+        <!-- TEMPLATE -->
+        <script type='text/template' id='loading-template'>
+            <div class='loading-screen-content'>
+                <figure><img class="loading-screen-logo" src='images/logo.png'></figure>
+                <figcaption class="loading-screen-description">Loading...</figcaption?
+            </div>
+        </script>
+        <!-- TEMPLATE END -->
 
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <!-- <script>
@@ -213,6 +221,7 @@
 
         <script src='js/app/common/views/layout.js'></script>
         <script src='js/app/common/views/popup.js'></script>
+        <script src='js/app/common/views/loading.js'></script>
 
         <script src='js/app/routers/routers.controller.js'></script>
         <script src='js/app/routers/app.router.js'></script>

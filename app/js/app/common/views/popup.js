@@ -54,13 +54,17 @@ var PopupView = Backbone.Marionette.View.extend({
                 });
             break;
 
+            case 'loading':
+                this.currentView = new LoadingView();
+            break;
+
             default:
                 return console.error('Wrong popup name!')
         };
         this.currentView.render();
     },
 
-    closePopup: function() {
+    closePopup: function() {        
         this.$el.children().addClass('popup-close');
         Backbone.history.navigate(app.lastRoutes[0], {trigger: true});
         setTimeout(function(){

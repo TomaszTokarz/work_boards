@@ -10,6 +10,7 @@ html {
 .wrapper {
     width: 976px;
     margin: 0 auto;
+    position: relative;
 }
 
 .section {
@@ -22,6 +23,7 @@ html {
     height: 500px;
     background: url('/../images/header.jpg') top center no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     overflow: visible;
 
     &--title {
@@ -127,40 +129,44 @@ html {
     }
 
     &--item {
-        display: inline-block;
-        width: 233px;
-        margin: 5px;
-        background: rgba(255, 255, 255, 0.6);
-        height: 140px;
-        vertical-align: middle;
-        @include transition(all 0.7s ease-in-out);
+        transform-style: preserve-3d;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        @include transition(all 0.7s linear);
+        @include transform(rotateY(0deg));
 
-        &.odd {
-            background: rgba(255, 0, 0, 0.25);
+        &-wrapper {
+            perspective: 1000px;
+            display: inline-block;
+            width: 233px;
+            height: 140px;
+            margin: 5px;
+            vertical-align: middle;
+
+            &:hover {
+                .skills--item {
+                    @include transform(rotateY(180deg));
+                }
+            }
         }
 
-        &-main {
-            @include delay(0.35s);
+        &-front, &-back {
+            background: rgba(255, 255, 255, 0.6);
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            .odd & {
+                background: rgba(255, 0, 0, 0.25);
+            }
         }
 
-        &-hovered {
-            position: relative;
-            top: -80px;
-            opacity: 0;
+        &-back {
             @include transform(rotateY(180deg));
-            @include delay(0.35s);
-        }
-
-        &:hover {
-            @include transform(rotateY(180deg));
-        }
-
-        &:hover > &-hovered {
-            opacity: 1;
-        }
-
-        &:hover > &-main {
-            opacity: 0;
         }
     }
 
@@ -186,3 +192,127 @@ html {
         }
     }
 }
+
+.workboards {
+    height: 1000px;
+    margin: 150px 0 50px;
+
+    &--title {
+        @include title-styles($color-black, $color-red);
+        display: inline-block;
+    }
+
+    &--description {
+        font-size: $p-font-size;
+        line-height: $p-line-height;
+        text-align: justify;
+        padding: 15px 0;
+        height: 300px;
+        column-count: 3;
+        column-gap: 40px;
+    }
+
+    &--img {
+        display: block;
+        margin: 0 auto;
+        width: 900px;
+    }
+
+    &--nav {
+        display: inline-block;
+        float: right;
+        padding-top: 3px;
+
+        &-item {
+            @include button;
+            margin-left: 10px;
+
+            &.secondary {
+                @include button-secondary;
+            }
+        }
+    }
+}
+
+.footer {
+    background: $color-red;
+    color: $color-white;
+    padding: 40px 0;
+
+    &--title {
+        @include title-styles($color-white, $color-white);
+        font-size: 42px;
+        font-weight: 500;
+
+        &:after {
+            height: 5px;
+            width: 50px;
+        }
+    }
+
+    &--data {
+        font-size: 20px;
+        line-height: 50px;
+        font-weight: 200;
+        width: 500px;
+
+        &-key, &-value {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        &-key {
+            width: 100px;
+        }
+
+        &-value {
+            font-weight: 500;
+            width: 395px;
+        }
+    }
+
+    &--cv-link {
+        @include button-secondary;
+        position: absolute;
+        right: 0px;
+        top: 70px;
+        height: 104px;
+        line-height: 100px;
+        width: 360px;
+        color: $color-white;
+        border-color: $color-white;
+        opacity: 0.7;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &--copy {
+        padding-top: 70px;
+        text-align: center;
+        opacity: 0.6;
+        font-weight: 100;
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+}
+
+// .car {
+//     background: url('/../images/bgr2.jpg') top center no-repeat;
+//     background-size: cover;
+//     height: 1000px;
+//     margin-top: 150px;
+//
+//     &--title {
+//         padding: 100px 0 60px;
+//         @include title-styles($color-white, $color-white);
+//     }
+//
+//     &--description {
+//
+//         &-text {
+//             color: $color-white;
+//         }
+//     }
+// }

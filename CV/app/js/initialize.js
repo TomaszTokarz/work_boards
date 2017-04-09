@@ -1,8 +1,9 @@
 console.log('initialize.js');
 
 app = {
+    sliders: [],
     init: function() {
-        slider.slide(0);
+        this.sliders.push(new Slider('.js_top_slider', 1200));
     }
 };
 

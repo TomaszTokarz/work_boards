@@ -1,6 +1,8 @@
 @import 'reset';
 @import 'style-set';
 
+@import 'font-awesome/font-awesome';
+
 html {
     font-family: 'Lato';
 }
@@ -54,7 +56,22 @@ html {
 }
 
 .slider {
+    display: block;
+    overflow: hidden;
+
+    &--items {
+        position: relative;
+        height: 400px;
+    }
+
     &--item {
+        position: absolute;
+        float: left;
+        display: inline-block;
+        width: 976px;
+        right: -1500px;
+        @include transition(all 0.7s ease-in-out);
+
         &--title {
             @include title-styles($color-black, $color-red);
         }
@@ -69,6 +86,26 @@ html {
         &--columns-text {
             column-count: 3;
             column-gap: 40px;
+        }
+    }
+
+    &--list {
+            display: flex;
+            justify-content: center;
+
+        &-item {
+            margin: 30px 15px 0;
+            font-size: 24px;
+
+            &-active {
+                @include transition(all 1s ease-in-out);
+                @include transform(rotate(360deg));
+            }
+
+            &:hover {
+                color: $color-red;
+                cursor: pointer;
+            }
         }
     }
 }
@@ -96,9 +133,34 @@ html {
         background: rgba(255, 255, 255, 0.6);
         height: 140px;
         vertical-align: middle;
+        @include transition(all 0.7s ease-in-out);
 
         &.odd {
             background: rgba(255, 0, 0, 0.25);
+        }
+
+        &-main {
+            @include delay(0.35s);
+        }
+
+        &-hovered {
+            position: relative;
+            top: -80px;
+            opacity: 0;
+            @include transform(rotateY(180deg));
+            @include delay(0.35s);
+        }
+
+        &:hover {
+            @include transform(rotateY(180deg));
+        }
+
+        &:hover > &-hovered {
+            opacity: 1;
+        }
+
+        &:hover > &-main {
+            opacity: 0;
         }
     }
 

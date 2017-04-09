@@ -73,6 +73,11 @@ $color-green: #3ccc3c;
             transition: $transition;
 }
 
+@mixin delay($duration) {
+    -webkit-transition-delay: 0.35s;
+            transition-delay: 0.3s;
+}
+
 @mixin transform($transforms) {
 	   -moz-transform: $transforms;
 	     -o-transform: $transforms;
@@ -82,7 +87,7 @@ $color-green: #3ccc3c;
 }
 
 @mixin animation($transforms) {
-    webkit-animation: $transforms;
+    -webkit-animation: $transforms;
       -moz-animation: $transforms;
            animation: $transforms;
 

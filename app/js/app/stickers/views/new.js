@@ -5,19 +5,18 @@ var NewStickerLayoutView = Backbone.Marionette.View.extend({
 
     ui: {
         title: '#sticker-title-input',
-        pictureSrc: '#fileupload',
+        pictureSrc: '#input-image',
         link: '#sticker-link-input',
         linkDesc: '#sticker-link-description-input',
         content: '#sticker-description-input',
-        addButton: '.js-add-new-sticker'
-    },
-
-    initialize: function() {
-
+        addButton: '.js-add-new-sticker',
+        fileBtn: '.fileBtn',
+        imageMiniature: '.image-miniature'
     },
 
     events: {
-        'click @ui.addButton': 'addSticker'
+        'click @ui.addButton': 'addSticker',
+        'change @ui.pictureSrc': 'fileChanged'
     },
 
     addSticker: function() {
@@ -33,6 +32,18 @@ var NewStickerLayoutView = Backbone.Marionette.View.extend({
             }, this.ui.pictureSrc[0].files[0]);
             app.popupView.closePopup();
         }
+    },
 
+    fileChanged: function() {
+        var miniature = this.ui.imageMiniature;
+        var file = new FileReader();
+        file.readAsDataURL(this.ui.pictureSrc[0].files[0])
+        file.onload = function(e) {
+            $(miniature).css({
+                display: 'block'
+            })
+            $(miniature).attr('src', e.target.result)
+        }
+        $(this.ui.fileBtn).html('file: ' + this.ui.pictureSrc[0].files[0].name)
     }
 });

@@ -2506,7 +2506,9 @@ html {
     -o-transform: rotateY(0deg);
     -ms-transform: rotateY(0deg);
     -webkit-transform: rotateY(0deg);
-    transform: rotateY(0deg); }
+    transform: rotateY(0deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden; }
     .skills--item-wrapper {
       perspective: 1000px;
       display: inline-block;
@@ -2522,12 +2524,13 @@ html {
         transform: rotateY(180deg); }
     .skills--item-front, .skills--item-back {
       background: rgba(255, 255, 255, 0.6);
-      backface-visibility: hidden;
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%; }
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden; }
       .odd .skills--item-front, .odd .skills--item-back {
         background: rgba(255, 0, 0, 0.25); }
     .skills--item-back {

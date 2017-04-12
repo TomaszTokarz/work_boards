@@ -9,7 +9,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='description' content=''>
     <meta name='keywords' content=''>
-    <meta name='author' content='Toki'>
+    <meta name='author' content='Tomasz Tokarz'>
     <meta name='viewport' content='width=device-width'>
     <title>Work boards</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -34,7 +34,7 @@
             <header class='header' id='header'>
                 <img src='images/logo.png' class='header--logo js-main-page-btn' />
                 <div class='search-bar--container'>
-                    <input class='search-bar' type='text' autocomplete='off' placeholder='What are you looking for?'></input>
+                    <input class='search-bar js-search-bar' type='text' autocomplete='off' placeholder='What are you looking for?'></input>
                 </div>
                 <div class='header--menu-right'>
                     <a class='header--menu-right--btn js-add-sticker-btn'>
@@ -73,12 +73,10 @@
                     </li>
                 </ul>
             </div>
-            <h3 class='sticker--title'><%= title %></h3>
+            <h3 class='sticker--title'><%= title %> (id: <%= id %>)</h3>
             <% if (pictureSrc) {%>
                 <div class='sticker--picture'>
-                    <a href='<%= link %>'>
-                        <img src='<%= pictureSrc %>' class='sticker--picture--img'/>
-                    </a>
+                    <img src='<%= pictureSrc %>' class='sticker--picture--img'/>
                 </div>
             <%} %>
             <% if (linkDesc) {%>
@@ -113,6 +111,10 @@
             <ul class='boards-list js-boards-list'></ul>
             <h2 class='popup-subtitle'>Add new board</h2>
             <input class='popup-input js-new-board-name' type='text' autocomplete='off' placeholder='new board name' id='js-new-board-name'></input>
+            <div class='new-sticker-button back js-popup-close'>
+                <span class='new-sticker-button-save'>Back</span>
+                <span class='new-sticker-button-hovered'><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+            </div>
             <div class='new-sticker-button js-add-board-btn'>
                 <span class='new-sticker-button-save'>Save</span>
                 <span class='new-sticker-button-hovered'><i class="fa fa-floppy-o" aria-hidden="true"></i></span>
@@ -149,8 +151,9 @@
             <span class='popup-subtitle'>Title</span>
             <input class='popup-input' id='sticker-title-input' type='text' autocomplete='off' placeholder='' value='<% if (typeof(title) !== 'undefined') {%><%= title %><%} %>'></input>
 
-            <span class='popup-subtitle'>Place an image</span>
-            <input class='popup-input' type='file' name='fileupload' value='fileupload' id='fileupload'></input>
+            <input class='popup-input file' id="input-image" type='file' name='fileupload' value='fileupload' id='fileupload'></input>
+            <label for="input-image" class="popup-subtitle-file js-file-label"><img class="image-miniature" src=""><i class="fa fa-upload icon" aria-hidden="true"></i> <span class='fileBtn'>Place an image</span></label>
+
 
             <span class='popup-subtitle'>Link source</span>
             <input class='popup-input' id='sticker-link-input' type='text' autocomplete='off' placeholder='' value='<% if (typeof(link) !== 'undefined') {%><%= link %><%} %>'></input>
@@ -161,7 +164,10 @@
             <span class='popup-subtitle'>Content</span>
             <textarea class='popup-textarea' id='sticker-description-input' rows='4'></textarea>
 
-            <div class='new-sticker-button-clear'>Clear</div>
+            <div class='new-sticker-button back js-popup-close'>
+                <span class='new-sticker-button-save'>Back</span>
+                <span class='new-sticker-button-hovered'><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+            </div>
             <div class='new-sticker-button js-add-new-sticker'>
                 <span class='new-sticker-button-save'>Save</span>
                 <span class='new-sticker-button-hovered'><i class="fa fa-floppy-o" aria-hidden="true"></i></span>

@@ -20,9 +20,21 @@
     }
 }
 
-@media screen and (min-width: $breakpoint--big) {
+@media screen and (min-width: $breakpoint--big) and (max-width: $breakpoint--large){
     .body {
         font-size: $font-size--big;
+    }
+}
+
+@media screen and (min-width: $breakpoint--large) {
+    .body {
+        font-size: $font-size--large;
+    }
+}
+
+@media screen and (min-height: $breakpoint-height) {
+    .popup {
+        display: flex;
     }
 }
 
@@ -30,7 +42,7 @@
     background-image: $main-background-src;
     background-attachment: fixed;
     font-family: $font-stack;
-    color: $font-color;
+    $sticker-width: 15.5em;
 }
 
 .main {
@@ -42,7 +54,7 @@
 }
 
 .columns {
-    width: 98%;
+    width: auto;
 	margin: auto;
     @include column-width();
     @include column-gap(1em);

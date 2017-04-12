@@ -9,14 +9,19 @@ $main-border: 2px solid #E6E6E6;
 
 // sizes:
 $new-sticker-input-size: 1em;
-$sticker-width: 15.5em;
+$sticker-width: 16em;
 
-$breakpoint--small: 540px;
-$breakpoint--medium: 768px;
-$breakpoint--big: 1200px;
-$font-size--small: 12px;
-$font-size--medium: 18px;
-$font-size--big: 1.45vw;
+$breakpoint--small: 580px;
+$breakpoint--medium: 700px;
+$breakpoint--big: 1000px;
+$breakpoint--large: 1400px;
+
+$breakpoint-height: 800px;
+
+$font-size--small: 5vw;
+$font-size--medium: 2.8vw;
+$font-size--big: 1.8vw;
+$font-size--large: 1.4vw;
 
 // colors:
 $font-color: #444;

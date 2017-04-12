@@ -2,7 +2,6 @@
   background-image: url("../images/seigaiha-transparent.png");
   width: 100%;
   height: 100%;
-  display: flex;
   align-items: center;
   position: fixed;
   z-index: 10;
@@ -35,17 +34,59 @@
     font-size: 1em;
     display: block;
     width: 88%;
-    margin: 0.7em auto;
+    margin: 0.7em 0.8em;
     padding: 0.3em;
     border: 2px solid #E6E6E6; }
+    .popup-input.file, .file.popup-textarea {
+      width: .1px;
+      height: .1px;
+      display: none; }
+  .popup-subtitle-file {
+    font-size: 1em;
+    display: block;
+    width: 88%;
+    margin: 1.4em auto 0.7em;
+    padding: 0.5em 0.3em;
+    text-align: center;
+    background-color: #b01f24;
+    color: #fff;
+    cursor: pointer; }
+    .popup-subtitle-file .icon {
+      -moz-transition: all 0.7s ease-in-out;
+      -o-transition: all 0.7s ease-in-out;
+      -webkit-transition: all 0.7s ease-in-out;
+      transition: all 0.7s ease-in-out; }
+    .popup-subtitle-file:hover > .icon {
+      -moz-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg); }
+  .popup .image-miniature {
+    display: none;
+    position: absolute;
+    right: 0.2em;
+    height: 2em;
+    z-index: 200;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out; }
+    .popup .image-miniature:hover {
+      -ms-transform: scale(3, 3);
+      -webkit-transform: scale(3, 3);
+      transform: scale(3, 3);
+      right: 3em; }
   .popup-textarea {
     font-size: 0.8em;
     resize: none; }
   .popup--content {
     margin: auto;
-    width: 20.5em;
+    padding-bottom: 2.5em;
+    width: 20em;
     z-index: 30;
-    background-color: #FFF; }
+    background-color: #FFF;
+    position: relative; }
   .popup--close {
     width: 100%;
     height: 100%;
@@ -68,7 +109,7 @@
       color: #b01f24; }
     .boards-list-item-title {
       display: inline-block;
-      width: 17.5em; }
+      width: 16em; }
     .boards-list-item:nth-child(odd) {
       background-color: #f7f7f7; }
   .boards-list-sticker-title {
@@ -90,7 +131,6 @@
   bottom: -0.5em;
   right: -0.5em;
   padding: 0.6em 0;
-  margin: auto;
   width: 7em;
   font-size: 1.2em;
   cursor: pointer;
@@ -103,6 +143,9 @@
   -o-transition: opacity 0.5s;
   -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s; }
+  .new-sticker-button.back {
+    float: left;
+    left: -0.5em; }
   .new-sticker-button-save {
     display: inline-block;
     -moz-transition: all 0.5s ease-out;
@@ -140,21 +183,6 @@
     -ms-transform: translate(5em, 0);
     -webkit-transform: translate(5em, 0);
     transform: translate(5em, 0); }
-
-.new-sticker-button-clear {
-  display: inline-block;
-  float: left;
-  position: relative;
-  top: 1.2em;
-  left: 0.8em;
-  font-size: 1em;
-  cursor: pointer;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out; }
-  .new-sticker-button-clear:hover {
-    color: #b01f24; }
 
 .activeBoard {
   color: #3ccc3c;

@@ -1,9 +1,9 @@
 .sticker {
-  width: 15.5em;
+  width: 16em;
   background-color: rgba(255, 255, 255, 0.4);
   position: relative;
-  margin-bottom: 0.8em;
-  display: inline-block;
+  margin: 0 auto 0.8em;
+  display: block;
   cursor: pointer;
   z-index: 0;
   opacity: 0;
@@ -42,10 +42,10 @@
   .sticker--title {
     text-align: center;
     font-size: 1.2em;
-    padding: 0.5em;
+    padding: 1.5em 0 0.5em;
     border-bottom: 2px solid #f1f1f1; }
   .sticker--picture--img {
-    width: 15.5em;
+    width: 16em;
     margin-top: 0.2em; }
   .sticker--link {
     padding: 0.5em;
@@ -59,7 +59,7 @@
     .sticker--link:hover {
       text-decoration: underline; }
   .sticker--content {
-    font-size: 0.8em;
+    font-size: 0.9em;
     padding: 0.5em;
     text-indent: 1em;
     text-align: justify; }
@@ -68,14 +68,15 @@
     position: absolute;
     right: 0.2em;
     top: 0.2em;
-    opacity: 0; }
+    opacity: 0.4; }
     .sticker-bar--menu-item {
       float: left;
       background: #5bd32c;
-      width: 2em;
-      line-height: 2em;
-      margin-right: 0.2em;
+      width: 1.7em;
+      line-height: 1.7em;
+      margin-right: 0.3em;
       text-align: center;
+      font-size: 0.9em;
       color: #fff; }
       .sticker-bar--menu-item:nth-child(1) {
         background: #2c7dd3; }

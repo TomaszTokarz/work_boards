@@ -94,11 +94,11 @@ table {
       background-color: #FFF; }
 
 .sticker {
-  width: 15.5em;
+  width: 16em;
   background-color: rgba(255, 255, 255, 0.4);
   position: relative;
-  margin-bottom: 0.8em;
-  display: inline-block;
+  margin: 0 auto 0.8em;
+  display: block;
   cursor: pointer;
   z-index: 0;
   opacity: 0;
@@ -137,10 +137,10 @@ table {
   .sticker--title {
     text-align: center;
     font-size: 1.2em;
-    padding: 0.5em;
+    padding: 1.5em 0 0.5em;
     border-bottom: 2px solid #f1f1f1; }
   .sticker--picture--img {
-    width: 15.5em;
+    width: 16em;
     margin-top: 0.2em; }
   .sticker--link {
     padding: 0.5em;
@@ -154,7 +154,7 @@ table {
     .sticker--link:hover {
       text-decoration: underline; }
   .sticker--content {
-    font-size: 0.8em;
+    font-size: 0.9em;
     padding: 0.5em;
     text-indent: 1em;
     text-align: justify; }
@@ -163,14 +163,15 @@ table {
     position: absolute;
     right: 0.2em;
     top: 0.2em;
-    opacity: 0; }
+    opacity: 0.4; }
     .sticker-bar--menu-item {
       float: left;
       background: #5bd32c;
-      width: 2em;
-      line-height: 2em;
-      margin-right: 0.2em;
+      width: 1.7em;
+      line-height: 1.7em;
+      margin-right: 0.3em;
       text-align: center;
+      font-size: 0.9em;
       color: #fff; }
       .sticker-bar--menu-item:nth-child(1) {
         background: #2c7dd3; }
@@ -194,7 +195,6 @@ table {
   background-image: url("../images/seigaiha-transparent.png");
   width: 100%;
   height: 100%;
-  display: flex;
   align-items: center;
   position: fixed;
   z-index: 10;
@@ -227,17 +227,59 @@ table {
     font-size: 1em;
     display: block;
     width: 88%;
-    margin: 0.7em auto;
+    margin: 0.7em 0.8em;
     padding: 0.3em;
     border: 2px solid #E6E6E6; }
+    .popup-input.file, .file.popup-textarea {
+      width: .1px;
+      height: .1px;
+      display: none; }
+  .popup-subtitle-file {
+    font-size: 1em;
+    display: block;
+    width: 88%;
+    margin: 1.4em auto 0.7em;
+    padding: 0.5em 0.3em;
+    text-align: center;
+    background-color: #b01f24;
+    color: #fff;
+    cursor: pointer; }
+    .popup-subtitle-file .icon {
+      -moz-transition: all 0.7s ease-in-out;
+      -o-transition: all 0.7s ease-in-out;
+      -webkit-transition: all 0.7s ease-in-out;
+      transition: all 0.7s ease-in-out; }
+    .popup-subtitle-file:hover > .icon {
+      -moz-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg); }
+  .popup .image-miniature {
+    display: none;
+    position: absolute;
+    right: 0.2em;
+    height: 2em;
+    z-index: 200;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out; }
+    .popup .image-miniature:hover {
+      -ms-transform: scale(3, 3);
+      -webkit-transform: scale(3, 3);
+      transform: scale(3, 3);
+      right: 3em; }
   .popup-textarea {
     font-size: 0.8em;
     resize: none; }
   .popup--content {
     margin: auto;
-    width: 20.5em;
+    padding-bottom: 2.5em;
+    width: 20em;
     z-index: 30;
-    background-color: #FFF; }
+    background-color: #FFF;
+    position: relative; }
   .popup--close {
     width: 100%;
     height: 100%;
@@ -260,7 +302,7 @@ table {
       color: #b01f24; }
     .boards-list-item-title {
       display: inline-block;
-      width: 17.5em; }
+      width: 16em; }
     .boards-list-item:nth-child(odd) {
       background-color: #f7f7f7; }
   .boards-list-sticker-title {
@@ -282,7 +324,6 @@ table {
   bottom: -0.5em;
   right: -0.5em;
   padding: 0.6em 0;
-  margin: auto;
   width: 7em;
   font-size: 1.2em;
   cursor: pointer;
@@ -295,6 +336,9 @@ table {
   -o-transition: opacity 0.5s;
   -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s; }
+  .new-sticker-button.back {
+    float: left;
+    left: -0.5em; }
   .new-sticker-button-save {
     display: inline-block;
     -moz-transition: all 0.5s ease-out;
@@ -332,21 +376,6 @@ table {
     -ms-transform: translate(5em, 0);
     -webkit-transform: translate(5em, 0);
     transform: translate(5em, 0); }
-
-.new-sticker-button-clear {
-  display: inline-block;
-  float: left;
-  position: relative;
-  top: 1.2em;
-  left: 0.8em;
-  font-size: 1em;
-  cursor: pointer;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out; }
-  .new-sticker-button-clear:hover {
-    color: #b01f24; }
 
 .activeBoard {
   color: #3ccc3c;
@@ -2719,23 +2748,30 @@ table {
   overflow: visible;
   clip: auto; }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 580px) {
   .body {
-    font-size: 12px; } }
+    font-size: 5vw; } }
 
-@media screen and (min-width: 768px) and (max-width: 1200px) {
+@media screen and (min-width: 700px) and (max-width: 1000px) {
   .body {
-    font-size: 18px; } }
+    font-size: 2.8vw; } }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1000px) and (max-width: 1400px) {
   .body {
-    font-size: 1.45vw; } }
+    font-size: 1.8vw; } }
+
+@media screen and (min-width: 1400px) {
+  .body {
+    font-size: 1.4vw; } }
+
+@media screen and (min-height: 800px) {
+  .popup {
+    display: flex; } }
 
 .body {
   background-image: url("../images/seigaiha.png");
   background-attachment: fixed;
-  font-family: Calibri;
-  color: #444; }
+  font-family: Calibri; }
 
 .main {
   padding-top: 3.5em; }
@@ -2744,11 +2780,11 @@ table {
   display: none; }
 
 .columns {
-  width: 98%;
+  width: auto;
   margin: auto;
-  -webkit-column-width: 15.5em;
-  -moz-column-width: 15.5em;
-  column-width: 15.5em;
+  -webkit-column-width: 16em;
+  -moz-column-width: 16em;
+  column-width: 16em;
   -webkit-column-gap: 1em;
   -moz-column-gap: 1em;
   column-gap: 1em; }

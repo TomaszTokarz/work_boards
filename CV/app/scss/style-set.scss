@@ -78,6 +78,11 @@ $color-green: #3ccc3c;
             transition-delay: 0.3s;
 }
 
+@mixin backface($state) {
+    -webkit-backface-visibility: $state;
+            backface-visibility: $state;
+}
+
 @mixin transform($transforms) {
 	   -moz-transform: $transforms;
 	     -o-transform: $transforms;

@@ -34,15 +34,14 @@ var database = {
                 data.id = parseInt(snapshot.val());
                 firebase.database().ref('id').set(data.id + 1);
                 if (file) {
-                    this.saveFile(data, file);
+                    database.saveFile(data, file);
                 } else {
-                    console.log(data.id)
                     firebase.database().ref('Stickers/' + data.id).set(data);
                 }
             });
         } else {
             if (file) {
-                this.saveFile(data, file);
+                database.saveFile(data, file);
             } else {
                 firebase.database().ref('Stickers/' + data.id).set(data);
             }
@@ -71,7 +70,7 @@ var database = {
     },
 
     runListeners: function() {
-        firebase.database().ref('Stickers').on('child_added', function(snapshot) {
+        firebase.database().ref('Stickers').on('child_added', function(snapshot) {            
             stickerCollection.add(snapshot.val());
         })
 
@@ -79,8 +78,17 @@ var database = {
             boardList.add(snapshot.val());
         })
 
+        firebase.database().ref('Boards').on('child_removed', function(snapshot) {
+            boardList.remove(snapshot.val());
+        })
+
         firebase.database().ref('Stickers').on('child_removed', function(snapshot) {
             stickerCollection.remove(snapshot.val());
+        })
+
+        firebase.database().ref('Stickers').on('child_changed', function(snapshot) {
+            var itemCid = stickerCollection.get(snapshot.val()).cid;
+            stickerCollection.get({cid:itemCid}).set(snapshot.val());
         })
     },
 
@@ -106,7 +114,6 @@ var database = {
     },
 
     saveFile: function(data, file) {
-        console.log(data)
         var metadata = {
           contentType: 'image'
         };
@@ -115,17 +122,7 @@ var database = {
 
         uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
           function(snapshot) {
-            // var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            // console.log('Upload is ' + progress + '% done');
-            //
-            // switch (snapshot.state) {
-            //   case firebase.storage.TaskState.PAUSED:
-            //     console.log('Upload is paused');
-            //     break;
-            //   case firebase.storage.TaskState.RUNNING:
-            //     console.log('Upload is running');
-            //     break;
-            // }
+
           }, function(error) {
               console.error(error);
         }, function() {

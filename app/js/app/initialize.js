@@ -10,10 +10,16 @@ var app = {
         app.router.on('route', function() {
             app.lastRoutes.push(Backbone.history.fragment);
             app.lastRoutes.splice(0,1);
+        });
+        $(".footer").click(function() {
+            console.log('shieet')
         })
     }
 };
 
 $(function() {
     app.init();
+    //if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+    //
+    //}
 });

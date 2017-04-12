@@ -4,8 +4,8 @@
     width: $sticker-width;
     background-color: $sticker-background;
     position: relative;
-    margin-bottom: 0.8em;
-    display: inline-block;
+    margin: 0 auto 0.8em;
+    display: block;
     cursor: pointer;
     z-index: 0;
     opacity: 0;
@@ -30,7 +30,7 @@
     &--title {
         text-align: center;
         font-size: 1.2em;
-        padding: 0.5em;
+        padding: 1.5em 0 0.5em;
         border-bottom: $underline;
     }
 
@@ -59,7 +59,7 @@
     }
 
     &--content {
-        font-size: 0.8em;
+        font-size: 0.9em;
         padding: 0.5em;
         text-indent: 1em;
         text-align: justify;
@@ -70,16 +70,17 @@
         position: absolute;
         right: 0.2em;
         top: 0.2em;
-        opacity: 0;
+        opacity: 0.4;
 
         &--menu {
             &-item {
                 float: left;
                 background: $sticker-bar-edit-background;
-                width: 2em;
-                line-height: 2em;
-                margin-right: 0.2em;
+                width: 1.7em;
+                line-height: 1.7em;
+                margin-right: 0.3em;
                 text-align: center;
+                font-size: 0.9em;
                 color: $color-white;
 
                 &:nth-child(1) {

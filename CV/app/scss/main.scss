@@ -107,6 +107,61 @@ html {
             }
         }
     }
+
+    &--container {
+        float: left;
+        max-width: 280px;
+        margin: 10px 80px;
+
+        &:nth-child(2) {
+            float: right;
+        }
+
+        & .strong {
+            font-weight: 800;
+        }
+
+        &-title {
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+        &-subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            padding: 10px 0 0 10px;
+        }
+
+        &-year {
+            color: $color-medium-grey;
+            display: inline-block;
+            margin: 10px 15px 20px;
+        }
+
+        &-description {
+            width: 350px;
+        }
+    }
+}
+
+.hobbies {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hobby {
+    margin: 20px 20px;
+
+    &-img {
+        height: 120px
+    }
+
+    &-desc {
+        text-align: center;
+        max-width:100px;
+        margin-top: 10px;
+    }
 }
 
 .skills {
@@ -192,7 +247,6 @@ html {
 }
 
 .workboards {
-    height: 1000px;
     margin: 150px 0 50px;
 
     &--title {
@@ -205,7 +259,7 @@ html {
         line-height: $p-line-height;
         text-align: justify;
         padding: 15px 0;
-        height: 300px;
+        margin-bottom: 50px;
         column-count: 3;
         column-gap: 40px;
     }

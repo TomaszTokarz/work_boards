@@ -2469,6 +2469,41 @@ html {
       .slider--list-item:hover {
         color: #b01f24;
         cursor: pointer; }
+  .slider--container {
+    float: left;
+    max-width: 280px;
+    margin: 10px 80px; }
+    .slider--container:nth-child(2) {
+      float: right; }
+    .slider--container .strong {
+      font-weight: 800; }
+    .slider--container-title {
+      font-size: 30px;
+      font-weight: 800; }
+    .slider--container-subtitle {
+      font-size: 18px;
+      font-weight: 400;
+      padding: 10px 0 0 10px; }
+    .slider--container-year {
+      color: #b2b2b2;
+      display: inline-block;
+      margin: 10px 15px 20px; }
+    .slider--container-description {
+      width: 350px; }
+
+.hobbies {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; }
+
+.hobby {
+  margin: 20px 20px; }
+  .hobby-img {
+    height: 120px; }
+  .hobby-desc {
+    text-align: center;
+    max-width: 100px;
+    margin-top: 10px; }
 
 .skills {
   background: url("/../images/bgr2.jpg") top center no-repeat;
@@ -2552,7 +2587,6 @@ html {
       color: rgba(255, 255, 255, 0.9); }
 
 .workboards {
-  height: 1000px;
   margin: 150px 0 50px; }
   .workboards--title {
     font-size: 60px;
@@ -2571,7 +2605,7 @@ html {
     line-height: 24px;
     text-align: justify;
     padding: 15px 0;
-    height: 300px;
+    margin-bottom: 50px;
     column-count: 3;
     column-gap: 40px; }
   .workboards--img {

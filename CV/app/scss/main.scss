@@ -34,10 +34,14 @@ html {
         padding: 100px 0 20px;
 
         &-strong {
-            color: $color-red;
+            background: $color-red;
+            color: $color-white;
             font-weight: 900;
-            font-size: 100px;
+            font-size: 45px;
+            padding: 20px;
+            @include border-radius(50%);
             vertical-align: top;
+
         }
     }
 
@@ -110,8 +114,11 @@ html {
 
     &--container {
         float: left;
-        max-width: 280px;
-        margin: 10px 80px;
+        width: 50%;
+        margin: 10px 0;
+        padding-right: 40px;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
 
         &:nth-child(2) {
             float: right;
@@ -124,6 +131,7 @@ html {
         &-title {
             font-size: 30px;
             font-weight: 800;
+            text-align: left;
         }
 
         &-subtitle {

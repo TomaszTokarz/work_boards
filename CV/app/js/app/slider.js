@@ -1,4 +1,4 @@
-var Slider = function(el, width, height) {
+var Slider = function(el, width, isMobile) {
     this.$el = $(el);
     this.width = width;
     this.$items = this.$el.find('.js_slider_item');
@@ -6,18 +6,21 @@ var Slider = function(el, width, height) {
     this.$listItems = this.$el.find('.js_slider_list_item');
     this.height = 0;
     this.currentSlide = 0;
-    this.autoTime = 3000;
+    this.autoTime = 4000;
     this.clickTime = 10000;
+    this.isMobile = isMobile;
 
     this.slide = function(id, time) {
         window.clearTimeout(this.timeout);
-        for (var i = 0; i < this.$items.length; i++) {
-            this.$items.eq(i).css({
-                right: (id - i) * width
-            });
-            this.$listItems.removeClass('active');
-            this.$listItems.eq(this.currentSlide).addClass('active');
-        };
+        if (!this.isMobile) {
+            for (var i = 0; i < this.$items.length; i++) {
+                this.$items.eq(i).css({
+                    right: (id - i) * width
+                });
+                this.$listItems.removeClass('active');
+                this.$listItems.eq(this.currentSlide).addClass('active');
+            };
+        }
         this.timeout = window.setTimeout( function() {
             if (this.currentSlide++ >= this.$items.length - 1) {
                 this.currentSlide = 0;
@@ -26,13 +29,15 @@ var Slider = function(el, width, height) {
         }.bind(this), time);
     }.bind(this);
 
-    for (var i = 0; i < this.$items.length; i++) {
-        this.height = Math.max( this.height, this.$items.eq(i).height())
-    };
+    if (!this.isMobile) {
+        for (var i = 0; i < this.$items.length; i++) {
+            this.height = Math.max( this.height, this.$items.eq(i).height())
+        };
 
-    this.$itemContainer.css({
-        height: Math.max( parseInt(this.height) )
-    });
+        this.$itemContainer.css({
+            height: Math.max( parseInt(this.height) )
+        });
+    };
 
     this.$listItems.click(function(e) {
         this.currentSlide = $(e.currentTarget).index()

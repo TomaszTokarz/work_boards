@@ -1,5 +1,13 @@
 @import 'reset';
 @import 'style-set';
+@media screen and (max-width: 1000px) {
+    @import 'mobile'
+}
+
+@media screen and (min-width: 1000px) {
+    @import 'desktop'
+}
+
 
 @import 'font-awesome/font-awesome';
 
@@ -8,37 +16,37 @@ html {
 }
 
 .wrapper {
-    width: 976px;
+    // width: 976px;
     margin: 0 auto;
     position: relative;
 }
 
 .section {
     &.about {
-        margin-top: 100px;
+        // margin-top: 100px;
     }
 }
 
 .header {
-    height: 500px;
-    background: url('/../images/header.jpg') top center no-repeat;
+    // height: 500px;
+    background: url('../images/header.jpg') top center no-repeat;
     background-size: cover;
     background-attachment: fixed;
     overflow: visible;
 
     &--title {
         color: $color-white;
-        font-size: 90px;
+        // font-size: 90px;
         font-weight: 600;
         text-align: center;
-        padding: 100px 0 20px;
+        // padding: 100px 0 20px;
 
         &-strong {
             background: $color-red;
             color: $color-white;
             font-weight: 900;
-            font-size: 45px;
-            padding: 20px;
+            // font-size: 45px;
+            // padding: 20px;
             @include border-radius(50%);
             vertical-align: top;
 
@@ -47,7 +55,7 @@ html {
 
     &--subtitle {
         color: rgba(255,255,255, 0.6);
-        font-size: 40px;
+        // font-size: 40px;
         font-weight: 100;
         text-align: center;
     }
@@ -55,28 +63,27 @@ html {
     &--photo {
         display: block;
         @include border-radius(50%);
-        border: 10px solid $color-white;
-        margin: 95px auto 0;
-        width: 300px;
+        // border: 10px solid $color-white;
+        // margin: 95px auto 0;
+        // width: 300px;
     }
 }
 
 .slider {
-    display: block;
+    // display: block;
     overflow: hidden;
 
     &--items {
-        position: relative;
     }
 
     &--item {
-        position: absolute;
-        width: 976px;
-        right: -1200px;
+        // position: absolute;
+        // width: 976px;
+        // right: -1200px;
         @include transition(all 1s cubic-bezier(.3,-0.2,.2,1.3));
 
         &--title {
-            @include title-styles($color-black, $color-red);
+
         }
 
         &--body {
@@ -86,8 +93,6 @@ html {
         }
 
         &--columns-text {
-            column-count: 3;
-            column-gap: 40px;
         }
     }
 
@@ -100,28 +105,25 @@ html {
             font-size: 24px;
 
             &.active {
-                @include transition(all 1s ease-in-out);
-                @include transform(rotate(360deg));
-                color: $color-red;
+
             }
 
             &:hover {
-                color: $color-red;
-                cursor: pointer;
+
             }
         }
     }
 
     &--container {
-        float: left;
-        width: 50%;
-        margin: 10px 0;
-        padding-right: 40px;
+        // float: left;
+        // width: 50%;
+        //margin: 10px 0;
+        // padding-right: 40px;
         box-sizing: border-box;
         -webkit-box-sizing: border-box;
 
         &:nth-child(2) {
-            float: right;
+            // float: right;
         }
 
         & .strong {
@@ -129,25 +131,25 @@ html {
         }
 
         &-title {
-            font-size: 30px;
+            // font-size: 30px;
             font-weight: 800;
             text-align: left;
         }
 
         &-subtitle {
-            font-size: 18px;
+            // font-size: 18px;
             font-weight: 400;
-            padding: 10px 0 0 10px;
+            // padding: 10px 0 0 10px;
         }
 
         &-year {
             color: $color-medium-grey;
             display: inline-block;
-            margin: 10px 15px 20px;
+            // margin: 10px 15px 20px;
         }
 
         &-description {
-            width: 350px;
+            // width: 350px;
         }
     }
 }
@@ -173,14 +175,14 @@ html {
 }
 
 .skills {
-    background: url('/../images/bgr2.jpg') top center no-repeat;
+    background: url('../images/bgr2.jpg') top center no-repeat;
     background-size: cover;
-    height: 1000px;
-    margin-top: 150px;
+    // height: 1000px;
+    // margin-top: 150px;
 
     &--title {
-        padding: 100px 0 60px;
-        @include title-styles($color-white, $color-white);
+        // padding: 100px 0 60px;
+        // @include title-styles($color-white, $color-white, 60px);
     }
 
     &--list {
@@ -200,9 +202,9 @@ html {
         &-wrapper {
             perspective: 1000px;
             display: inline-block;
-            width: 233px;
-            height: 140px;
-            margin: 5px;
+            // width: 233px;
+            // height: 140px;
+            // margin: 5px;
             vertical-align: middle;
 
             &:hover {
@@ -222,7 +224,7 @@ html {
             @include backface(hidden);
 
             .odd & {
-                background: rgba(255, 0, 0, 0.25);
+                // background: rgba(255, 0, 0, 0.25);
             }
         }
 
@@ -233,32 +235,32 @@ html {
 
     &--level {
         font-weight: 300;
-        padding: 30px 0 5px;
-        font-size: 20px;
+        // padding: 30px 0 5px;
+        // font-size: 20px;
         color: #2b2b2b;
         display: block;
 
         .odd & {
-            color: rgba(255,255,255,0.5);
+            // color: rgba(255,255,255,0.5);
         }
     }
 
     &--name {
         color: $color-black;
         font-weight: 600;
-        font-size: 25px;
+        // font-size: 25px;
 
         .odd & {
-            color: rgba(255,255,255,0.9);
+            // color: rgba(255,255,255,0.9);
         }
     }
 }
 
 .workboards {
-    margin: 150px 0 50px;
+    // margin: 150px 0 50px;
 
     &--title {
-        @include title-styles($color-black, $color-red);
+        // @include title-styles($color-black, $color-red, 60px);
         display: inline-block;
     }
 
@@ -266,29 +268,29 @@ html {
         font-size: $p-font-size;
         line-height: $p-line-height;
         text-align: justify;
-        padding: 15px 0;
-        margin-bottom: 50px;
-        column-count: 3;
-        column-gap: 40px;
+        // padding: 15px 0;
+        // margin-bottom: 50px;
+        // column-count: 3;
+        // column-gap: 40px;
     }
 
     &--img {
         display: block;
         margin: 0 auto;
-        height: 500px;
+        // height: 500px;
     }
 
     &--nav {
-        display: inline-block;
-        float: right;
+        // display: inline-block;
+        // float: right;
         padding-top: 3px;
 
         &-item {
-            @include button;
-            margin-left: 10px;
+            // @include button(16px);
+            // margin-left: 10px;
 
             &.secondary {
-                @include button-secondary;
+                // @include button-secondary(16px);
             }
         }
     }
@@ -297,10 +299,10 @@ html {
 .footer {
     background: $color-red;
     color: $color-white;
-    padding: 40px 0;
+    // padding: 40px 0;
 
     &--title {
-        @include title-styles($color-white, $color-white);
+        // @include title-styles($color-white, $color-white, 60px);
         font-size: 42px;
         font-weight: 500;
 
@@ -311,10 +313,10 @@ html {
     }
 
     &--data {
-        font-size: 20px;
+        // font-size: 20px;
         line-height: 50px;
         font-weight: 200;
-        width: 500px;
+        // width: 500px;
 
         &-key, &-value {
             display: inline-block;
@@ -322,23 +324,23 @@ html {
         }
 
         &-key {
-            width: 100px;
+            // width: 100px;
         }
 
         &-value {
             font-weight: 500;
-            width: 395px;
+            // width: 395px;
         }
     }
 
     &--cv-link {
-        @include button-secondary;
-        position: absolute;
-        right: 0px;
-        top: 70px;
-        height: 104px;
+        // @include button-secondary(16px);
+        // position: absolute;
+        // right: 0px;
+        // top: 70px;
+        // height: 104px;
         line-height: 100px;
-        width: 360px;
+        // width: 360px;
         color: $color-white;
         border-color: $color-white;
         opacity: 0.7;
@@ -349,30 +351,11 @@ html {
     }
 
     &--copy {
-        padding-top: 70px;
+        // padding-top: 70px;
         text-align: center;
         opacity: 0.6;
         font-weight: 100;
-        font-size: 20px;
-        letter-spacing: 2px;
+        // font-size: 20px;
+        // letter-spacing: 2px;
     }
 }
-
-// .car {
-//     background: url('/../images/bgr2.jpg') top center no-repeat;
-//     background-size: cover;
-//     height: 1000px;
-//     margin-top: 150px;
-//
-//     &--title {
-//         padding: 100px 0 60px;
-//         @include title-styles($color-white, $color-white);
-//     }
-//
-//     &--description {
-//
-//         &-text {
-//             color: $color-white;
-//         }
-//     }
-// }

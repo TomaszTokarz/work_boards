@@ -4,13 +4,6 @@
 $p-font-size: 18px;
 $p-line-height: 24px;
 
-$breakpoint--small: 540px;
-$breakpoint--medium: 768px;
-$breakpoint--big: 1200px;
-$font-size--small: 12px;
-$font-size--medium: 18px;
-$font-size--big: 1.45vw;
-
 // colors:
 $color-white: #ffffff;
 $color-black: #000000;
@@ -101,8 +94,8 @@ $color-green: #3ccc3c;
     @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 }
 
-@mixin title-styles ($txt-color, $border-color) {
-    font-size: 60px;
+@mixin title-styles($txt-color, $border-color, $size) {
+    font-size: $size;
     font-weight: 900;
     color: $txt-color;
 
@@ -116,18 +109,18 @@ $color-green: #3ccc3c;
     }
 }
 
-@mixin button {
+@mixin button($font-size) {
     display: inline-block;
     width: auto;
-    padding: 0 50px;
-    height: 50px;
-    line-height: 50px;
+    padding: 0 $font-size*3;
+    height: $font-size*3;
+    line-height: $font-size*3;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     vertical-align: middle;
     background: $color-red;
     color: $color-white;
-    font-size: 16px;
+    font-size: $font-size;
     text-transform: uppercase;
     font-weight: 500;
     text-decoration: none;
@@ -135,10 +128,10 @@ $color-green: #3ccc3c;
     text-align: center;
 }
 
-@mixin button_secondary {
-    @include button;
+@mixin button_secondary($font-size) {
+    @include button($font-size);
     background: none;
     border: 2px solid $color-black;
     color: $color-black;
-    line-height: 46px;
+    line-height: $font-size*3-4;
 }

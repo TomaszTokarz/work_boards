@@ -1,0 +1,285 @@
+@import 'style-set';
+
+html {
+    font-family: 'Lato';
+}
+
+.wrapper {
+    width: 976px;
+    margin: 0 auto;
+}
+
+.section {
+    &.about {
+        margin-top: 100px;
+    }
+}
+
+.header {
+    height: 500px;
+
+    &--title {
+        color: $color-white;
+        font-size: 90px;
+        font-weight: 600;
+        padding: 100px 0 20px;
+
+        &-strong {
+            font-weight: 900;
+            font-size: 45px;
+            padding: 20px;
+
+        }
+    }
+
+    &--subtitle {
+        font-size: 40px;
+        font-weight: 100;
+    }
+
+    &--photo {
+        border: 10px solid $color-white;
+        margin: 95px auto 0;
+        width: 300px;
+    }
+}
+
+.slider {
+    display: block;
+
+    &--items {
+        position: relative;
+    }
+
+    &--item {
+        position: absolute;
+        width: 976px;
+        right: -1200px;
+
+        &--title {
+            @include title-styles($color-black, $color-red, 60px);
+        }
+
+        &--body {
+        }
+
+        &--columns-text {
+            column-count: 3;
+            column-gap: 40px;
+        }
+    }
+
+    &--list {
+
+        &-item {
+            margin: 30px 15px 15px;
+            font-size: 24px;
+
+            &.active {
+                @include transition(all 1s ease-in-out);
+                @include transform(rotate(360deg));
+                color: $color-red;
+            }
+
+            &:hover {
+                color: $color-red;
+                cursor: pointer;
+            }
+        }
+    }
+
+    &--container {
+        float: left;
+        width: 50%;
+        margin: 10px 0;
+        padding-right: 40px;
+
+        &:nth-child(2) {
+            float: right;
+        }
+
+        & .strong {
+            font-weight: 800;
+        }
+
+        &-title {
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+        &-subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            padding: 10px 0 0 10px;
+        }
+
+        &-year {
+            margin: 10px 15px 20px;
+        }
+
+        &-description {
+            width: 350px;
+        }
+    }
+}
+
+.hobbies {
+}
+
+.hobby {
+    margin: 20px 20px;
+
+    &-img {
+        height: 120px
+    }
+
+    &-desc {
+        max-width:100px;
+        margin-top: 10px;
+    }
+}
+
+.skills {
+    height: 1000px;
+    margin-top: 150px;
+
+    &--title {
+        padding: 100px 0 60px;
+        @include title-styles($color-white, $color-white, 60px);
+    }
+
+    &--list {
+        margin: 0 -5px;
+    }
+
+    &--item {
+        width: 100%;
+        height: 100%;
+
+        &-wrapper {
+            perspective: 1000px;
+            width: 233px;
+            height: 140px;
+            margin: 5px;
+
+            &:hover {
+                .skills--item {
+                }
+            }
+        }
+
+        &-front, &-back {
+
+            .odd & {
+                background: rgba(255, 0, 0, 0.25);
+            }
+        }
+
+        &-back {
+        }
+    }
+
+    &--level {
+        padding: 30px 0 5px;
+        font-size: 20px;
+
+        .odd & {
+            color: rgba(255,255,255,0.5);
+        }
+    }
+
+    &--name {
+        font-size: 25px;
+
+        .odd & {
+            color: rgba(255,255,255,0.5);
+        }
+    }
+}
+
+.workboards {
+    margin: 150px 0 50px;
+
+    &--title {
+        @include title-styles($color-black, $color-red, 60px);
+    }
+
+    &--description {
+        padding: 15px 0;
+        margin-bottom: 50px;
+        column-count: 3;
+        column-gap: 40px;
+    }
+
+    &--img {
+        margin: 0 auto;
+        height: 500px;
+    }
+
+    &--nav {
+        display: inline-block;
+        float: right;
+
+        &-item {
+            margin-left: 10px;
+            @include button(16px);
+
+            &.secondary {
+                @include button-secondary(16px);
+            }
+        }
+    }
+}
+
+.footer {
+    padding: 40px 0;
+
+    &--title {
+        font-size: 42px;
+        font-weight: 500;
+
+        &:after {
+            height: 5px;
+            width: 50px;
+        }
+    }
+
+    &--data {
+        font-size: 20px;
+        line-height: 50px;
+        font-weight: 200;
+        width: 500px;
+
+        &-key, &-value {
+        }
+
+        &-key {
+            width: 100px;
+        }
+
+        &-value {
+            font-weight: 500;
+            width: 395px;
+        }
+    }
+
+    &--cv-link {
+        @include button-secondary(16px);
+        position: absolute;
+        right: 0px;
+        top: 70px;
+        height: 104px;
+        line-height: 100px;
+        width: 360px;
+
+        &:hover {
+        }
+    }
+
+    &--copy {
+        padding-top: 70px;
+        font-weight: 100;
+        font-size: 20px;
+        letter-spacing: 2px;
+    }
+}

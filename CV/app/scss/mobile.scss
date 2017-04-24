@@ -1,0 +1,287 @@
+@import 'style-set';
+
+.wrapper {
+    width: 100%;
+}
+
+.section {
+    &.about {
+        // margin-top: 50px;
+    }
+}
+
+.header {
+    height: 245px;
+
+    &--title {
+        color: $color-white;
+        font-size: 38px;
+        font-weight: 600;
+        padding: 50px 0 20px;
+
+        &-strong {
+            font-weight: 900;
+            font-size: 20px;
+            padding: 10px;
+
+        }
+    }
+
+    &--subtitle {
+        font-size: 20px;
+        font-weight: 100;
+    }
+
+    &--photo {
+        border: 5px solid $color-white;
+        margin: 35px auto 0;
+        width: 150px;
+    }
+}
+
+.slider {
+
+    &--dots {
+        display: none;
+    }
+
+    &--items {
+    }
+
+    &--item {
+        width: 100%;
+        // right: -1200px;
+
+        &--title {
+            @include title-styles($color-black, $color-red, 40px);
+            padding: 30px 0 0 10px;
+        }
+
+        &--body {
+        }
+
+        &--columns-text {
+            padding: 0 10px;
+            text-indent: 20px;
+        }
+    }
+
+    &--list {
+
+        &-item {
+            margin: 30px 15px 15px;
+            font-size: 24px;
+
+            &.active {
+            }
+
+            &:hover {
+            }
+        }
+    }
+
+    &--container {
+        // width: 50%;
+        margin: 40px 0;
+        // padding-right: 40px;
+
+        &:nth-child(2) {
+        }
+
+        & .strong {
+            font-weight: 800;
+        }
+
+        &-title {
+            font-size: 22px;
+            font-weight: 800;
+            padding-left: 10px;
+        }
+
+        &-subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            padding: 10px 0 0 10px;
+        }
+
+        &-year {
+            margin: 10px 15px;
+        }
+
+        &-description {
+            // width: 350px;
+            padding: 0 10px;
+        }
+    }
+}
+
+.hobbies {
+}
+
+.hobby {
+    margin: 20px 20px;
+
+    &-img {
+        height: 120px
+    }
+
+    &-desc {
+        max-width:100px;
+        margin-top: 10px;
+    }
+}
+
+.skills {
+    // height: 1000px;
+    margin-top: 50px;
+    padding-bottom: 50px;
+
+    &--title {
+        @include title-styles($color-white, $color-white, 40px);
+        padding: 30px 0 0 10px;
+    }
+
+    &--list {
+
+        margin: 0 -5px;
+    }
+
+    &--item {
+        width: 100%;
+        height: 100%;
+
+        &-wrapper {
+            perspective: 1000px;
+            width: 45%;
+            height: 100px;
+            margin: 1%;
+        }
+
+        &-front, &-back {
+
+            .odd-mobile & {
+                background: rgba(255, 0, 0, 0.25);
+            }
+        }
+
+        &-back {
+        }
+    }
+
+    &--level {
+        padding: 20px 0 5px;
+        font-size: 15px;
+
+        .odd-mobile & {
+            color: rgba(255,255,255,0.5);
+        }
+    }
+
+    &--name {
+        font-size: 20px;
+
+        .odd-mobile & {
+            color: rgba(255,255,255,0.9);
+        }
+    }
+}
+
+.workboards {
+    margin: 50px 0;
+
+    &--title {
+        @include title-styles($color-black, $color-red, 40px);
+        padding: 30px 0 0 10px;
+    }
+
+    &--description {
+        padding: 10px;
+        text-indent: 20px;
+        // margin-bottom: 50px;
+        // column-count: 1;
+        // column-gap: 20px;
+    }
+
+    &--img {
+        margin: 0 auto;
+        // width: 300px;
+        height: 160px;
+    }
+
+    &--nav {
+        // display: none;
+        // padding-top: 3px;
+        width: 100%;
+        overflow: hidden;
+
+        // font-size: 10px;
+
+        &-item {
+            margin: 0 5px;
+            @include button(10px);
+            float: right;
+
+            &.secondary {
+                @include button-secondary(10px);
+                float: left;
+            }
+        }
+    }
+}
+
+.footer {
+    padding: 40px 0 20px;
+
+    &--title {
+        font-weight: 500;
+        @include title-styles($color-white, $color-white, 40px);
+        padding: 30px 0 0 10px;
+
+        &:after {
+            height: 5px;
+            width: 50px;
+        }
+    }
+
+    &--data {
+        font-size: 16px;
+        line-height: 50px;
+        font-weight: 200;
+        margin-left: 20px;
+        // width: 300px;
+
+        &-key, &-value {
+        }
+
+        &-key {
+            width: 80px;
+        }
+
+        &-value {
+            font-weight: 500;
+            width: 200px;
+        }
+    }
+
+    &--cv-link {
+        @include button-secondary(16px);
+        // right: 0px;
+        // top: 70px;
+        height: 104px;
+        line-height: 100px;
+        width: 280px;
+        display: block;
+        margin: auto;
+        padding: 0 20px;
+
+        &:hover {
+        }
+    }
+
+    &--copy {
+        padding-top: 30px;
+        font-weight: 100;
+        font-size: 12px;
+        letter-spacing: 1.5px;
+    }
+}

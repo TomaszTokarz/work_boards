@@ -18,7 +18,6 @@ app = {
             } else {
                 app.sliders[i].isMobile = false;
             }
-            // app.sliders[i].isMobile = true;
         }
     }
 };

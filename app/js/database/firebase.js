@@ -7,11 +7,7 @@ var defaultAppConfig = {
   messagingSenderId: "1036702528745"
 };
 
-// Initialize the default app
 var defaultApp = firebase.initializeApp(defaultAppConfig);
-
-
-// You can retrieve services via the defaultApp variable...
 var defaultDatabase = defaultApp.database();
 
 firebase.database().ref(".info/connected").on("value", function(snap) {
@@ -70,7 +66,7 @@ var database = {
     },
 
     runListeners: function() {
-        firebase.database().ref('Stickers').on('child_added', function(snapshot) {            
+        firebase.database().ref('Stickers').on('child_added', function(snapshot) {
             stickerCollection.add(snapshot.val());
         })
 

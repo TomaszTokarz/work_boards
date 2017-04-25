@@ -60,9 +60,6 @@ html {
             @include title-styles($color-black, $color-red, 60px);
         }
 
-        &--body {
-        }
-
         &--columns-text {
             column-count: 3;
             column-gap: 40px;
@@ -123,9 +120,6 @@ html {
     }
 }
 
-.hobbies {
-}
-
 .hobby {
     margin: 20px 20px;
 
@@ -160,12 +154,7 @@ html {
             perspective: 1000px;
             width: 233px;
             height: 140px;
-            margin: 5px;
-
-            &:hover {
-                .skills--item {
-                }
-            }
+            margin: 5px;            
         }
 
         &-front, &-back {
@@ -173,9 +162,6 @@ html {
             .odd & {
                 background: rgba(255, 0, 0, 0.25);
             }
-        }
-
-        &-back {
         }
     }
 
@@ -250,9 +236,6 @@ html {
         font-weight: 200;
         width: 500px;
 
-        &-key, &-value {
-        }
-
         &-key {
             width: 100px;
         }
@@ -272,8 +255,6 @@ html {
         line-height: 100px;
         width: 360px;
 
-        &:hover {
-        }
     }
 
     &--copy {

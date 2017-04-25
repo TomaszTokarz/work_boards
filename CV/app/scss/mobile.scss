@@ -4,12 +4,6 @@
     width: 100%;
 }
 
-.section {
-    &.about {
-        // margin-top: 50px;
-    }
-}
-
 .header {
     height: 245px;
 
@@ -45,19 +39,12 @@
         display: none;
     }
 
-    &--items {
-    }
-
     &--item {
         width: 100%;
-        // right: -1200px;
 
         &--title {
             @include title-styles($color-black, $color-red, 40px);
             padding: 30px 0 0 10px;
-        }
-
-        &--body {
         }
 
         &--columns-text {
@@ -71,22 +58,11 @@
         &-item {
             margin: 30px 15px 15px;
             font-size: 24px;
-
-            &.active {
-            }
-
-            &:hover {
-            }
         }
     }
 
     &--container {
-        // width: 50%;
         margin: 40px 0;
-        // padding-right: 40px;
-
-        &:nth-child(2) {
-        }
 
         & .strong {
             font-weight: 800;
@@ -109,7 +85,6 @@
         }
 
         &-description {
-            // width: 350px;
             padding: 0 10px;
         }
     }
@@ -132,7 +107,6 @@
 }
 
 .skills {
-    // height: 1000px;
     margin-top: 50px;
     padding-bottom: 50px;
 
@@ -162,9 +136,6 @@
             .odd-mobile & {
                 background: rgba(255, 0, 0, 0.25);
             }
-        }
-
-        &-back {
         }
     }
 
@@ -197,24 +168,16 @@
     &--description {
         padding: 10px;
         text-indent: 20px;
-        // margin-bottom: 50px;
-        // column-count: 1;
-        // column-gap: 20px;
     }
 
     &--img {
         margin: 0 auto;
-        // width: 300px;
         height: 160px;
     }
 
     &--nav {
-        // display: none;
-        // padding-top: 3px;
         width: 100%;
         overflow: hidden;
-
-        // font-size: 10px;
 
         &-item {
             margin: 0 5px;
@@ -248,10 +211,6 @@
         line-height: 50px;
         font-weight: 200;
         margin-left: 20px;
-        // width: 300px;
-
-        &-key, &-value {
-        }
 
         &-key {
             width: 80px;
@@ -265,8 +224,6 @@
 
     &--cv-link {
         @include button-secondary(16px);
-        // right: 0px;
-        // top: 70px;
         height: 104px;
         line-height: 100px;
         width: 280px;
@@ -274,8 +231,6 @@
         margin: auto;
         padding: 0 20px;
 
-        &:hover {
-        }
     }
 
     &--copy {

@@ -275,7 +275,6 @@ table {
     resize: none; }
   .popup--content {
     margin: auto;
-    padding-bottom: 2.5em;
     width: 20em;
     z-index: 30;
     background-color: #FFF;
@@ -2750,7 +2749,9 @@ table {
 
 @media screen and (max-width: 580px) {
   .body {
-    font-size: 5vw; } }
+    font-size: 5vw; }
+  .popup--content {
+    height: 100%; } }
 
 @media screen and (min-width: 700px) and (max-width: 1000px) {
   .body {

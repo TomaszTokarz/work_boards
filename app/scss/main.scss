@@ -12,6 +12,9 @@
     .body {
         font-size: $font-size--small;
     }
+    .popup--content {
+        height: 100%;
+    }
 }
 
 @media screen and (min-width: $breakpoint--medium) and (max-width: $breakpoint--big){

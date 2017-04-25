@@ -58,7 +58,6 @@ var LayoutView = Backbone.Marionette.View.extend({
     },
 
     search: function(e) {
-        //console.log(e.target.value)
         this.loadStickersList(stickerCollection.searchStickers(e.target.value));
     }
 });

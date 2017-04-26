@@ -6,7 +6,7 @@ var Slider = function(el, width, isMobile) {
     this.$listItems = this.$el.find('.js_slider_list_item');
     this.height = 0;
     this.currentSlide = 0;
-    this.autoTime = 4000;
+    this.autoTime = 6000;
     this.clickTime = 10000;
     this.isMobile = isMobile;
 

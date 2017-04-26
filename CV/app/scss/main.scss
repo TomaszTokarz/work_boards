@@ -125,7 +125,7 @@ html {
 }
 
 .skills {
-    background: url('../images/bgr2.jpg') top center no-repeat;
+    background: url('../images/bgr5.jpg') center no-repeat;
     background-size: cover;
     &--list {
         margin: 0 -5px;
@@ -141,6 +141,7 @@ html {
         @include transform(rotateY(0deg));
         @include backface(hidden);
 
+
         &-wrapper {
             perspective: 1000px;
             display: inline-block;
@@ -154,27 +155,29 @@ html {
         }
 
         &-front, &-back {
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.55);
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             @include backface(hidden);
-
-            .odd & {
-            }
+            display: flex;
+            justify-content: center;
+            align-content: space-around;
+            flex-direction: column;
         }
 
         &-back {
             @include transform(rotateY(180deg));
+            background: rgba(200, 200, 200, 0.6);
         }
     }
 
     &--level {
+        padding-bottom: 10px;
         font-weight: 300;
         color: #2b2b2b;
-        display: block;
     }
 
     &--name {

@@ -134,13 +134,12 @@
         &-front, &-back {
 
             .odd-mobile & {
-                background: rgba(255, 0, 0, 0.25);
+                background: rgba(255, 0, 0, 0.4);
             }
         }
     }
 
     &--level {
-        padding: 20px 0 5px;
         font-size: 15px;
 
         .odd-mobile & {

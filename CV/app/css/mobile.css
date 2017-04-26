@@ -96,9 +96,8 @@
       height: 100px;
       margin: 1%; }
     .odd-mobile .skills--item-front, .odd-mobile .skills--item-back {
-      background: rgba(255, 0, 0, 0.25); }
+      background: rgba(255, 0, 0, 0.4); }
   .skills--level {
-    padding: 20px 0 5px;
     font-size: 15px; }
     .odd-mobile .skills--level {
       color: rgba(255, 255, 255, 0.5); }
